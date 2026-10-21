@@ -6,8 +6,9 @@ Markdown files, and `llms-full.txt`. This project is not affiliated with Telegra
 
 ## Deploy on GitHub Pages
 
-1. Push this tg-docssitory to GitHub (the workflow assumes the `main` branch; edit
-   `.github/workflows/docs.yml` if your default branch has a different name).
+1. Push this repository to GitHub. The workflow runs on push to `main` or
+   `master` and always checks out the ref that triggered it, so it also works
+   after the default branch is renamed.
 2. In **Settings → Pages → Build and deployment**, select **GitHub Actions**.
 3. In **Settings → Actions → General → Workflow permissions**, allow read/write
    access if your organization permits it. The refresh job needs to push commits.
@@ -16,15 +17,15 @@ Markdown files, and `llms-full.txt`. This project is not affiliated with Telegra
 
 No hosting service, API key, or custom token is required. Project sites such as
 `https://nahom-d54.github.io/tg-docs/` work without configuring a base URL. The deployed
-LLM index lives at `https://nahom-d54.github.io/tg-docs/llms.txt` (not the nahom-d54's domain
-root). Custom domains work too.
+LLM index lives at `https://nahom-d54.github.io/tg-docs/llms.txt` (not the account's
+domain root). Custom domains work too.
 
 The workflow fetches `https://core.telegram.org/bots/api` every Monday at 06:23 UTC,
 converts only `#dev_page_content` to Markdown, validates it, runs `build_llms.py`,
 commits changed snapshots, and deploys the website in the same run. Pushes to
-`main` rebuild/deploy the checked-in snapshot without a network refresh.
+the default branch rebuild/deploy the checked-in snapshot without a network refresh.
 GitHub schedules may be delayed and can be disabled after 60 days of inactivity
-in public tg-docssitories; re-enable the workflow if necessary.
+in public repositories; re-enable the workflow if necessary.
 
 If branch protection prevents bot pushes, allow the Actions bot to update the
 branch or adapt the commit step to your pull-request approval process. No force
@@ -40,7 +41,7 @@ python build_site.py
 python -m http.server 8000 --directory _site
 ```
 
-Open http://localhost:8000. Serve `_site`, not the tg-docssitory root. The site needs
+Open http://localhost:8000. Serve `_site`, not the repository root. The site needs
 HTTP to load its search catalog; opening `index.html` directly won't load search.
 
 ## Refresh and test
@@ -67,7 +68,7 @@ The deployment build renders the full section catalog into HTML (no JavaScript
 needed for crawling) and adds robots directives, social metadata, structured
 WebPage data, an absolute canonical URL, and a homepage `sitemap.xml`.
 The workflow reads the actual public URL from GitHub Pages configuration.
-For a custom domain, set the tg-docssitory Actions variable **SITE_URL** to the full
+For a custom domain, set the repository Actions variable **SITE_URL** to the full
 homepage URL, including its trailing slash. Configure the domain in Pages too.
 
 To preview production SEO metadata locally:
