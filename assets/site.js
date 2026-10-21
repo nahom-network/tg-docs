@@ -75,7 +75,9 @@
     render();
   }).catch(() => {
     status.textContent = 'Direct reference links available';
-    list.innerHTML = '<div class="catalog-error"><strong>Section catalog unavailable.</strong> The searchable index could not load. Read the <a href="llms.txt">LLM index</a> or <a href="llms-full.txt">complete reference</a> instead.</div>';
+    if (!list.querySelector('.section-link')) {
+      list.innerHTML = '<div class="catalog-error"><strong>Section catalog unavailable.</strong> The searchable index could not load. Read the <a href="llms.txt">LLM index</a> or <a href="llms-full.txt">complete reference</a> instead.</div>';
+    }
     summary.textContent = '';
   });
 })();

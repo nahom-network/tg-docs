@@ -25,6 +25,7 @@ jobs:
     timeout-minutes: 15
     permissions:
       contents: write
+      pages: read
     steps:
       - uses: actions/checkout@v4
         with:
@@ -42,7 +43,12 @@ jobs:
         run: python update_docs.py
       - name: Rebuild Markdown documentation
         run: python build_llms.py tg-docs.md --output llms-docs --force
+      - name: Read deployed Pages URL
+        uses: actions/configure-pages@v5
+        id: pages
       - name: Assemble static website
+        env:
+          SITE_URL: ${{ vars.SITE_URL || steps.pages.outputs.base_url }}
         run: python build_site.py
       - name: Commit refreshed documentation
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh)
