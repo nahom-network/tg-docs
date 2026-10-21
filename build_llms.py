@@ -64,6 +64,7 @@ def parse_document(text):
         return match.group(1).strip().strip("\"'") if match else default
 
     title = field("title", "Telegram Bot API")
+    summary = field("summary", SUMMARY)
     source = urldefrag(field("url", SOURCE_URL))[0]
     sections = []
     counts = set()
@@ -104,7 +105,7 @@ def parse_document(text):
         if re.fullmatch(r"-{10,}\s*", line):
             del last[index:]
             break
-    return title, source, sections
+    return title, source, summary, sections
 
 
 def rewrite_links(lines, source, targets):
@@ -137,7 +138,7 @@ def rewrite_links(lines, source, targets):
 
 
 def build(text):
-    title, source, sections = parse_document(text)
+    title, source, summary, sections = parse_document(text)
     targets = {section.anchor: f"{section.anchor}.md" for section in sections}
     # Deeper formatting headings stay with their parent page.
     for section in sections:
@@ -148,13 +149,13 @@ def build(text):
                 targets.setdefault(anchor, f"{section.anchor}.md#{anchor}")
 
     files = {}
-    index = [f"# {title}", "", f"> {SUMMARY}", "",
+    index = [f"# {title}", "", f"> {summary}", "",
              f"Source: {source}", "",
-             "Snapshot of the supplied Markdown, not a live API reference.",
-             "Read the relevant section and follow its local type/method links.", "",
+             "Snapshot of the supplied Markdown, not a live reference.",
+             "Read the relevant section and follow its local links.", "",
              "## Full reference", "",
-             "- [Complete documentation](llms-full.txt): All API sections in one file."]
-    full = [f"# {title}", "", f"> {SUMMARY}", "", f"Source: {source}", ""]
+             "- [Complete documentation](llms-full.txt): All sections in one file."]
+    full = [f"# {title}", "", f"> {summary}", "", f"Source: {source}", ""]
     full_targets = {anchor: f"sections/{target}" for anchor, target in targets.items()}
     for position, section in enumerate(sections):
         if section.level == 3:

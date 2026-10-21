@@ -22,6 +22,12 @@ class WorkflowTests(unittest.TestCase):
         text = WORKFLOW.read_text(encoding="utf-8")
         self.assertIn("branches: [main, master]", text)
 
+    def test_workflow_refreshes_and_commits_both_documentation_sets(self):
+        text = WORKFLOW.read_text(encoding="utf-8")
+        self.assertIn("python update_docs.py", text)
+        self.assertIn("python build_llms.py serverless-docs.md --output llms-docs/serverless --force", text)
+        self.assertIn("git add tg-docs.md serverless-docs.md llms-docs", text)
+
 
 if __name__ == "__main__":
     unittest.main()

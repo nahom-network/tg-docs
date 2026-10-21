@@ -99,6 +99,30 @@ a {
 .source-link span {
   color: var(--azure);
 }
+.page-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 26px;
+  padding: 0 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--slate);
+  font-size: 11px;
+  transition:
+    border-color 0.18s ease,
+    color 0.18s ease,
+    background 0.18s ease;
+}
+.page-switch span {
+  color: var(--azure);
+}
+.page-switch:hover {
+  border-color: var(--azure);
+  background: var(--white);
+  color: var(--azure-dark);
+}
 .github-link {
   display: inline-flex;
   align-items: center;
@@ -664,20 +688,12 @@ footer {
     flex-basis: 100%;
   }
 }
-@media (max-width: 520px) {
-  .brand {
-    font-size: 14px;
-  }
-  .brand-light {
-    display: none;
-  }
-  .topbar {
-    padding: 0 17px;
-  }
+@media (max-width: 640px) {
   .top-nav {
     gap: 13px;
   }
-  .top-nav a:first-child {
+  .top-nav .browse-link,
+  .source-link {
     display: none;
   }
   .github-link {
@@ -690,6 +706,17 @@ footer {
   .github-label {
     display: none;
   }
+}
+@media (max-width: 520px) {
+  .brand {
+    font-size: 14px;
+  }
+  .brand-light {
+    display: none;
+  }
+  .topbar {
+    padding: 0 17px;
+  }
   .hero {
     padding: 49px 21px 47px;
     gap: 35px;
@@ -697,6 +724,10 @@ footer {
   .hero h1 {
     font-size: 54px;
     letter-spacing: -3.3px;
+  }
+  .serverless-page .hero h1 {
+    font-size: clamp(36px, 11vw, 54px);
+    letter-spacing: -2.4px;
   }
   .hero-description {
     font-size: 13px;

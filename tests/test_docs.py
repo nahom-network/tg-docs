@@ -43,17 +43,31 @@ class ConversionTests(unittest.TestCase):
             source.write_text('keep me', encoding='utf-8')
             for html in ('<h1>Error</h1>', '<div id="dev_page_content"><h3>Recent changes</h3></div>'):
                 with self.assertRaises(ValueError):
-                    update_docs.update(source, Path(directory) / 'out', html)
+                    update_docs.update_api(source, Path(directory) / 'out', html)
                 self.assertEqual(source.read_text(encoding='utf-8'), 'keep me')
 
     def test_unchanged_fetch_does_not_change_date(self):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / 'source.md'
             output = Path(directory) / 'docs'
-            update_docs.update(source, output, sample_html())
+            update_docs.update_api(source, output, sample_html())
             first = source.read_bytes()
-            update_docs.update(source, output, sample_html())
+            update_docs.update_api(source, output, sample_html())
             self.assertEqual(first, source.read_bytes())
+
+    def test_serverless_update_is_stable_and_rejects_incomplete_markdown(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / 'serverless.md'
+            output = Path(directory) / 'docs'
+            text = Path('serverless-docs.md').read_text(encoding='utf-8-sig')
+            body = re.sub(r'\A---\n.*?\n---\n', '', text, count=1, flags=re.S)
+            update_docs.update_serverless(source, output, body)
+            first = source.read_bytes()
+            self.assertTrue((output / 'sections/handlers.md').is_file())
+            update_docs.update_serverless(source, output, body)
+            self.assertEqual(first, source.read_bytes())
+            with self.assertRaises(ValueError):
+                update_docs.update_serverless(source, output, '# Not the docs\n')
 
     def test_snapshot_links_and_deterministic_build(self):
         source = Path('tg-docs.md').read_text(encoding='utf-8-sig')
@@ -95,6 +109,26 @@ class ConversionTests(unittest.TestCase):
             self.assertTrue((output / 'assets/site.js').is_file())
             for section in catalog['sections']:
                 self.assertTrue((output / section['path']).is_file())
+
+            serverless = json.loads((output / 'serverless/docs.json').read_text(encoding='utf-8'))
+            self.assertEqual(serverless['page_count'], len(serverless['sections']))
+            self.assertTrue((output / 'serverless/index.html').is_file())
+            self.assertTrue((output / 'serverless/llms.txt').is_file())
+            self.assertIn('sections/handlers.md',
+                          (output / 'serverless/index.html').read_text(encoding='utf-8'))
+            for section in serverless['sections']:
+                self.assertTrue((output / 'serverless' / section['path']).is_file())
+
+    def test_serverless_snapshot_builds_linked_pages(self):
+        text = Path('serverless-docs.md').read_text(encoding='utf-8-sig')
+        files = build_llms.build(text)
+        for name in ('sections/handlers.md', 'sections/endpoints.md',
+                     'sections/the-database.md', 'sections/command-line-interface.md'):
+            self.assertIn(name, files)
+        self.assertIn('[Handlers](handlers.md)',
+                      files['sections/projects-and-modules.md'])
+        self.assertIn('[endpoints](sections/endpoints.md)', files['llms-full.txt'])
+        self.assertIn('Telegram Serverless', files['llms.txt'])
 
     def test_rebuild_retires_only_generated_files(self):
         with tempfile.TemporaryDirectory() as directory:

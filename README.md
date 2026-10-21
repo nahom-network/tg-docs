@@ -1,8 +1,12 @@
-# Telegram Bot API · LLM docs
+# Telegram API & Serverless · LLM docs
 
-An independent, static Telegram Bot API mirror for humans and AI assistants.
-Includes a landing page, searchable section catalog, `llms.txt`, individual linked
-Markdown files, and `llms-full.txt`. This project is not affiliated with Telegram.
+Independent, static mirrors of the Telegram Bot API and Telegram Serverless
+documentation for humans and AI assistants. Each set includes a landing page,
+searchable section catalog, `llms.txt`, individual linked Markdown files, and
+`llms-full.txt`. This project is not affiliated with Telegram.
+
+- Bot API: `/`
+- Serverless: `/serverless/`
 
 ## Deploy on GitHub Pages
 
@@ -16,14 +20,16 @@ Markdown files, and `llms-full.txt`. This project is not affiliated with Telegra
    **refresh** enabled to fetch the latest documentation immediately.
 
 No hosting service, API key, or custom token is required. Project sites such as
-`https://nahom-d54.github.io/tg-docs/` work without configuring a base URL. The deployed
-LLM index lives at `https://nahom-d54.github.io/tg-docs/llms.txt` (not the account's
+`https://nahom-d54.github.io/tg-docs/` work without configuring a base URL. The
+deployed LLM indexes live at `https://nahom-d54.github.io/tg-docs/llms.txt` and
+`https://nahom-d54.github.io/tg-docs/serverless/llms.txt` (not the account's
 domain root). Custom domains work too.
 
-The workflow fetches `https://core.telegram.org/bots/api` every Monday at 06:23 UTC,
-converts only `#dev_page_content` to Markdown, validates it, runs `build_llms.py`,
-commits changed snapshots, and deploys the website in the same run. Pushes to
-the default branch rebuild/deploy the checked-in snapshot without a network refresh.
+Every Monday at 06:23 UTC the workflow fetches both official pages, converts the
+Bot API's `#dev_page_content` to Markdown and the Serverless Markdown endpoint
+directly, validates both, runs `build_llms.py` for each set, commits changed
+snapshots, and deploys the website in the same run. Pushes to the default branch
+rebuild/deploy the checked-in snapshots without a network refresh.
 GitHub schedules may be delayed and can be disabled after 60 days of inactivity
 in public repositories; re-enable the workflow if necessary.
 
@@ -41,32 +47,40 @@ python build_site.py
 python -m http.server 8000 --directory _site
 ```
 
-Open http://localhost:8000. Serve `_site`, not the repository root. The site needs
-HTTP to load its search catalog; opening `index.html` directly won't load search.
+Open http://localhost:8000 for the Bot API set or
+http://localhost:8000/serverless/ for Serverless. Serve `_site`, not the
+repository root. The site needs HTTP to load its search catalog; opening
+`index.html` directly won't load search.
 
 ## Refresh and test
 
 ```sh
 python update_docs.py
 python -m unittest discover -s tests -v
+python build_llms.py tg-docs.md --output llms-docs --force
+python build_llms.py serverless-docs.md --output llms-docs/serverless --force
 python build_site.py
 ```
 
-`tg-docs.md` is the source snapshot; `llms-docs/` holds generated Markdown.
-`_site/` is the ignored deployment artifact. The page's snapshot date and API
-version come from the source, not hardcoded UI values. Network or conversion
-validation failures stop publication instead of replacing the snapshot.
+`tg-docs.md` and `serverless-docs.md` are the source snapshots.
+`llms-docs/` holds the generated Bot API Markdown, with the Serverless set under
+`llms-docs/serverless/`. `_site/` is the ignored deployment artifact. Snapshot
+dates and the Bot API version come from the sources, not hardcoded UI values.
+Network or conversion validation failures stop publication instead of replacing
+a snapshot.
 
-The converter requires the official page's current heading structure. If
-Telegram changes it, validation intentionally fails until the parser is updated.
-Markdown links are served as raw files for LLM consumption, not rendered HTML
-documentation pages. Tables and code examples are preserved without AI rewriting.
+The Bot API converter requires the official page's current heading structure.
+The Serverless set uses Telegram's official `/bots/serverless.md` endpoint, so it
+does not depend on the HTML layout. If either source changes shape, validation
+intentionally fails until the parser is updated. Markdown links are served as raw
+files for LLM consumption, not rendered HTML documentation pages. Tables and code
+examples are preserved without AI rewriting.
 
 ## Search engine discovery
 
-The deployment build renders the full section catalog into HTML (no JavaScript
+The deployment build renders both section catalogs into HTML (no JavaScript
 needed for crawling) and adds robots directives, social metadata, structured
-WebPage data, an absolute canonical URL, and a homepage `sitemap.xml`.
+WebPage data, absolute canonical URLs, and a `sitemap.xml` listing both homepages.
 The workflow reads the actual public URL from GitHub Pages configuration.
 For a custom domain, set the repository Actions variable **SITE_URL** to the full
 homepage URL, including its trailing slash. Configure the domain in Pages too.
@@ -81,4 +95,4 @@ Submit the deployed `sitemap.xml` URL in Google Search Console or Bing Webmaster
 Tools and request indexing of the homepage. Indexing is not guaranteed. A
 project site's `/tg-docs/robots.txt` is not the domain-level crawler policy: crawlers
 consult `/robots.txt` at the domain root. Ensure that root policy allows crawling
-if you manage it. The sitemap lists the HTML homepage, not the raw Markdown files.
+if you manage it. The sitemap lists the HTML homepages, not the raw Markdown files.

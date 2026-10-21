@@ -4,12 +4,12 @@
 
 Source: https://core.telegram.org/bots/api
 
-Snapshot of the supplied Markdown, not a live API reference.
-Read the relevant section and follow its local type/method links.
+Snapshot of the supplied Markdown, not a live reference.
+Read the relevant section and follow its local links.
 
 ## Full reference
 
-- [Complete documentation](llms-full.txt): All API sections in one file.
+- [Complete documentation](llms-full.txt): All sections in one file.
 
 ## Recent changes
 

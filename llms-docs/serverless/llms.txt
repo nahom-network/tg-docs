@@ -1,0 +1,94 @@
+# Telegram Serverless
+
+> Run backend code for your bot and Mini App directly on Telegram's infrastructure.
+
+Source: https://core.telegram.org/bots/serverless
+
+Snapshot of the supplied Markdown, not a live reference.
+Read the relevant section and follow its local links.
+
+## Full reference
+
+- [Complete documentation](llms-full.txt): All sections in one file.
+
+## Recent changes
+
+- [Recent changes](sections/recent-changes.md)
+- [October 6, 2026](sections/october-6-2026.md): - Added Mini App hosting. The build output of your Mini App's front‑end is deployed together with the bot and served at https://app<appid>.tgcloud.ai/.
+
+## Why serverless
+
+- [Why serverless](sections/why-serverless.md): A Telegram bot is, at heart, a program that reacts to updates. Traditionally you had to host that program somewhere that is always on, reachable, and secure — and then keep it that
+
+## The mental model
+
+- [The mental model](sections/the-mental-model.md): You work in three places, and they map cleanly onto each other:
+
+## Quick demo
+
+- [Quick demo](sections/quick-demo.md): Here is a complete, working demo bot. It replies to every message and remembers how many it has seen from each chat.
+
+## Getting started
+
+- [Getting started](sections/getting-started.md): This walkthrough takes you from an empty folder to a live bot that answers messages and stores data. It assumes you have Node.js 18 or newer installed and a bot registered with @Bo
+- [1. Create a project](sections/1-create-a-project.md): The fastest way to start is the project creator, which scaffolds a project and installs the CLI into it:
+- [2. Link your bot](sections/2-link-your-bot.md): Every project is tied to one bot. Connect them with login, which asks for your CLI access token (@BotFather → your bot → Serverless → CLI Access → Access token — a separate token f
+- [3. Look around](sections/3-look-around.md): Two commands tell you where things stand at any moment, both fully offline:
+- [4. Deploy](sections/4-deploy.md): Send your modules to the cloud:
+- [5. Add a database table](sections/5-add-a-database-table.md): Let's make the bot remember something. Open tgcloud/schema.js and declare a table:
+- [6. Store and read data](sections/6-store-and-read-data.md): Now use the table from your handler. Edit tgcloud/handlers/message.js:
+- [7. Test without deploying](sections/7-test-without-deploying.md): You don't have to deploy to try a change. npx tgcloud run executes a handler on the platform using your local files, without publishing them:
+- [8. Keep in sync](sections/8-keep-in-sync.md): As you work, a handful of commands keep your local project and the cloud aligned: npx tgcloud status shows what changed, npx tgcloud push deploys, npx tgcloud pull brings your loca
+
+## Building with AI
+
+- [Building with AI](sections/building-with-ai.md): Prefer to build with an AI assistant — or is the only coder on your team an AI? You can still ship a bot. We've taken a first step to make an AI agent feel at home in a project: ev
+
+## On the go with BotFather
+
+- [On the go with BotFather](sections/on-the-go-with-botfather.md): Down to just your phone? The whole project lives in @BotFather too — open your bot → Serverless and you get everything the CLI manages, on a touchscreen:
+
+## Projects and modules
+
+- [Projects and modules](sections/projects-and-modules.md): A serverless project is an ordinary folder under version control. Everything the platform runs sits in one folder, tgcloud/; the rest of the project is yours — a mini‑app front‑end
+- [Anatomy of a project](sections/anatomy-of-a-project.md): examplebot/
+- [The module system](sections/the-module-system.md): At runtime, a module can see exactly two things: the platform SDK and the other modules in your project. There are no npm packages, no filesystem, and no network except through the
+- [Handlers](sections/handlers.md): A handler is a module in handlers/ whose default export the platform invokes when a matching update arrives.
+- [Endpoints](sections/endpoints.md): An endpoint is a module in endpoints/ that your Mini App calls — the place for anything the front‑end can't do on its own, like reading and writing the database, calling the Bot AP
+- [What gets deployed](sections/what-gets-deployed.md): When you npx tgcloud push, the CLI gathers every .js file under schema.js, lib/, handlers/, and endpoints/, and sends that exact set as your project's module space — together with 
+- [Mini App front-end](sections/mini-app-front-end.md): The project root is yours, and it is the natural place for your Mini App's front‑end — built with React, Vue, Svelte or plain HTML, by Vite or any other bundler. Serverless hosts i
+
+## The database
+
+- [The database](sections/the-database.md): Every bot gets its own database — an SQLite‑backed store that persists between invocations and is available to every module through db. You describe your tables in schema.js with a
+- [Declaring tables](sections/declaring-tables.md): Tables are named exports in schema.js. Calling table() builds a description at load time (it does not touch the database); the platform discovers the exported tables when you deplo
+- [No foreign keys](sections/no-foreign-keys.md): The runtime runs with PRAGMA foreignkeys off. A declared foreign key would be silently inert — no cascades, no orphan protection — which is worse than having none at all, so the DS
+- [Querying](sections/querying.md): db is a fluent query builder. Every query is asynchronous — the terminal methods (.all(), .get(), .values(), .run()) return Promises, so always await.
+- [Migrations](sections/migrations.md): Your database changes as your bot grows. The platform keeps that safe by separating deploying code from changing data, and by classifying every schema change by how risky it is.
+
+## The SDK
+
+- [The SDK](sections/the-sdk.md): At runtime a module has one library: sdk. It bundles the three things a bot backend needs — a database, the Telegram Bot API, and outbound HTTP — with nothing to install and no cre
+- [The Bot API](sections/the-bot-api.md): api gives you the entire Telegram Bot API. Call any method as api.<method>(params). Every current — and future — Bot API method works with no SDK update required.
+- [HTTP](sections/http.md): fetch is a fetch‑like client for calling the outside world — third‑party APIs, webhooks, anything over HTTP.
+- [Logging](sections/logging.md): The standard global console is available — nothing to import, it's just there as in any JavaScript. Its output is captured and shown by npx tgcloud run, which makes it your primary
+
+## Command-line interface
+
+- [Command-line interface](sections/command-line-interface.md): tgcloud is the bridge between your project folder and the cloud. It scaffolds projects, shows you what changed, deploys, runs modules, and applies database migrations. It needs Nod
+- [Authentication](sections/authentication.md): A project is tied to one bot by its token, which has the form app<id>:<secret>. The app<id> part is public and may be printed; the secret never appears in logs or errors.
+- [`init`](sections/init.md): npx tgcloud init
+- [`add`](sections/add.md): npx tgcloud add <target
+- [`login`](sections/login.md): npx tgcloud login
+- [`status`](sections/status.md): npx tgcloud status
+- [`diff`](sections/diff.md): npx tgcloud diff
+- [`push`](sections/push.md): npx tgcloud push [files...]
+- [`migrate`](sections/migrate.md): npx tgcloud migrate
+- [`run`](sections/run.md): npx tgcloud run <module> [args] [--ctx <json5>]
+- [`fetch`](sections/fetch.md): npx tgcloud fetch
+- [`pull`](sections/pull.md): npx tgcloud pull
+- [`reset`](sections/reset.md): npx tgcloud reset
+- [`webhook`](sections/webhook.md): npx tgcloud webhook
+- [`completion`](sections/completion.md): Note: tab‑completion works only when a bare tgcloud is on your PATH — so install it globally (npm install -g @tgcloud/cli) or otherwise put the binary on your PATH. It can't hook i
+- [`upgrade`](sections/upgrade.md): npx tgcloud upgrade [--dry-run]
+- [Staying in sync](sections/staying-in-sync.md): Every project has a monotonically increasing revision in the cloud, bumped on each deploy. The CLI remembers the revision it last synced with and sends it on each push. If the clou
