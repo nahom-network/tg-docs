@@ -1,0 +1,7 @@
+# CallbackGame
+
+Source: https://core.telegram.org/bots/api#callbackgame
+
+[Documentation index](../llms.txt)
+
+A placeholder, currently holds no information. Use [BotFather](https://t.me/botfather) to set up your game.
