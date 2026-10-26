@@ -6,6 +6,6 @@ Source: https://core.telegram.org/bots/api#startransactions
 
 Contains a list of Telegram Star transactions.
 
-| Field        | Type                                                                           | Description              |
-| ------------ | ------------------------------------------------------------------------------ | ------------------------ |
+| Field | Type | Description |
+| --- | --- | --- |
 | transactions | Array of [StarTransaction](startransaction.md) | The list of transactions |

@@ -6,7 +6,7 @@ Source: https://core.telegram.org/bots/api#paidmediapurchased
 
 This object contains information about a paid media purchase.
 
-| Field              | Type                                            | Description                      |
-| ------------------ | ----------------------------------------------- | -------------------------------- |
-| from               | [User](user.md) | User who purchased the media     |
-| paid_media_payload | String                                          | Bot-specified paid media payload |
+| Field | Type | Description |
+| --- | --- | --- |
+| from | [User](user.md) | User who purchased the media |
+| paid\_media\_payload | String | Bot-specified paid media payload |

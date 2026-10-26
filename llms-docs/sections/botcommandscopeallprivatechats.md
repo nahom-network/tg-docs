@@ -6,6 +6,6 @@ Source: https://core.telegram.org/bots/api#botcommandscopeallprivatechats
 
 Represents the [scope](botcommandscope.md) of bot commands, covering all private chats.
 
-| Field | Type   | Description                             |
-| ----- | ------ | --------------------------------------- |
-| type  | String | Scope type, must be *all_private_chats* |
+| Field | Type | Description |
+| --- | --- | --- |
+| type | String | Scope type, must be *all\_private\_chats* |

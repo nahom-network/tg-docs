@@ -6,8 +6,8 @@ Source: https://core.telegram.org/bots/api#backgroundtypefill
 
 The background is automatically filled based on the selected colors.
 
-| Field              | Type                                                                | Description                                                      |
-| ------------------ | ------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| type               | String                                                              | Type of the background, always “fill”                            |
-| fill               | [BackgroundFill](backgroundfill.md) | The background fill                                              |
-| dark_theme_dimming | Integer                                                             | Dimming of the background in dark themes, as a percentage; 0-100 |
+| Field | Type | Description |
+| --- | --- | --- |
+| type | String | Type of the background, always “fill” |
+| fill | [BackgroundFill](backgroundfill.md) | The background fill |
+| dark\_theme\_dimming | Integer | Dimming of the background in dark themes, as a percentage; 0-100 |

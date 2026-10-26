@@ -8,10 +8,10 @@ The Bot API supports basic formatting for messages. You can use bold, italic, un
 
 Note that Telegram clients will display an **alert** to the user before opening an inline link ('Open this link?' together with the full URL).
 
-Message entities can be nested, providing following restrictions are met:\
-- If two entities have common characters, then one of them is fully contained inside another.\
-- *bold*, *italic*, *underline*, *strikethrough*, and *spoiler* entities can contain and can be part of any other entities, except *pre* and *code*.\
-- *blockquote* and *expandable_blockquote* entities can't be nested.\
+Message entities can be nested, providing following restrictions are met:  
+- If two entities have common characters, then one of them is fully contained inside another.  
+- *bold*, *italic*, *underline*, *strikethrough*, and *spoiler* entities can contain and can be part of any other entities, except *pre* and *code*.  
+- *blockquote* and *expandable\_blockquote* entities can't be nested.  
 - All other entities can't contain each other.
 
 Links `tg://user?id=<user_id>` can be used to mention a user by their identifier without using a username. Please note:
@@ -36,7 +36,7 @@ If the format string is empty, the underlying text is displayed as-is; however, 
 
 ###### MarkdownV2 style
 
-To use this mode, pass *MarkdownV2* in the *parse_mode* field. Use the following syntax in your message:
+To use this mode, pass *MarkdownV2* in the *parse\_mode* field. Use the following syntax in your message:
 
 ````
 *bold \*text*
@@ -74,28 +74,28 @@ pre-formatted fixed-width code block written in the Python programming language
 
 Please note:
 
-- Any character with code between 1 and 126 inclusively can be escaped anywhere with a preceding '\\ character, in which case it is treated as an ordinary character and not a part of the markup. This implies that '\\ character usually must be escaped with a preceding '\\ character.
-- Inside `pre` and `code` entities, all '\`' and '\\ characters must be escaped with a preceding '\\ character.
-- Inside the `(...)` part of the inline link and custom emoji definition, all ')' and '\\ must be escaped with a preceding '\\ character.
-- In all other places characters '\_', '\*', '\[', '\]', '(', ')', '~', '\`', '\>', '#', '+', '-', '=', '\|', '{', '}', '.', '!' must be escaped with the preceding character '\\.
+- Any character with code between 1 and 126 inclusively can be escaped anywhere with a preceding '\' character, in which case it is treated as an ordinary character and not a part of the markup. This implies that '\' character usually must be escaped with a preceding '\' character.
+- Inside `pre` and `code` entities, all '`' and '\' characters must be escaped with a preceding '\' character.
+- Inside the `(...)` part of the inline link and custom emoji definition, all ')' and '\' must be escaped with a preceding '\' character.
+- In all other places characters '\_', '\*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!' must be escaped with the preceding character '\'.
 - In case of ambiguity between `italic` and `underline` entities `__` is always greedily treated from left to right as beginning or end of an `underline` entity, so instead of `___italic underline___` use `___italic underline_**__`, adding an empty bold entity as a separator.
 - A valid emoji must be provided as an alternative value for the custom emoji. The emoji will be shown instead of the custom emoji in places where a custom emoji cannot be displayed (e.g., system notifications) or if the message is forwarded by a non-premium user. It is recommended to use the emoji from the **emoji** field of the custom emoji [sticker](sticker.md).
-- Custom emoji entities can only be used by bots that purchased additional usernames on [Fragment](https://fragment.com/) or in the messages directly sent by the bot to private, group and supergroup chats if the owner of the bot has a Telegram Premium subscription.
+- Custom emoji entities can only be used by bots that purchased additional usernames on [Fragment](https://fragment.com) or in the messages directly sent by the bot to private, group and supergroup chats if the owner of the bot has a Telegram Premium subscription.
 - See [date-time entity formatting](formatting-options.md#date-time-entity-formatting) for more details about supported date-time formats.
 
 ###### HTML style
 
-To use this mode, pass *HTML* in the *parse_mode* field. The following tags are currently supported:
+To use this mode, pass *HTML* in the *parse\_mode* field. The following tags are currently supported:
 
 ```
 <b>bold</b>, <strong>bold</strong>
 <i>italic</i>, <em>italic</em>
 <u>underline</u>, <ins>underline</ins>
 <s>strikethrough</s>, <strike>strikethrough</strike>, <del>strikethrough</del>
-spoiler, <tg-spoiler>spoiler</tg-spoiler>
-<b>bold <i>italic bold <s>italic bold strikethrough italic bold strikethrough spoiler</s> <u>underline italic bold</u></i> bold</b>
-[inline URL](http://www.example.com/)
-[inline mention of a user](tg://user?id=123456789)
+<span class="tg-spoiler">spoiler</span>, <tg-spoiler>spoiler</tg-spoiler>
+<b>bold <i>italic bold <s>italic bold strikethrough <span class="tg-spoiler">italic bold strikethrough spoiler</span></s> <u>underline italic bold</u></i> bold</b>
+<a href="http://www.example.com/">inline URL</a>
+<a href="tg://user?id=123456789">inline mention of a user</a>
 <tg-emoji emoji-id="5368324170671202286"></tg-emoji>
 <tg-time unix="1647531900" format="wDT">22:45 tomorrow</tg-time>
 <tg-time unix="1647531900" format="t">22:45 tomorrow</tg-time>
@@ -124,12 +124,12 @@ Please note:
 - Use nested `pre` and `code` tags, to define programming language for `pre` entity.
 - Programming language can't be specified for standalone `code` tags.
 - A valid emoji must be used as the content of the `tg-emoji` tag. The emoji will be shown instead of the custom emoji in places where a custom emoji cannot be displayed (e.g., system notifications) or if the message is forwarded by a non-premium user. It is recommended to use the emoji from the **emoji** field of the custom emoji [sticker](sticker.md).
-- Custom emoji entities can only be used by bots that purchased additional usernames on [Fragment](https://fragment.com/) or in the messages directly sent by the bot to private, group and supergroup chats if the owner of the bot has a Telegram Premium subscription.
+- Custom emoji entities can only be used by bots that purchased additional usernames on [Fragment](https://fragment.com) or in the messages directly sent by the bot to private, group and supergroup chats if the owner of the bot has a Telegram Premium subscription.
 - See [date-time entity formatting](formatting-options.md#date-time-entity-formatting) for more details about supported date-time formats.
 
 ###### Markdown style
 
-This is a legacy mode, retained for backward compatibility. To use this mode, pass *Markdown* in the *parse_mode* field. Use the following syntax in your message:
+This is a legacy mode, retained for backward compatibility. To use this mode, pass *Markdown* in the *parse\_mode* field. Use the following syntax in your message:
 
 ````
 *bold text*
@@ -148,6 +148,6 @@ pre-formatted fixed-width code block written in the Python programming language
 Please note:
 
 - Entities must not be nested, use parse mode [MarkdownV2](formatting-options.md#markdownv2-style) instead.
-- There is no way to specify “underline”, “strikethrough”, “spoiler”, “blockquote”, “expandable_blockquote”, “custom_emoji”, and “date_time” entities, use parse mode [MarkdownV2](formatting-options.md#markdownv2-style) instead.
-- To escape characters '\_', '\*', '\`', '\[' outside of an entity, prepend the character '\\ before them.
+- There is no way to specify “underline”, “strikethrough”, “spoiler”, “blockquote”, “expandable\_blockquote”, “custom\_emoji”, and “date\_time” entities, use parse mode [MarkdownV2](formatting-options.md#markdownv2-style) instead.
+- To escape characters '\_', '\*', '`', '[' outside of an entity, prepend the character '\' before them.
 - Escaping inside entities is not allowed, so entity must be closed first and reopened again: use `_snake_\__case_` for italic `snake_case` and `*2*\**2=4*` for bold `2*2=4`.

@@ -6,6 +6,6 @@ Source: https://core.telegram.org/bots/api#chatbackground
 
 This object represents a chat background.
 
-| Field | Type                                                                | Description            |
-| ----- | ------------------------------------------------------------------- | ---------------------- |
-| type  | [BackgroundType](backgroundtype.md) | Type of the background |
+| Field | Type | Description |
+| --- | --- | --- |
+| type | [BackgroundType](backgroundtype.md) | Type of the background |

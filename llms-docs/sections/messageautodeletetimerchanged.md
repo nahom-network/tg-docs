@@ -6,6 +6,6 @@ Source: https://core.telegram.org/bots/api#messageautodeletetimerchanged
 
 This object represents a service message about a change in auto-delete timer settings.
 
-| Field                    | Type    | Description                                               |
-| ------------------------ | ------- | --------------------------------------------------------- |
-| message_auto_delete_time | Integer | New auto-delete time for messages in the chat; in seconds |
+| Field | Type | Description |
+| --- | --- | --- |
+| message\_auto\_delete\_time | Integer | New auto-delete time for messages in the chat; in seconds |

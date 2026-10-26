@@ -6,7 +6,7 @@ Source: https://core.telegram.org/bots/api#richtextspoiler
 
 A text covered by a spoiler.
 
-| Field | Type                                                    | Description                             |
-| ----- | ------------------------------------------------------- | --------------------------------------- |
-| type  | String                                                  | Type of the rich text, always “spoiler” |
-| text  | [RichText](richtext.md) | The text                                |
+| Field | Type | Description |
+| --- | --- | --- |
+| type | String | Type of the rich text, always “spoiler” |
+| text | [RichText](richtext.md) | The text |

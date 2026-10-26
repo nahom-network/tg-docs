@@ -6,8 +6,8 @@ Source: https://core.telegram.org/bots/api#richtextcashtag
 
 A cashtag.
 
-| Field   | Type                                                    | Description                             |
-| ------- | ------------------------------------------------------- | --------------------------------------- |
-| type    | String                                                  | Type of the rich text, always “cashtag” |
-| text    | [RichText](richtext.md) | The text                                |
-| cashtag | String                                                  | The cashtag                             |
+| Field | Type | Description |
+| --- | --- | --- |
+| type | String | Type of the rich text, always “cashtag” |
+| text | [RichText](richtext.md) | The text |
+| cashtag | String | The cashtag |

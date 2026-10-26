@@ -12,8 +12,8 @@ The Bot API server source code is available at [telegram-bot-api](https://github
 - Use an HTTP URL for the webhook.
 - Use any local IP address for the webhook.
 - Use any port for the webhook.
-- Set *max_webhook_connections* up to 100000.
-- Receive the absolute local path as a value of the *file_path* field without the need to download the file after a [getFile](getfile.md) request.
+- Set *max\_webhook\_connections* up to 100000.
+- Receive the absolute local path as a value of the *file\_path* field without the need to download the file after a [getFile](getfile.md) request.
 
 ## In this section
 

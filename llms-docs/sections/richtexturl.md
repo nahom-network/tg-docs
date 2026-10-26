@@ -6,8 +6,8 @@ Source: https://core.telegram.org/bots/api#richtexturl
 
 A text with a link.
 
-| Field | Type                                                    | Description                         |
-| ----- | ------------------------------------------------------- | ----------------------------------- |
-| type  | String                                                  | Type of the rich text, always “url” |
-| text  | [RichText](richtext.md) | The text                            |
-| url   | String                                                  | URL of the link                     |
+| Field | Type | Description |
+| --- | --- | --- |
+| type | String | Type of the rich text, always “url” |
+| text | [RichText](richtext.md) | The text |
+| url | String | URL of the link |

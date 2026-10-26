@@ -6,6 +6,6 @@ Source: https://core.telegram.org/bots/api#chatownerchanged
 
 Describes a service message about an ownership change in the chat.
 
-| Field     | Type                                            | Description               |
-| --------- | ----------------------------------------------- | ------------------------- |
-| new_owner | [User](user.md) | The new owner of the chat |
+| Field | Type | Description |
+| --- | --- | --- |
+| new\_owner | [User](user.md) | The new owner of the chat |

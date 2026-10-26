@@ -6,7 +6,7 @@ Source: https://core.telegram.org/bots/api#paidmedialivephoto
 
 The paid media is a [live photo](livephoto.md).
 
-| Field      | Type                                                      | Description                                 |
-| ---------- | --------------------------------------------------------- | ------------------------------------------- |
-| type       | String                                                    | Type of the paid media, always “live_photo” |
-| live_photo | [LivePhoto](livephoto.md) | The photo                                   |
+| Field | Type | Description |
+| --- | --- | --- |
+| type | String | Type of the paid media, always “live\_photo” |
+| live\_photo | [LivePhoto](livephoto.md) | The photo |

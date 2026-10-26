@@ -6,6 +6,6 @@ Source: https://core.telegram.org/bots/api#gifts
 
 This object represent a list of gifts.
 
-| Field | Type                                                     | Description       |
-| ----- | -------------------------------------------------------- | ----------------- |
+| Field | Type | Description |
+| --- | --- | --- |
 | gifts | Array of [Gift](gift.md) | The list of gifts |

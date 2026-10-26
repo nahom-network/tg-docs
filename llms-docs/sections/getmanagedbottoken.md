@@ -6,6 +6,6 @@ Source: https://core.telegram.org/bots/api#getmanagedbottoken
 
 Use this method to get the token of a managed bot. Returns the token as *String* on success.
 
-| Parameter | Type    | Required | Description                                                     |
-| --------- | ------- | -------- | --------------------------------------------------------------- |
-| user_id   | Integer | Yes      | User identifier of the managed bot whose token will be returned |
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| user\_id | Integer | Yes | User identifier of the managed bot whose token will be returned |

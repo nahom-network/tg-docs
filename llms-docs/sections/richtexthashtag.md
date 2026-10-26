@@ -6,8 +6,8 @@ Source: https://core.telegram.org/bots/api#richtexthashtag
 
 A hashtag.
 
-| Field   | Type                                                    | Description                             |
-| ------- | ------------------------------------------------------- | --------------------------------------- |
-| type    | String                                                  | Type of the rich text, always “hashtag” |
-| text    | [RichText](richtext.md) | The text                                |
-| hashtag | String                                                  | The hashtag                             |
+| Field | Type | Description |
+| --- | --- | --- |
+| type | String | Type of the rich text, always “hashtag” |
+| text | [RichText](richtext.md) | The text |
+| hashtag | String | The hashtag |

@@ -6,7 +6,7 @@ Source: https://core.telegram.org/bots/api#getuserpersonalchatmessages
 
 Use this method to get the last messages from the personal chat (i.e., the chat currently added to their profile) of a given user. On success, an Array of [Message](message.md) objects is returned.
 
-| Parameter | Type    | Required | Description                                    |
-| --------- | ------- | -------- | ---------------------------------------------- |
-| user_id   | Integer | Yes      | Unique identifier for the target user          |
-| limit     | Integer | Yes      | The maximum number of messages to return; 1-20 |
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| user\_id | Integer | Yes | Unique identifier for the target user |
+| limit | Integer | Yes | The maximum number of messages to return; 1-20 |

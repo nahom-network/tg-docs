@@ -6,6 +6,6 @@ Source: https://core.telegram.org/bots/api#communitychatadded
 
 Describes a service message about a chat or a bot being added to a community.
 
-| Field     | Type                                                      | Description                                            |
-| --------- | --------------------------------------------------------- | ------------------------------------------------------ |
+| Field | Type | Description |
+| --- | --- | --- |
 | community | [Community](community.md) | The new community to which the chat or the bot belongs |

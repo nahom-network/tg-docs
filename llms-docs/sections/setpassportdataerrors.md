@@ -8,7 +8,7 @@ Informs a user that some of the Telegram Passport elements they provided contain
 
 Use this if the data submitted by the user doesn't satisfy the standards your service requires for any reason. For example, if a birthday date seems invalid, a submitted document is blurry, a scan shows evidence of tampering, etc. Supply some details in the error message to make sure the user knows how to correct the issues.
 
-| Parameter | Type                                                                                     | Required | Description                                   |
-| --------- | ---------------------------------------------------------------------------------------- | -------- | --------------------------------------------- |
-| user_id   | Integer                                                                                  | Yes      | User identifier                               |
-| errors    | Array of [PassportElementError](passportelementerror.md) | Yes      | A JSON-serialized Array describing the errors |
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| user\_id | Integer | Yes | User identifier |
+| errors | Array of [PassportElementError](passportelementerror.md) | Yes | A JSON-serialized Array describing the errors |

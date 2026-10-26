@@ -6,6 +6,6 @@ Source: https://core.telegram.org/bots/api#userchatboosts
 
 This object represents a list of boosts added to a chat by a user.
 
-| Field  | Type                                                               | Description                                      |
-| ------ | ------------------------------------------------------------------ | ------------------------------------------------ |
+| Field | Type | Description |
+| --- | --- | --- |
 | boosts | Array of [ChatBoost](chatboost.md) | The list of boosts added to the chat by the user |

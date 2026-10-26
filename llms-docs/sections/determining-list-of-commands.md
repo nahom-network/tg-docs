@@ -8,24 +8,24 @@ The following algorithm is used to determine the list of commands for a particul
 
 **Commands in the chat with the bot**
 
-- botCommandScopeChat + language_code
+- botCommandScopeChat + language\_code
 - botCommandScopeChat
-- botCommandScopeAllPrivateChats + language_code
+- botCommandScopeAllPrivateChats + language\_code
 - botCommandScopeAllPrivateChats
-- botCommandScopeDefault + language_code
+- botCommandScopeDefault + language\_code
 - botCommandScopeDefault
 
 **Commands in group and supergroup chats**
 
-- botCommandScopeChatMember + language_code
+- botCommandScopeChatMember + language\_code
 - botCommandScopeChatMember
-- botCommandScopeChatAdministrators + language_code (administrators only)
+- botCommandScopeChatAdministrators + language\_code (administrators only)
 - botCommandScopeChatAdministrators (administrators only)
-- botCommandScopeChat + language_code
+- botCommandScopeChat + language\_code
 - botCommandScopeChat
-- botCommandScopeAllChatAdministrators + language_code (administrators only)
+- botCommandScopeAllChatAdministrators + language\_code (administrators only)
 - botCommandScopeAllChatAdministrators (administrators only)
-- botCommandScopeAllGroupChats + language_code
+- botCommandScopeAllGroupChats + language\_code
 - botCommandScopeAllGroupChats
-- botCommandScopeDefault + language_code
+- botCommandScopeDefault + language\_code
 - botCommandScopeDefault
