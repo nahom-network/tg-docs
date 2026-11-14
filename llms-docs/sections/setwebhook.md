@@ -11,7 +11,7 @@ If you'd like to make sure that the webhook was set by you, you can specify secr
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | url | String | Yes | HTTPS URL to send updates to. Use an empty string to remove webhook integration. |
-| certificate | [InputFile](inputfile.md) | Optional | Upload your public key certificate so that the root certificate in use can be checked. See our [self-signed guide](https://core.telegram.org/bots/self-signed) for details. |
+| certificate | [InputFile](inputfile.md) | Optional | Upload your public key certificate so that the root certificate in use can be checked. See our [self-signed guide](../external/bots/self-signed.md) for details. |
 | ip\_address | String | Optional | The fixed IP address which will be used to send webhook requests instead of the IP address resolved through DNS |
 | max\_connections | Integer | Optional | The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery, 1-100. Defaults to *40*. Use lower values to limit the load on your bot's server, and higher values to increase your bot's throughput. |
 | allowed\_updates | Array of String | Optional | A JSON-serialized list of the update types you want your bot to receive. For example, specify `["message", "edited_channel_post", "callback_query"]` to only receive updates of these types. See [Update](update.md) for a complete list of available update types. Specify an empty list to receive all update types except *chat\_member*, *message\_reaction*, and *message\_reaction\_count* (default). If not specified, the previous setting will be used. Please note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time. |
@@ -20,7 +20,7 @@ If you'd like to make sure that the webhook was set by you, you can specify secr
 
 > **Notes**  
 > **1.** You will not be able to receive updates using [getUpdates](getupdates.md) for as long as an outgoing webhook is set up.  
-> **2.** To use a self-signed certificate, you need to upload your [public key certificate](https://core.telegram.org/bots/self-signed) using *certificate* parameter. Please upload as InputFile, sending a String will not work.  
+> **2.** To use a self-signed certificate, you need to upload your [public key certificate](../external/bots/self-signed.md) using *certificate* parameter. Please upload as InputFile, sending a String will not work.  
 > **3.** Ports currently supported *for webhooks*: **443, 80, 88, 8443**.
 >
-> If you're having any trouble setting up webhooks, please check out this [amazing guide to webhooks](https://core.telegram.org/bots/webhooks).
+> If you're having any trouble setting up webhooks, please check out this [amazing guide to webhooks](../external/bots/webhooks.md).

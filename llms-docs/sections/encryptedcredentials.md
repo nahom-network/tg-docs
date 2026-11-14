@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#encryptedcredentials
 
 [Documentation index](../llms.txt)
 
-Describes data required for decrypting and authenticating [EncryptedPassportElement](encryptedpassportelement.md). See the [Telegram Passport Documentation](https://core.telegram.org/passport#receiving-information) for a complete description of the data decryption and authentication processes.
+Describes data required for decrypting and authenticating [EncryptedPassportElement](encryptedpassportelement.md). See the [Telegram Passport Documentation](../external/passport.md#receiving-information) for a complete description of the data decryption and authentication processes.
 
 | Field | Type | Description |
 | --- | --- | --- |

@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#answerwebappquery
 
 [Documentation index](../llms.txt)
 
-Use this method to set the result of an interaction with a [Web App](https://core.telegram.org/bots/webapps) and send a corresponding message on behalf of the user to the chat from which the query originated. On success, a [SentWebAppMessage](sentwebappmessage.md) object is returned.
+Use this method to set the result of an interaction with a [Web App](../external/bots/webapps.md) and send a corresponding message on behalf of the user to the chat from which the query originated. On success, a [SentWebAppMessage](sentwebappmessage.md) object is returned.
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |

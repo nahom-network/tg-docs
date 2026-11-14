@@ -667,3 +667,22 @@ Read the relevant section and follow its local links.
 - [setGameScore](sections/setgamescore.md): Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the Message is returned, otherwise True is returned. 
 - [getGameHighScores](sections/getgamehighscores.md): Use this method to get data for high score tables. Will return the score of the specified user and several of their neighbors in a game. Returns an Array of GameHighScore objects.
 - [GameHighScore](sections/gamehighscore.md): This object represents one row of the high scores table for a game.
+
+## Referenced Telegram pages
+
+Pages linked from the sections above, mirrored as raw Markdown:
+
+- [Bot API changelog](external/bots/api-changelog.md)
+- [Bot Payments API](external/bots/payments.md)
+- [Bots FAQ](external/bots/faq.md)
+- [Bots: An introduction for developers](external/bots.md)
+- [Gaming Platform](external/bots/games.md)
+- [Inline Bots](external/bots/inline.md)
+- [Marvin's Marvellous Guide to All Things Webhook](external/bots/webhooks.md)
+- [Styled text with message entities](external/api/entities.md)
+- [Telegram Bot Features](external/bots/features.md)
+- [Telegram Login Widget](external/widgets/login.md)
+- [Telegram Mini Apps](external/bots/webapps.md)
+- [Telegram Passport Manual](external/passport.md)
+- [Telegram Stickers](external/stickers.md)
+- [Using self-signed certificates](external/bots/self-signed.md)

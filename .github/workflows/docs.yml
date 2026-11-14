@@ -57,7 +57,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tg-docs.md serverless-docs.md llms-docs
+          git add tg-docs.md serverless-docs.md external-docs llms-docs
           if ! git diff --cached --quiet; then
             git commit -m "docs: refresh Telegram API and Serverless snapshots"
             git push origin "HEAD:${GITHUB_REF_NAME}"

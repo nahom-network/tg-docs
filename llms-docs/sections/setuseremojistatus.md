@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#setuseremojistatus
 
 [Documentation index](../llms.txt)
 
-Changes the emoji status for a given user that previously allowed the bot to manage their emoji status via the Mini App method [requestEmojiStatusAccess](https://core.telegram.org/bots/webapps#initializing-mini-apps). Returns *True* on success.
+Changes the emoji status for a given user that previously allowed the bot to manage their emoji status via the Mini App method [requestEmojiStatusAccess](../external/bots/webapps.md#initializing-mini-apps). Returns *True* on success.
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |

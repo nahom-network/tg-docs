@@ -15,4 +15,4 @@ Use this method to send a checklist on behalf of a connected business account. O
 | protect\_content | Boolean | Optional | Protects the contents of the sent message from forwarding and saving |
 | message\_effect\_id | String | Optional | Unique identifier of the message effect to be added to the message |
 | reply\_parameters | [ReplyParameters](replyparameters.md) | Optional | A JSON-serialized object for description of the message to reply to |
-| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | Optional | A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) |
+| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | Optional | A JSON-serialized object for an [inline keyboard](../external/bots/features.md#inline-keyboards) |

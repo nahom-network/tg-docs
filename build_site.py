@@ -36,8 +36,8 @@ def section_description(section):
     return description[:220]
 
 
-def load_document(text):
-    files = build_llms.build(text)
+def load_document(text, externals=None):
+    files = build_llms.build(text, externals)
     title, url, summary, sections = build_llms.parse_document(text)
     date = re.search(r'^date:\s*["\']?([^"\'\n]+)', text, re.M)
     version = re.search(r"\*\*Bot API ([\d.]+)\*\*", text)
@@ -104,12 +104,13 @@ def render_page(template, catalog, page_url, name, description):
         url_metadata + f'\n  <script type="application/ld+json">{schema_json}</script>')
 
 
-def build_site(api_source, output, site_url=None, serverless_source=SERVERLESS_SOURCE):
+def build_site(api_source, output, site_url=None, serverless_source=SERVERLESS_SOURCE,
+               externals=None):
     site_url = normalize_site_url(site_url)
     api_text = api_source.read_text(encoding="utf-8-sig")
-    api_files, api_catalog = load_document(api_text)
+    api_files, api_catalog = load_document(api_text, externals)
     serverless_text = serverless_source.read_text(encoding="utf-8-sig")
-    serverless_files, serverless_catalog = load_document(serverless_text)
+    serverless_files, serverless_catalog = load_document(serverless_text, externals)
 
     files = dict(api_files)
     for name, content in serverless_files.items():
@@ -174,8 +175,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", type=Path, default=Path("tg-docs.md"))
     parser.add_argument("--serverless-input", type=Path, default=SERVERLESS_SOURCE)
+    parser.add_argument("--externals", type=Path, default=Path("external-docs"),
+                        help="Mirrored Telegram pages saved by update_docs.py (default: external-docs)")
     parser.add_argument("--output", type=Path, default=Path("_site"))
     parser.add_argument("--site-url", default=os.environ.get("SITE_URL"),
                         help="Public homepage URL, including repository subpath; defaults to SITE_URL")
     args = parser.parse_args()
-    build_site(args.input, args.output, args.site_url, args.serverless_input)
+    build_site(args.input, args.output, args.site_url, args.serverless_input,
+               build_llms.load_externals(args.externals))

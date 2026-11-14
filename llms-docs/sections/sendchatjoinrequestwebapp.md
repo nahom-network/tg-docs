@@ -9,4 +9,4 @@ Use this method to process a received chat join request query by showing a Mini 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | chat\_join\_request\_query\_id | String | Yes | Unique identifier of the join request query |
-| web\_app\_url | String | Yes | An HTTPS URL of a Web App to be opened with additional data as specified in [Initializing Web Apps](https://core.telegram.org/bots/webapps#initializing-mini-apps) |
+| web\_app\_url | String | Yes | An HTTPS URL of a Web App to be opened with additional data as specified in [Initializing Web Apps](../external/bots/webapps.md#initializing-mini-apps) |

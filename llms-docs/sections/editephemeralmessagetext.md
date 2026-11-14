@@ -16,4 +16,4 @@ Use this method to edit an ephemeral text or rich message. Note that it is not g
 | entities | Array of [MessageEntity](messageentity.md) | Optional | A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\_mode* |
 | rich\_message | [InputRichMessage](inputrichmessage.md) | Optional | New rich content of the message; required if *text* isn't specified |
 | link\_preview\_options | [LinkPreviewOptions](linkpreviewoptions.md) | Optional | Link preview generation options for the message |
-| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | Optional | A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) |
+| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | Optional | A JSON-serialized object for an [inline keyboard](../external/bots/features.md#inline-keyboards) |

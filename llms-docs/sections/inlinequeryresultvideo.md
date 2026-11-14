@@ -24,5 +24,5 @@ Represents a link to a page containing an embedded video player or a video file.
 | video\_height | Integer | *Optional*. Video height |
 | video\_duration | Integer | *Optional*. Video duration in seconds |
 | description | String | *Optional*. Short description of the result |
-| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message |
+| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | *Optional*. [Inline keyboard](../external/bots/features.md#inline-keyboards) attached to the message |
 | input\_message\_content | [InputMessageContent](inputmessagecontent.md) | *Optional*. Content of the message to be sent instead of the video. This field is **required** if InlineQueryResultVideo is used to send an HTML-page as a result (e.g., a YouTube video). |

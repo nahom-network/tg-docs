@@ -17,4 +17,4 @@ Use this method to edit text, rich and [game](games.md) messages. On success, if
 | entities | Array of [MessageEntity](messageentity.md) | Optional | A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\_mode* |
 | link\_preview\_options | [LinkPreviewOptions](linkpreviewoptions.md) | Optional | Link preview generation options for the message |
 | rich\_message | [InputRichMessage](inputrichmessage.md) | Optional | New rich content of the message; required if *text* isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited. |
-| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | Optional | A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) |
+| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | Optional | A JSON-serialized object for an [inline keyboard](../external/bots/features.md#inline-keyboards) |

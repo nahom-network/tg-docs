@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#menubuttonwebapp
 
 [Documentation index](../llms.txt)
 
-Represents a menu button, which launches a [Web App](https://core.telegram.org/bots/webapps).
+Represents a menu button, which launches a [Web App](../external/bots/webapps.md).
 
 | Field | Type | Description |
 | --- | --- | --- |

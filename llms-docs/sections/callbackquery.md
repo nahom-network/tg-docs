@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#callbackquery
 
 [Documentation index](../llms.txt)
 
-This object represents an incoming callback query from a callback button in an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards). If the button that originated the query was attached to a message sent by the bot, the field *message* will be present. If the button was attached to a message sent via the bot (in [inline mode](inline-mode.md)), the field *inline\_message\_id* will be present. Exactly one of the fields *data* or *game\_short\_name* will be present.
+This object represents an incoming callback query from a callback button in an [inline keyboard](../external/bots/features.md#inline-keyboards). If the button that originated the query was attached to a message sent by the bot, the field *message* will be present. If the button was attached to a message sent via the bot (in [inline mode](inline-mode.md)), the field *inline\_message\_id* will be present. Exactly one of the fields *data* or *game\_short\_name* will be present.
 
 | Field | Type | Description |
 | --- | --- | --- |

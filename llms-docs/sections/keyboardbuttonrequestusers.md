@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#keyboardbuttonrequestusers
 
 [Documentation index](../llms.txt)
 
-This object defines the criteria used to request suitable users. Information about the selected users will be shared with the bot when the corresponding button is pressed. [More about requesting users »](https://core.telegram.org/bots/features#chat-and-user-selection)
+This object defines the criteria used to request suitable users. Information about the selected users will be shared with the bot when the corresponding button is pressed. [More about requesting users »](../external/bots/features.md#chat-and-user-selection)
 
 | Field | Type | Description |
 | --- | --- | --- |

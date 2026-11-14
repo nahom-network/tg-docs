@@ -18,4 +18,4 @@ Use this method to edit live location messages. A location can be edited until i
 | horizontal\_accuracy | Float | Optional | The radius of uncertainty for the location, measured in meters; 0-1500 |
 | heading | Integer | Optional | Direction in which the user is moving, in degrees. Must be between 1 and 360 if specified. |
 | proximity\_alert\_radius | Integer | Optional | The maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified. |
-| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | Optional | A JSON-serialized object for a new [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) |
+| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | Optional | A JSON-serialized object for a new [inline keyboard](../external/bots/features.md#inline-keyboards) |

@@ -20,13 +20,13 @@ export default async function (input, ctx) {
 }
 ```
 
-The first argument, `input`, is the JSON object the Mini App sent. The second, `ctx`, carries **`ctx.initData`** — the Mini App's [init data](https://core.telegram.org/bots/webapps.md#webappinitdata) (`user`, `chat`, `start_param`, `auth_date`, …), already **verified by the platform**. It has the same shape as `Telegram.WebApp.initDataUnsafe` on the client, but here you can trust it. A call without valid init data is rejected with `401` before your code runs, so `ctx.initData.user` really is the person who opened your Mini App. Endpoints can only be called this way — from your bot's Mini App, by a Telegram user — so there is no public API to protect and no login to build.
+The first argument, `input`, is the JSON object the Mini App sent. The second, `ctx`, carries **`ctx.initData`** — the Mini App's [init data](../external/bots/webapps.md#webappinitdata) (`user`, `chat`, `start_param`, `auth_date`, …), already **verified by the platform**. It has the same shape as `Telegram.WebApp.initDataUnsafe` on the client, but here you can trust it. A call without valid init data is rejected with `401` before your code runs, so `ctx.initData.user` really is the person who opened your Mini App. Endpoints can only be called this way — from your bot's Mini App, by a Telegram user — so there is no public API to protect and no login to build.
 
 Whatever the endpoint returns is sent back as JSON. To refuse a call, `throw new EndpointError(description, parameters?)`. The Mini App gets the description and the `parameters` object as they are. If you need to branch on the kind of error in the front‑end, put a code in `parameters` — `{ code: 'OUT_OF_STOCK' }`. Any other exception is reported as a generic internal error, and the real message goes only to your logs, so internals never leak to the client.
 
 ##### Calling an endpoint from the Mini App
 
-The Mini App calls an endpoint by name with `Telegram.WebApp.Serverless.call` from the official [Mini Apps SDK](https://core.telegram.org/bots/webapps.md#serverless), `telegram-web-app.js` — the script your Mini App already includes. It sends the init data for you and calls back with an error or the endpoint's result:
+The Mini App calls an endpoint by name with `Telegram.WebApp.Serverless.call` from the official [Mini Apps SDK](../external/bots/webapps.md#serverless), `telegram-web-app.js` — the script your Mini App already includes. It sends the init data for you and calls back with an error or the endpoint's result:
 
 ```js
 Telegram.WebApp.Serverless.call('getProfile', { lang: 'en' }, function (err, profile) {

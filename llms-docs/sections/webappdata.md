@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#webappdata
 
 [Documentation index](../llms.txt)
 
-Describes data sent from a [Web App](https://core.telegram.org/bots/webapps) to the bot.
+Describes data sent from a [Web App](../external/bots/webapps.md) to the bot.
 
 | Field | Type | Description |
 | --- | --- | --- |

@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#inlinekeyboardmarkup
 
 [Documentation index](../llms.txt)
 
-This object represents an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) that appears right next to the message it belongs to.
+This object represents an [inline keyboard](../external/bots/features.md#inline-keyboards) that appears right next to the message it belongs to.
 
 | Field | Type | Description |
 | --- | --- | --- |

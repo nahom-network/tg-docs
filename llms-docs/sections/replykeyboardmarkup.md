@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#replykeyboardmarkup
 
 [Documentation index](../llms.txt)
 
-This object represents a [custom keyboard](https://core.telegram.org/bots/features#keyboards) with reply options (see [Introduction to bots](https://core.telegram.org/bots/features#keyboards) for details and examples). Not supported in channels and for messages sent on behalf of a business account.
+This object represents a [custom keyboard](../external/bots/features.md#keyboards) with reply options (see [Introduction to bots](../external/bots/features.md#keyboards) for details and examples). Not supported in channels and for messages sent on behalf of a business account.
 
 | Field | Type | Description |
 | --- | --- | --- |

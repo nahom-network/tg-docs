@@ -17,7 +17,7 @@ This object represents a Telegram user or bot.
 | is\_premium | True | *Optional*. *True*, if this user is a Telegram Premium user |
 | added\_to\_attachment\_menu | True | *Optional*. *True*, if this user added the bot to the attachment menu |
 | can\_join\_groups | Boolean | *Optional*. *True*, if the bot can be invited to groups. Returned only in [getMe](getme.md). |
-| can\_read\_all\_group\_messages | Boolean | *Optional*. *True*, if [privacy mode](https://core.telegram.org/bots/features#privacy-mode) is disabled for the bot. Returned only in [getMe](getme.md). |
+| can\_read\_all\_group\_messages | Boolean | *Optional*. *True*, if [privacy mode](../external/bots/features.md#privacy-mode) is disabled for the bot. Returned only in [getMe](getme.md). |
 | supports\_guest\_queries | Boolean | *Optional*. *True*, if the bot supports guest queries from chats it is not a member of. Returned only in [getMe](getme.md). |
 | supports\_inline\_queries | Boolean | *Optional*. *True*, if the bot supports inline queries. Returned only in [getMe](getme.md). |
 | can\_connect\_to\_business | Boolean | *Optional*. *True*, if the bot can be connected to a user account to manage it. Returned only in [getMe](getme.md). |

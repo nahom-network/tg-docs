@@ -17,7 +17,7 @@ Represents a link to a file. By default, this file will be sent by the user with
 | document\_url | String | A valid URL for the file |
 | mime\_type | String | MIME type of the content of the file, either “application/pdf” or “application/zip” |
 | description | String | *Optional*. Short description of the result |
-| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message |
+| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | *Optional*. [Inline keyboard](../external/bots/features.md#inline-keyboards) attached to the message |
 | input\_message\_content | [InputMessageContent](inputmessagecontent.md) | *Optional*. Content of the message to be sent instead of the file |
 | thumbnail\_url | String | *Optional*. URL of the thumbnail (JPEG only) for the file |
 | thumbnail\_width | Integer | *Optional*. Thumbnail width |

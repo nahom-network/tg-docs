@@ -12,4 +12,4 @@ Use this method to edit a checklist on behalf of a connected business account. O
 | chat\_id | Integer or String | Yes | Unique identifier for the target chat or username of the target bot in the format `@username` |
 | message\_id | Integer | Yes | Unique identifier for the target message |
 | checklist | [InputChecklist](inputchecklist.md) | Yes | A JSON-serialized object for the new checklist |
-| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | Optional | A JSON-serialized object for the new [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) for the message |
+| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | Optional | A JSON-serialized object for the new [inline keyboard](../external/bots/features.md#inline-keyboards) for the message |

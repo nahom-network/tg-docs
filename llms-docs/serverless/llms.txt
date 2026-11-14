@@ -92,3 +92,9 @@ Read the relevant section and follow its local links.
 - [`completion`](sections/completion.md): Note: tab‑completion works only when a bare tgcloud is on your PATH — so install it globally (npm install -g @tgcloud/cli) or otherwise put the binary on your PATH. It can't hook i
 - [`upgrade`](sections/upgrade.md): npx tgcloud upgrade [--dry-run]
 - [Staying in sync](sections/staying-in-sync.md): Every project has a monotonically increasing revision in the cloud, bumped on each deploy. The CLI remembers the revision it last synced with and sends it on each push. If the clou
+
+## Referenced Telegram pages
+
+Pages linked from the sections above, mirrored as raw Markdown:
+
+- [Telegram Mini Apps](external/bots/webapps.md)

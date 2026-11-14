@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#sentwebappmessage
 
 [Documentation index](../llms.txt)
 
-Describes an inline message sent by a [Web App](https://core.telegram.org/bots/webapps) on behalf of a user.
+Describes an inline message sent by a [Web App](../external/bots/webapps.md) on behalf of a user.
 
 | Field | Type | Description |
 | --- | --- | --- |

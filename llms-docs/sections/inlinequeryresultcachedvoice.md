@@ -15,5 +15,5 @@ Represents a link to a voice message stored on the Telegram servers. By default,
 | caption | String | *Optional*. Caption, 0-1024 characters after entities parsing |
 | parse\_mode | String | *Optional*. Mode for parsing entities in the voice message caption. See [formatting options](formatting-options.md) for more details. |
 | caption\_entities | Array of [MessageEntity](messageentity.md) | *Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\_mode* |
-| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message |
+| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | *Optional*. [Inline keyboard](../external/bots/features.md#inline-keyboards) attached to the message |
 | input\_message\_content | [InputMessageContent](inputmessagecontent.md) | *Optional*. Content of the message to be sent instead of the voice message |

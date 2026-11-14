@@ -14,7 +14,7 @@ Represents a contact with a phone number. By default, this contact will be sent 
 | first\_name | String | Contact's first name |
 | last\_name | String | *Optional*. Contact's last name |
 | vcard | String | *Optional*. Additional data about the contact in the form of a [vCard](https://en.wikipedia.org/wiki/VCard), 0-2048 bytes |
-| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message |
+| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | *Optional*. [Inline keyboard](../external/bots/features.md#inline-keyboards) attached to the message |
 | input\_message\_content | [InputMessageContent](inputmessagecontent.md) | *Optional*. Content of the message to be sent instead of the contact |
 | thumbnail\_url | String | *Optional*. Url of the thumbnail for the result |
 | thumbnail\_width | Integer | *Optional*. Thumbnail width |

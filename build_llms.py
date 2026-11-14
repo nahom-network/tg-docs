@@ -7,13 +7,18 @@ Python 3.10+; no third-party dependencies. The source is never modified.
 
 import argparse
 from dataclasses import dataclass
+from html import unescape
 from pathlib import Path
+import posixpath
 import re
-from urllib.parse import unquote, urldefrag, urljoin
+from urllib.parse import unquote, urldefrag, urljoin, urlsplit, urlunsplit
 
 
 SOURCE_URL = "https://core.telegram.org/bots/api"
 SUMMARY = "The Bot API is an HTTP-based interface for developing Telegram bots."
+# Mirrored copies of pages that the source links to, e.g. /bots/features.md.
+EXTERNAL_DIR = "external"
+EXTERNAL_LABEL = "Referenced Telegram pages"
 
 
 @dataclass
@@ -47,6 +52,106 @@ def outside_fences(lines):
             yield line, False
         else:
             yield line, fence is None
+
+
+def prose_parts(line):
+    """Yield the parts of a line that are not inline code."""
+    parts = re.split(r"(`+)(.*?)\1", line)
+    for index in range(0, len(parts), 3):
+        yield parts[index]
+
+
+def page_url(url):
+    """Normalize a documentation URL to the page it identifies, without .md."""
+    parts = urlsplit(urldefrag(url)[0])
+    path = parts.path[:-3] if parts.path.endswith(".md") else parts.path
+    path = path.rstrip("/") or "/"
+    return urlunsplit((parts.scheme, parts.netloc, path, "", ""))
+
+
+def external_page(url):
+    """Return the Telegram page a URL points to, or None if it is not mirrored.
+
+    The source document itself is excluded: its fragments already resolve to
+    the generated section pages.
+    """
+    page = page_url(url)
+    parts = urlsplit(page)
+    if parts.scheme not in ("http", "https") or parts.netloc != "core.telegram.org":
+        return None
+    if parts.path in ("/", "/bots/api") or parts.path.startswith("/file/"):
+        return None
+    # Documentation pages have no file extension; skip assets and data files.
+    if "." in parts.path.rsplit("/", 1)[-1]:
+        return None
+    return page
+
+
+def external_relative(page):
+    """Path of a mirrored page inside the external snapshot directory."""
+    path = urlsplit(page).path.lstrip("/")
+    return f"{path}.md" if path else None
+
+
+def external_path(page):
+    """Output path of a mirrored page in the generated documentation."""
+    relative = external_relative(page)
+    return f"{EXTERNAL_DIR}/{relative}" if relative else None
+
+
+def relative_link(target, start):
+    """Make an output-relative link target usable from the ``start`` directory."""
+    path, _, fragment = target.partition("#")
+    return posixpath.relpath(path, start) + (f"#{fragment}" if fragment else "")
+
+
+def relative_targets(targets, start):
+    """Rewrite output-relative fragment targets for links inside ``start``."""
+    return {fragment: relative_link(target, start)
+            for fragment, target in targets.items()}
+
+
+def referenced_pages(lines, source):
+    """Collect mirrorable pages linked from Markdown prose, ignoring code."""
+    pages = set()
+    for line, outside in outside_fences(lines):
+        if not outside:
+            continue
+        for part in prose_parts(line):
+            for url in re.findall(r"\]\(([^\s)]+)", part):
+                page = external_page(urljoin(source, url))
+                if page:
+                    pages.add(page)
+    return pages
+
+
+def load_externals(directory):
+    """Load Markdown mirrored by update_docs.py from its snapshot directory."""
+    directory = Path(directory)
+    if not directory.is_dir():
+        return {}
+    externals = {}
+    for path in sorted(directory.rglob("*.md")):
+        relative = path.relative_to(directory).as_posix()
+        externals[f"https://core.telegram.org/{relative[:-3]}"] = path.read_text(
+            encoding="utf-8-sig")
+    return externals
+
+
+def split_title(body, fallback):
+    """Use a leading H1 as the page title instead of repeating it in the body."""
+    lines = body.splitlines()
+    for index, line in enumerate(lines):
+        if not line.strip():
+            continue
+        match = re.fullmatch(r"#\s+(.+?)\s*#*", line)
+        if match:
+            remaining = lines[index + 1:]
+            while remaining and not remaining[0].strip():
+                remaining.pop(0)
+            return unescape(match[1]), remaining
+        break
+    return fallback, lines
 
 
 def parse_document(text):
@@ -108,15 +213,31 @@ def parse_document(text):
     return title, source, summary, sections
 
 
-def rewrite_links(lines, source, targets):
-    """Rewrite Markdown destinations only; preserve fenced/inline code verbatim."""
+def rewrite_links(lines, base, anchors, externals=None, resolve_all=False):
+    """Rewrite Markdown destinations only; preserve fenced/inline code verbatim.
+
+    ``base`` resolves relative destinations. ``anchors`` maps a page URL to its
+    local fragment targets. ``externals`` maps mirrored page URLs to local
+    paths. ``resolve_all`` additionally rewrites every remaining HTTP link,
+    which keeps mirrored pages self-contained.
+    """
+    externals = externals or {}
+
     def destination(match):
         url = match[1]
-        resolved = urljoin(source, url)
+        resolved = urljoin(base, url)
         page, fragment = urldefrag(resolved)
-        target = targets.get(unquote(fragment)) if page == source else None
+        page = page_url(page)
+        target = anchors.get(page, {}).get(unquote(fragment))
         if target:
             return "](" + target
+        if resolve_all and url.startswith("#"):
+            return match[0]
+        if page in externals:
+            suffix = f"#{fragment}" if fragment else ""
+            return "](" + externals[page] + suffix
+        if resolve_all and urlsplit(resolved).scheme in ("http", "https"):
+            return "](" + resolved
         # Root-relative website links otherwise break when hosted locally.
         if url.startswith(("/", "#")):
             return "](" + resolved
@@ -137,16 +258,27 @@ def rewrite_links(lines, source, targets):
     return result
 
 
-def build(text):
+def build(text, externals=None):
     title, source, summary, sections = parse_document(text)
-    targets = {section.anchor: f"{section.anchor}.md" for section in sections}
+    targets = {section.anchor: section.path for section in sections}
     # Deeper formatting headings stay with their parent page.
     for section in sections:
         for line, outside in outside_fences(section.lines):
             match = re.match(r"^#{5,6}\s+(.+?)\s*#*\s*$", line) if outside else None
             if match:
                 anchor = slug(match[1])
-                targets.setdefault(anchor, f"{section.anchor}.md#{anchor}")
+                targets.setdefault(anchor, f"{section.path}#{anchor}")
+
+    # Mirror only pages this document actually links to; stale snapshots from
+    # pages that are no longer referenced are ignored instead of published.
+    referenced = referenced_pages(text.splitlines(), source)
+    mirrored = [(page, body) for page, body in (externals or {}).items()
+                if page in referenced and external_path(page)]
+    linked = {page: external_path(page) for page, _ in mirrored}
+    titles = {page: split_title(body, page)[0] for page, body in mirrored}
+    section_links = relative_targets(targets, "sections")
+    section_externals = {page: relative_link(path, "sections")
+                         for page, path in linked.items()}
 
     files = {}
     index = [f"# {title}", "", f"> {summary}", "",
@@ -156,11 +288,11 @@ def build(text):
              "## Full reference", "",
              "- [Complete documentation](llms-full.txt): All sections in one file."]
     full = [f"# {title}", "", f"> {summary}", "", f"Source: {source}", ""]
-    full_targets = {anchor: f"sections/{target}" for anchor, target in targets.items()}
     for position, section in enumerate(sections):
         if section.level == 3:
             index.extend(["", f"## {section.title}", ""])
-        body = "\n".join(rewrite_links(section.lines, source, targets)).strip()
+        body = "\n".join(rewrite_links(section.lines, source, {source: section_links},
+                                       section_externals)).strip()
         page = [f"# {section.title}", "", f"Source: {source}#{section.anchor}",
                 "", "[Documentation index](../llms.txt)", "", body]
         children = []
@@ -179,7 +311,28 @@ def build(text):
         description = re.sub(r"\s+", " ", description)[:180]
         index.append(f"- [{section.title}]({section.path})" + (f": {description}" if description else ""))
         full.extend([f"{'#' * (section.level - 1)} {section.title}", "",
-                     "\n".join(rewrite_links(section.lines, source, full_targets)).strip(), ""])
+                     "\n".join(rewrite_links(section.lines, source, {source: targets},
+                                             linked)).strip(), ""])
+
+    for page, body in mirrored:
+        path = linked[page]
+        start = posixpath.dirname(path)
+        page_title, lines = split_title(body, page)
+        page_links = {other: relative_link(other_path, start)
+                      for other, other_path in linked.items()}
+        content = rewrite_links(lines, page, {source: relative_targets(targets, start)},
+                                page_links, resolve_all=True)
+        files[path] = "\n".join([
+            f"# {page_title}", "", f"Source: {page}", "",
+            f"[Documentation index]({relative_link('llms.txt', start)})", "",
+            *content]).rstrip() + "\n"
+
+    if mirrored:
+        index.extend(["", f"## {EXTERNAL_LABEL}", "",
+                      "Pages linked from the sections above, mirrored as raw Markdown:", ""])
+        for page, path in sorted(linked.items(), key=lambda item: titles[item[0]].lower()):
+            index.append(f"- [{titles[page]}]({path})")
+
     files["llms.txt"] = "\n".join(index) + "\n"
     files["llms-full.txt"] = "\n".join(full).rstrip() + "\n"
     return files
@@ -189,10 +342,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("input", nargs="?", type=Path, default=Path("tg-docs.md"))
     parser.add_argument("--output", type=Path, default=Path("llms-docs"))
+    parser.add_argument("--externals", type=Path, default=Path("external-docs"),
+                        help="Mirrored Telegram pages saved by update_docs.py (default: external-docs)")
     parser.add_argument("--force", action="store_true", help="Overwrite generated paths; never delete other files")
     args = parser.parse_args()
     try:
-        files = build(args.input.read_text(encoding="utf-8-sig"))
+        files = build(args.input.read_text(encoding="utf-8-sig"),
+                      load_externals(args.externals))
         paths = [args.output / name for name in files]
         if args.input.resolve() in [path.resolve() for path in paths]:
             raise ValueError("Output would overwrite the input file")
@@ -204,7 +360,9 @@ def main():
             path.write_text(content, encoding="utf-8", newline="\n")
     except (OSError, ValueError) as error:
         parser.exit(1, f"Error: {error}\n")
-    print(f"Created {len(files) - 2} Markdown pages, llms.txt, and llms-full.txt in {args.output}")
+    mirrored = len([name for name in files if name.startswith(EXTERNAL_DIR + "/")])
+    print(f"Created {len(files) - 2 - mirrored} Markdown pages, llms.txt, and llms-full.txt "
+          f"in {args.output}" + (f" with {mirrored} mirrored pages" if mirrored else ""))
 
 
 if __name__ == "__main__":

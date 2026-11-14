@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#payments
 
 [Documentation index](../llms.txt)
 
-Your bot can accept payments from Telegram users. Please see the [introduction to payments](https://core.telegram.org/bots/payments) for more details on the process and how to set up payments for your bot.
+Your bot can accept payments from Telegram users. Please see the [introduction to payments](../external/bots/payments.md) for more details on the process and how to set up payments for your bot.
 
 ## In this section
 

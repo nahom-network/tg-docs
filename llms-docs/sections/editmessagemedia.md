@@ -13,4 +13,4 @@ Use this method to edit animation, audio, document, live photo, photo, or video 
 | message\_id | Integer | Optional | Required if *inline\_message\_id* is not specified. Identifier of the message to edit. |
 | inline\_message\_id | String | Optional | Required if *chat\_id* and *message\_id* are not specified. Identifier of the inline message. |
 | media | [InputMedia](inputmedia.md) | Yes | A JSON-serialized object for the new media content of the message |
-| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | Optional | A JSON-serialized object for a new [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) |
+| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | Optional | A JSON-serialized object for a new [inline keyboard](../external/bots/features.md#inline-keyboards) |

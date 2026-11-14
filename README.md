@@ -76,6 +76,20 @@ intentionally fails until the parser is updated. Markdown links are served as ra
 files for LLM consumption, not rendered HTML documentation pages. Tables and code
 examples are preserved without AI rewriting.
 
+### Linked Telegram pages
+
+Sections such as `sections/sendrichmessage.md` link to other Telegram pages,
+for example `https://core.telegram.org/bots/features#keyboards`. When a page has
+an official Markdown endpoint (`/bots/features.md`), `update_docs.py` mirrors it
+under `external-docs/` and link rewriting points the section at the local copy
+(`../external/bots/features.md#keyboards`) instead of the live website. Links
+without a Markdown endpoint keep their original URL.
+
+The mirrored snapshots are generated into `llms-docs/external/` and listed under
+**Referenced Telegram pages** in `llms.txt`. Passing `--externals` to
+`build_llms.py` or `build_site.py` selects a different snapshot directory; the
+default is `external-docs`.
+
 ## Search engine discovery
 
 The deployment build renders both section catalogs into HTML (no JavaScript

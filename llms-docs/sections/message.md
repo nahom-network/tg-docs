@@ -91,8 +91,8 @@ This object represents a message.
 | gift | [GiftInfo](giftinfo.md) | *Optional*. Service message: a regular gift was sent or received |
 | unique\_gift | [UniqueGiftInfo](uniquegiftinfo.md) | *Optional*. Service message: a unique gift was sent or received |
 | gift\_upgrade\_sent | [GiftInfo](giftinfo.md) | *Optional*. Service message: upgrade of a gift was purchased after the gift was sent |
-| connected\_website | String | *Optional*. The domain name of the website on which the user has logged in. [More about Telegram Login »](https://core.telegram.org/widgets/login) |
-| write\_access\_allowed | [WriteAccessAllowed](writeaccessallowed.md) | *Optional*. Service message: the user allowed the bot to write messages after adding it to the attachment or side menu, launching a Web App from a link, or accepting an explicit request from a Web App sent by the method [requestWriteAccess](https://core.telegram.org/bots/webapps#initializing-mini-apps) |
+| connected\_website | String | *Optional*. The domain name of the website on which the user has logged in. [More about Telegram Login »](../external/widgets/login.md) |
+| write\_access\_allowed | [WriteAccessAllowed](writeaccessallowed.md) | *Optional*. Service message: the user allowed the bot to write messages after adding it to the attachment or side menu, launching a Web App from a link, or accepting an explicit request from a Web App sent by the method [requestWriteAccess](../external/bots/webapps.md#initializing-mini-apps) |
 | passport\_data | [PassportData](passportdata.md) | *Optional*. Telegram Passport data |
 | proximity\_alert\_triggered | [ProximityAlertTriggered](proximityalerttriggered.md) | *Optional*. Service message: a user in the chat triggered another user's proximity alert while sharing Live Location |
 | boost\_added | [ChatBoostAdded](chatboostadded.md) | *Optional*. Service message: user boosted the chat |
@@ -127,4 +127,4 @@ This object represents a message.
 | video\_chat\_ended | [VideoChatEnded](videochatended.md) | *Optional*. Service message: video chat ended |
 | video\_chat\_participants\_invited | [VideoChatParticipantsInvited](videochatparticipantsinvited.md) | *Optional*. Service message: new participants invited to a video chat |
 | web\_app\_data | [WebAppData](webappdata.md) | *Optional*. Service message: data sent by a Web App |
-| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message. `login_url` buttons are represented as ordinary `url` buttons. |
+| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | *Optional*. [Inline keyboard](../external/bots/features.md#inline-keyboards) attached to the message. `login_url` buttons are represented as ordinary `url` buttons. |

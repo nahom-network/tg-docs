@@ -21,5 +21,5 @@ Represents a link to a video animation (H.264/MPEG-4 AVC video without sound). B
 | parse\_mode | String | *Optional*. Mode for parsing entities in the caption. See [formatting options](formatting-options.md) for more details. |
 | caption\_entities | Array of [MessageEntity](messageentity.md) | *Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\_mode* |
 | show\_caption\_above\_media | Boolean | *Optional*. Pass *True* if the caption must be shown above the message media |
-| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message |
+| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | *Optional*. [Inline keyboard](../external/bots/features.md#inline-keyboards) attached to the message |
 | input\_message\_content | [InputMessageContent](inputmessagecontent.md) | *Optional*. Content of the message to be sent instead of the video animation |

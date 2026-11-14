@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#setmycommands
 
 [Documentation index](../llms.txt)
 
-Use this method to change the list of the bot's commands. See [this manual](https://core.telegram.org/bots/features#commands) for more details about bot commands. Returns *True* on success.
+Use this method to change the list of the bot's commands. See [this manual](../external/bots/features.md#commands) for more details about bot commands. Returns *True* on success.
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |

@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import posixpath
 import re
 import tempfile
 import unittest
@@ -43,16 +44,17 @@ class ConversionTests(unittest.TestCase):
             source.write_text('keep me', encoding='utf-8')
             for html in ('<h1>Error</h1>', '<div id="dev_page_content"><h3>Recent changes</h3></div>'):
                 with self.assertRaises(ValueError):
-                    update_docs.update_api(source, Path(directory) / 'out', html)
+                    update_docs.update_api(source, Path(directory) / 'out', html,
+                                           externals=None)
                 self.assertEqual(source.read_text(encoding='utf-8'), 'keep me')
 
     def test_unchanged_fetch_does_not_change_date(self):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / 'source.md'
             output = Path(directory) / 'docs'
-            update_docs.update_api(source, output, sample_html())
+            update_docs.update_api(source, output, sample_html(), externals=None)
             first = source.read_bytes()
-            update_docs.update_api(source, output, sample_html())
+            update_docs.update_api(source, output, sample_html(), externals=None)
             self.assertEqual(first, source.read_bytes())
 
     def test_serverless_update_is_stable_and_rejects_incomplete_markdown(self):
@@ -61,13 +63,14 @@ class ConversionTests(unittest.TestCase):
             output = Path(directory) / 'docs'
             text = Path('serverless-docs.md').read_text(encoding='utf-8-sig')
             body = re.sub(r'\A---\n.*?\n---\n', '', text, count=1, flags=re.S)
-            update_docs.update_serverless(source, output, body)
+            update_docs.update_serverless(source, output, body, externals=None)
             first = source.read_bytes()
             self.assertTrue((output / 'sections/handlers.md').is_file())
-            update_docs.update_serverless(source, output, body)
+            update_docs.update_serverless(source, output, body, externals=None)
             self.assertEqual(first, source.read_bytes())
             with self.assertRaises(ValueError):
-                update_docs.update_serverless(source, output, '# Not the docs\n')
+                update_docs.update_serverless(source, output, '# Not the docs\n',
+                                              externals=None)
 
     def test_snapshot_links_and_deterministic_build(self):
         source = Path('tg-docs.md').read_text(encoding='utf-8-sig')
@@ -89,6 +92,98 @@ class ConversionTests(unittest.TestCase):
                     if path.endswith('.md') and '://' not in path:
                         resolved = 'sections/' + path if name.startswith('sections/') else path
                         self.assertIn(resolved, files, (name, target))
+
+    def test_linked_telegram_pages_become_local_markdown(self):
+        text = ('### Recent changes\n\n#### ReplyKeyboardMarkup\n\n'
+                'See [keyboards](https://core.telegram.org/bots/features#keyboards) and '
+                '[missing](https://core.telegram.org/bots/url#x).\n')
+        externals = {'https://core.telegram.org/bots/features':
+                     '# Telegram Bot Features\n\n### Inputs\n\n'
+                     'See [FAQ](/bots/faq.md) and [dice](/bots/api/types/dice.md).\n'}
+        files = build_llms.build(text, externals)
+        self.assertIn('[keyboards](../external/bots/features.md#keyboards)',
+                      files['sections/replykeyboardmarkup.md'])
+        self.assertIn('[keyboards](external/bots/features.md#keyboards)',
+                      files['llms-full.txt'])
+        self.assertIn('[missing](https://core.telegram.org/bots/url#x)',
+                      files['sections/replykeyboardmarkup.md'])
+        page = files['external/bots/features.md']
+        self.assertIn('# Telegram Bot Features', page)
+        self.assertIn('Source: https://core.telegram.org/bots/features', page)
+        self.assertIn('[Documentation index](../../llms.txt)', page)
+        self.assertIn('[FAQ](https://core.telegram.org/bots/faq.md)', page)
+        self.assertIn('- [Telegram Bot Features](external/bots/features.md)',
+                      files['llms.txt'])
+        # Without snapshots the previous output is preserved.
+        self.assertIn('[keyboards](https://core.telegram.org/bots/features#keyboards)',
+                      build_llms.build(text)['sections/replykeyboardmarkup.md'])
+
+    def test_generated_links_to_mirrored_pages_resolve(self):
+        externals = build_llms.load_externals(Path('external-docs'))
+        for snapshot in ('tg-docs.md', 'serverless-docs.md'):
+            text = Path(snapshot).read_text(encoding='utf-8-sig')
+            files = build_llms.build(text, externals)
+            for name, content in files.items():
+                if not (name.startswith(('sections/', 'external/'))
+                        or name == 'llms-full.txt'):
+                    continue
+                start = posixpath.dirname(name)
+                for line, outside in build_llms.outside_fences(content.splitlines()):
+                    if not outside:
+                        continue
+                    for target in re.findall(r'\]\(([^\s)]+)', line):
+                        path = target.split('#')[0]
+                        if path.endswith('.md') and '://' not in path:
+                            resolved = posixpath.normpath(posixpath.join(start, path))
+                            self.assertIn(resolved, files, (snapshot, name, target))
+
+    def test_external_pages_are_downloaded_and_missing_markdown_is_skipped(self):
+        with tempfile.TemporaryDirectory() as directory:
+            directory = Path(directory)
+            source = directory / 'source.md'
+            source.write_text(
+                '### Recent changes\n\n#### Item\n\n'
+                '[features](https://core.telegram.org/bots/features#keyboards)\n'
+                '[url](https://core.telegram.org/bots/url)\n', encoding='utf-8')
+            calls = []
+
+            def fake_fetch(url, accept):
+                calls.append(url)
+                if url.endswith('/bots/url.md'):
+                    raise update_docs.HTTPError(url, 404, 'Not Found', None, None)
+                return '# Telegram Bot Features\n\nText.\n'
+
+            original = update_docs.fetch
+            update_docs.fetch = fake_fetch
+            try:
+                update_docs.update_external_pages(source, directory / 'external-docs')
+            finally:
+                update_docs.fetch = original
+            self.assertEqual(calls, ['https://core.telegram.org/bots/features.md',
+                                     'https://core.telegram.org/bots/url.md'])
+            self.assertTrue((directory / 'external-docs/bots/features.md').is_file())
+            self.assertFalse((directory / 'external-docs/bots/url.md').exists())
+            self.assertIn('https://core.telegram.org/bots/features',
+                          build_llms.load_externals(directory / 'external-docs'))
+
+    def test_site_publishes_linked_pages(self):
+        with tempfile.TemporaryDirectory() as directory:
+            directory = Path(directory)
+            source = directory / 'api.md'
+            source.write_text('### Recent changes\n\n#### Section\n\n'
+                              '[features](https://core.telegram.org/bots/features#x)\n',
+                              encoding='utf-8')
+            serverless = directory / 'serverless.md'
+            serverless.write_text('### Recent changes\n\n#### Handlers\n\nText.\n',
+                                  encoding='utf-8')
+            build_site.build_site(
+                source, directory / 'site', serverless_source=serverless,
+                externals={'https://core.telegram.org/bots/features':
+                           '# Telegram Bot Features\n\nText.\n'})
+            page = directory / 'site/external/bots/features.md'
+            self.assertTrue(page.is_file())
+            self.assertIn('(../external/bots/features.md#x)',
+                          (directory / 'site/sections/section.md').read_text(encoding='utf-8'))
 
     def test_full_reference_keeps_example_links_unchanged(self):
         text = ('### Recent changes\n\n#### User\n\nA user.\n\n'

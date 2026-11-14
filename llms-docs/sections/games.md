@@ -13,7 +13,7 @@ Your bot can offer users **HTML5 games** to play solo or to compete against each
 - To make your game more attractive, you can upload a GIF animation that demonstrates the game to the users via [BotFather](https://t.me/botfather) (see [Lumberjack](https://t.me/gamebot?game=lumberjack) for example).
 - A game message will also display high scores for the current chat. Use [setGameScore](setgamescore.md) to post high scores to the chat with the game, add the *disable\_edit\_message* parameter to disable automatic update of the message with the current scoreboard.
 - Use [getGameHighScores](getgamehighscores.md) to get data for in-game high score tables.
-- You can also add an extra [sharing button](https://core.telegram.org/bots/games#sharing-your-game-to-telegram-chats) for users to share their best score to different chats.
+- You can also add an extra [sharing button](../external/bots/games.md#sharing-your-game-to-telegram-chats) for users to share their best score to different chats.
 - For examples of what can be done using this new stuff, check the [@gamebot](https://t.me/gamebot) and [@gamee](https://t.me/gamee) bots.
 
 ## In this section
