@@ -22,11 +22,18 @@ class WorkflowTests(unittest.TestCase):
         text = WORKFLOW.read_text(encoding="utf-8")
         self.assertIn("branches: [main, master]", text)
 
-    def test_workflow_refreshes_and_commits_both_documentation_sets(self):
+    def test_workflow_publishes_site_to_the_branch_root(self):
         text = WORKFLOW.read_text(encoding="utf-8")
         self.assertIn("python update_docs.py", text)
-        self.assertIn("python build_llms.py serverless-docs.md --output llms-docs/serverless --force", text)
-        self.assertIn("git add tg-docs.md serverless-docs.md external-docs llms-docs", text)
+        self.assertIn("python build_site.py --output .", text)
+        self.assertIn("python build_site.py --output _site", text)
+        self.assertIn("sections external serverless llms.txt llms-full.txt", text)
+        self.assertIn("git push origin \"HEAD:${GITHUB_REF_NAME}\"", text)
+
+    def test_workflow_skips_its_own_generated_commit(self):
+        text = WORKFLOW.read_text(encoding="utf-8")
+        self.assertIn(
+            "github.event.head_commit.author.username != 'github-actions[bot]'", text)
 
 
 if __name__ == "__main__":

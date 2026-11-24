@@ -121,14 +121,29 @@ def build_site(api_source, output, site_url=None, serverless_source=SERVERLESS_S
 
     root = Path(__file__).resolve().parent
     files["index.html"] = render_page(
-        root / "index.html", api_catalog, site_url,
+        root / "templates" / "index.html", api_catalog, site_url,
         "Telegram Bot API Docs for LLMs",
         "An independent Telegram Bot API reference with llms.txt and linked Markdown documentation.")
     serverless_url = site_url + "serverless/" if site_url else None
     files["serverless/index.html"] = render_page(
-        root / "serverless.html", serverless_catalog, serverless_url,
+        root / "templates" / "serverless.html", serverless_catalog, serverless_url,
         "Telegram Serverless Docs for LLMs",
         "An independent Telegram Serverless reference with llms.txt and linked Markdown documentation.")
+    # Keep the old extension-based address working after the landing page moved
+    # to the serverless/ directory.
+    files["serverless.html"] = (
+        '<!doctype html>\n<html lang="en">\n<head>\n'
+        '  <meta charset="utf-8">\n'
+        '  <meta http-equiv="refresh" content="0; url=serverless/">\n'
+        '  <link rel="canonical" href="serverless/">\n'
+        '  <title>Telegram Serverless Docs for LLMs</title>\n'
+        '</head>\n<body><p>Redirecting to '
+        '<a href="serverless/">the Serverless reference</a>.</p></body>\n</html>\n')
+    # A branch-based Pages deployment ignores the custom-domain setting's CNAME
+    # unless the file is part of the published tree.
+    cname = root / "CNAME"
+    if cname.is_file():
+        files["CNAME"] = cname.read_text(encoding="utf-8").strip() + "\n"
 
     if site_url:
         urls = [site_url, serverless_url]

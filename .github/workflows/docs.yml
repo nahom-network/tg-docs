@@ -21,6 +21,9 @@ concurrency:
 
 jobs:
   build:
+    # The publish step commits generated files. Skip the run that commit
+    # triggers so the workflow does not loop; Pages still rebuilds the branch.
+    if: github.event_name != 'push' || github.event.head_commit.author.username != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -41,25 +44,32 @@ jobs:
       - name: Fetch and convert official documentation
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh)
         run: python update_docs.py
-      - name: Rebuild Markdown documentation
-        run: |
-          python build_llms.py tg-docs.md --output llms-docs --force
-          python build_llms.py serverless-docs.md --output llms-docs/serverless --force
       - name: Read deployed Pages URL
         uses: actions/configure-pages@v5
         id: pages
-      - name: Assemble static website
+      # Pages currently publishes the main branch root (legacy build_type), so
+      # the site and its llms.txt must live in the root, not only in _site.
+      - name: Publish site to the branch root
         env:
           SITE_URL: ${{ vars.SITE_URL || steps.pages.outputs.base_url }}
-        run: python build_site.py
-      - name: Commit refreshed documentation
-        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh)
+        run: python build_site.py --output .
+      # Keep producing the artifact too, so switching Pages to GitHub Actions
+      # later works without another workflow change.
+      - name: Assemble Pages artifact
+        env:
+          SITE_URL: ${{ vars.SITE_URL || steps.pages.outputs.base_url }}
+        run: python build_site.py --output _site
+      - name: Commit generated site
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tg-docs.md serverless-docs.md external-docs llms-docs
+          git add tg-docs.md serverless-docs.md external-docs assets \
+            sections external serverless llms.txt llms-full.txt \
+            index.html serverless.html docs.json robots.txt .nojekyll \
+            .site-manifest.json
+          if [ -f sitemap.xml ]; then git add sitemap.xml; fi
           if ! git diff --cached --quiet; then
-            git commit -m "docs: refresh Telegram API and Serverless snapshots"
+            git commit -m "docs: rebuild Telegram docs site"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
       - uses: actions/upload-pages-artifact@v3

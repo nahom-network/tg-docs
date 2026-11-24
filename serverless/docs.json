@@ -1,0 +1,304 @@
+{
+  "title": "Telegram Serverless",
+  "source": "https://core.telegram.org/bots/serverless",
+  "summary": "Run backend code for your bot and Mini App directly on Telegram's infrastructure.",
+  "updated_at": "2026-10-21T15:05:10+00:00",
+  "version": null,
+  "page_count": 49,
+  "sections": [
+    {
+      "title": "Recent changes",
+      "group": "Recent changes",
+      "path": "sections/recent-changes.md",
+      "description": ""
+    },
+    {
+      "title": "October 6, 2026",
+      "group": "Recent changes",
+      "path": "sections/october-6-2026.md",
+      "description": ""
+    },
+    {
+      "title": "Why serverless",
+      "group": "Why serverless",
+      "path": "sections/why-serverless.md",
+      "description": "A Telegram bot is, at heart, a program that reacts to updates. Traditionally you had to host that program somewhere that is always on, reachable, and secure — and then keep it that way. Telegram Serverless removes that l"
+    },
+    {
+      "title": "The mental model",
+      "group": "The mental model",
+      "path": "sections/the-mental-model.md",
+      "description": "You work in three places, and they map cleanly onto each other:"
+    },
+    {
+      "title": "Quick demo",
+      "group": "Quick demo",
+      "path": "sections/quick-demo.md",
+      "description": "Here is a complete, working demo bot. It replies to every message and remembers how many it has seen from each chat."
+    },
+    {
+      "title": "Getting started",
+      "group": "Getting started",
+      "path": "sections/getting-started.md",
+      "description": "This walkthrough takes you from an empty folder to a live bot that answers messages and stores data. It assumes you have Node.js 18 or newer installed and a bot registered with @BotFather. By the end you will have used e"
+    },
+    {
+      "title": "1. Create a project",
+      "group": "Getting started",
+      "path": "sections/1-create-a-project.md",
+      "description": "The fastest way to start is the project creator, which scaffolds a project and installs the CLI into it:"
+    },
+    {
+      "title": "2. Link your bot",
+      "group": "Getting started",
+      "path": "sections/2-link-your-bot.md",
+      "description": "Every project is tied to one bot. Connect them with login, which asks for your CLI access token (@BotFather → your bot → Serverless → CLI Access → Access token — a separate token from your bot's API token) and stores it "
+    },
+    {
+      "title": "3. Look around",
+      "group": "Getting started",
+      "path": "sections/3-look-around.md",
+      "description": "Two commands tell you where things stand at any moment, both fully offline:"
+    },
+    {
+      "title": "4. Deploy",
+      "group": "Getting started",
+      "path": "sections/4-deploy.md",
+      "description": "Send your modules to the cloud:"
+    },
+    {
+      "title": "5. Add a database table",
+      "group": "Getting started",
+      "path": "sections/5-add-a-database-table.md",
+      "description": "Let's make the bot remember something. Open tgcloud/schema.js and declare a table:"
+    },
+    {
+      "title": "6. Store and read data",
+      "group": "Getting started",
+      "path": "sections/6-store-and-read-data.md",
+      "description": "Now use the table from your handler. Edit tgcloud/handlers/message.js:"
+    },
+    {
+      "title": "7. Test without deploying",
+      "group": "Getting started",
+      "path": "sections/7-test-without-deploying.md",
+      "description": "You don't have to deploy to try a change. npx tgcloud run executes a handler on the platform using your local files, without publishing them:"
+    },
+    {
+      "title": "8. Keep in sync",
+      "group": "Getting started",
+      "path": "sections/8-keep-in-sync.md",
+      "description": "As you work, a handful of commands keep your local project and the cloud aligned: npx tgcloud status shows what changed, npx tgcloud push deploys, npx tgcloud pull brings your local project in line with the cloud, npx tg"
+    },
+    {
+      "title": "Building with AI",
+      "group": "Building with AI",
+      "path": "sections/building-with-ai.md",
+      "description": "Prefer to build with an AI assistant — or is the only coder on your team an AI? You can still ship a bot. We've taken a first step to make an AI agent feel at home in a project: every new one is scaffolded with an AGENTS"
+    },
+    {
+      "title": "On the go with BotFather",
+      "group": "On the go with BotFather",
+      "path": "sections/on-the-go-with-botfather.md",
+      "description": "Down to just your phone? The whole project lives in @BotFather too — open your bot → Serverless and you get everything the CLI manages, on a touchscreen:"
+    },
+    {
+      "title": "Projects and modules",
+      "group": "Projects and modules",
+      "path": "sections/projects-and-modules.md",
+      "description": "A serverless project is an ordinary folder under version control. Everything the platform runs sits in one folder, tgcloud/; the rest of the project is yours — a mini‑app front‑end, config, docs. There is no build step f"
+    },
+    {
+      "title": "Anatomy of a project",
+      "group": "Projects and modules",
+      "path": "sections/anatomy-of-a-project.md",
+      "description": "examplebot/"
+    },
+    {
+      "title": "The module system",
+      "group": "Projects and modules",
+      "path": "sections/the-module-system.md",
+      "description": "At runtime, a module can see exactly two things: the platform SDK and the other modules in your project. There are no npm packages, no filesystem, and no network except through the SDK's fetch."
+    },
+    {
+      "title": "Handlers",
+      "group": "Projects and modules",
+      "path": "sections/handlers.md",
+      "description": "A handler is a module in handlers/ whose default export the platform invokes when a matching update arrives."
+    },
+    {
+      "title": "Endpoints",
+      "group": "Projects and modules",
+      "path": "sections/endpoints.md",
+      "description": "An endpoint is a module in endpoints/ that your Mini App calls — the place for anything the front‑end can't do on its own, like reading and writing the database, calling the Bot API, or talking to outside services with y"
+    },
+    {
+      "title": "What gets deployed",
+      "group": "Projects and modules",
+      "path": "sections/what-gets-deployed.md",
+      "description": "When you npx tgcloud push, the CLI gathers every .js file under schema.js, lib/, handlers/, and endpoints/, and sends that exact set as your project's module space — together with the Mini App's build folder, if tgcloud."
+    },
+    {
+      "title": "Mini App front-end",
+      "group": "Projects and modules",
+      "path": "sections/mini-app-front-end.md",
+      "description": "The project root is yours, and it is the natural place for your Mini App's front‑end — built with React, Vue, Svelte or plain HTML, by Vite or any other bundler. Serverless hosts its build output next to your bot. One pu"
+    },
+    {
+      "title": "The database",
+      "group": "The database",
+      "path": "sections/the-database.md",
+      "description": "Every bot gets its own database — an SQLite‑backed store that persists between invocations and is available to every module through db. You describe your tables in schema.js with a small, typed DSL; you read and write th"
+    },
+    {
+      "title": "Declaring tables",
+      "group": "The database",
+      "path": "sections/declaring-tables.md",
+      "description": "Tables are named exports in schema.js. Calling table() builds a description at load time (it does not touch the database); the platform discovers the exported tables when you deploy schema.js and migrates the database to"
+    },
+    {
+      "title": "No foreign keys",
+      "group": "The database",
+      "path": "sections/no-foreign-keys.md",
+      "description": "The runtime runs with PRAGMA foreignkeys off. A declared foreign key would be silently inert — no cascades, no orphan protection — which is worse than having none at all, so the DSL makes it impossible. Namely, .referenc"
+    },
+    {
+      "title": "Querying",
+      "group": "The database",
+      "path": "sections/querying.md",
+      "description": "db is a fluent query builder. Every query is asynchronous — the terminal methods (.all(), .get(), .values(), .run()) return Promises, so always await."
+    },
+    {
+      "title": "Migrations",
+      "group": "The database",
+      "path": "sections/migrations.md",
+      "description": "Your database changes as your bot grows. The platform keeps that safe by separating deploying code from changing data, and by classifying every schema change by how risky it is."
+    },
+    {
+      "title": "The SDK",
+      "group": "The SDK",
+      "path": "sections/the-sdk.md",
+      "description": "At runtime a module has one library: sdk. It bundles the three things a bot backend needs — a database, the Telegram Bot API, and outbound HTTP — with nothing to install and no credentials to configure. The database (db)"
+    },
+    {
+      "title": "The Bot API",
+      "group": "The SDK",
+      "path": "sections/the-bot-api.md",
+      "description": "api gives you the entire Telegram Bot API. Call any method as api.<method>(params). Every current — and future — Bot API method works with no SDK update required."
+    },
+    {
+      "title": "HTTP",
+      "group": "The SDK",
+      "path": "sections/http.md",
+      "description": "fetch is a fetch‑like client for calling the outside world — third‑party APIs, webhooks, anything over HTTP."
+    },
+    {
+      "title": "Logging",
+      "group": "The SDK",
+      "path": "sections/logging.md",
+      "description": "The standard global console is available — nothing to import, it's just there as in any JavaScript. Its output is captured and shown by npx tgcloud run, which makes it your primary debugging tool during development."
+    },
+    {
+      "title": "Command-line interface",
+      "group": "Command-line interface",
+      "path": "sections/command-line-interface.md",
+      "description": "tgcloud is the bridge between your project folder and the cloud. It scaffolds projects, shows you what changed, deploys, runs modules, and applies database migrations. It needs Node.js 18 or newer. Two ways to get it:"
+    },
+    {
+      "title": "Authentication",
+      "group": "Command-line interface",
+      "path": "sections/authentication.md",
+      "description": "A project is tied to one bot by its token, which has the form app<id>:<secret>. The app<id> part is public and may be printed; the secret never appears in logs or errors."
+    },
+    {
+      "title": "`init`",
+      "group": "Command-line interface",
+      "path": "sections/init.md",
+      "description": "npx tgcloud init"
+    },
+    {
+      "title": "`add`",
+      "group": "Command-line interface",
+      "path": "sections/add.md",
+      "description": "npx tgcloud add <target>"
+    },
+    {
+      "title": "`login`",
+      "group": "Command-line interface",
+      "path": "sections/login.md",
+      "description": "npx tgcloud login"
+    },
+    {
+      "title": "`status`",
+      "group": "Command-line interface",
+      "path": "sections/status.md",
+      "description": "npx tgcloud status"
+    },
+    {
+      "title": "`diff`",
+      "group": "Command-line interface",
+      "path": "sections/diff.md",
+      "description": "npx tgcloud diff"
+    },
+    {
+      "title": "`push`",
+      "group": "Command-line interface",
+      "path": "sections/push.md",
+      "description": "npx tgcloud push [files...]"
+    },
+    {
+      "title": "`migrate`",
+      "group": "Command-line interface",
+      "path": "sections/migrate.md",
+      "description": "npx tgcloud migrate"
+    },
+    {
+      "title": "`run`",
+      "group": "Command-line interface",
+      "path": "sections/run.md",
+      "description": "npx tgcloud run <module> [args] [--ctx <json5>]"
+    },
+    {
+      "title": "`fetch`",
+      "group": "Command-line interface",
+      "path": "sections/fetch.md",
+      "description": "npx tgcloud fetch"
+    },
+    {
+      "title": "`pull`",
+      "group": "Command-line interface",
+      "path": "sections/pull.md",
+      "description": "npx tgcloud pull"
+    },
+    {
+      "title": "`reset`",
+      "group": "Command-line interface",
+      "path": "sections/reset.md",
+      "description": "npx tgcloud reset"
+    },
+    {
+      "title": "`webhook`",
+      "group": "Command-line interface",
+      "path": "sections/webhook.md",
+      "description": "npx tgcloud webhook"
+    },
+    {
+      "title": "`completion`",
+      "group": "Command-line interface",
+      "path": "sections/completion.md",
+      "description": "tgcloud completion <bash|zsh|fish>"
+    },
+    {
+      "title": "`upgrade`",
+      "group": "Command-line interface",
+      "path": "sections/upgrade.md",
+      "description": "npx tgcloud upgrade [--dry-run]"
+    },
+    {
+      "title": "Staying in sync",
+      "group": "Command-line interface",
+      "path": "sections/staying-in-sync.md",
+      "description": "Every project has a monotonically increasing revision in the cloud, bumped on each deploy. The CLI remembers the revision it last synced with and sends it on each push. If the cloud has moved ahead — because another mach"
+    }
+  ]
+}

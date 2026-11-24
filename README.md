@@ -10,14 +10,24 @@ searchable section catalog, `llms.txt`, individual linked Markdown files, and
 
 ## Deploy on GitHub Pages
 
-1. Push this repository to GitHub. The workflow runs on push to `main` or
-   `master` and always checks out the ref that triggered it, so it also works
-   after the default branch is renamed.
-2. In **Settings → Pages → Build and deployment**, select **GitHub Actions**.
-3. In **Settings → Actions → General → Workflow permissions**, allow read/write
-   access if your organization permits it. The refresh job needs to push commits.
-4. Run **Actions → Update docs and deploy Pages → Run workflow**. Leave
-   **refresh** enabled to fetch the latest documentation immediately.
+The workflow runs on push to `main` or `master`, always checks out the ref that
+triggered it, and builds two outputs:
+
+- the site **in the branch root**, which is what Pages serves when the source is
+  **Deploy from a branch → main → / (root)**; and
+- the same site in `_site`, uploaded as a Pages artifact for the **GitHub
+  Actions** source.
+
+The branch root is the current live source, so `llms.txt`, `llms-full.txt`,
+`docs.json`, `sections/`, and `serverless/` live in the root. The workflow
+rebuilds and commits those generated files after each run. Switching Pages to
+**GitHub Actions** later needs no further change because `_site` is already
+produced.
+
+Generated commits are skipped by the workflow itself to avoid loops, but Pages
+still rebuilds the branch. **Settings → Actions → General → Workflow
+permissions** must allow read/write access so the job can push. Run **Actions →
+Update docs and deploy Pages → Run workflow** to refresh immediately.
 
 No hosting service, API key, or custom token is required. Project sites such as
 `https://nahom-d54.github.io/tg-docs/` work without configuring a base URL. The
@@ -48,8 +58,9 @@ python -m http.server 8000 --directory _site
 ```
 
 Open http://localhost:8000 for the Bot API set or
-http://localhost:8000/serverless/ for Serverless. Serve `_site`, not the
-repository root. The site needs HTTP to load its search catalog; opening
+http://localhost:8000/serverless/ for Serverless. `build_site.py` writes to
+`_site/` by default; pass `--output .` to write the branch-published layout into
+the repository root. The site needs HTTP to load its search catalog; opening
 `index.html` directly won't load search.
 
 ## Refresh and test
@@ -57,17 +68,16 @@ repository root. The site needs HTTP to load its search catalog; opening
 ```sh
 python update_docs.py
 python -m unittest discover -s tests -v
-python build_llms.py tg-docs.md --output llms-docs --force
-python build_llms.py serverless-docs.md --output llms-docs/serverless --force
-python build_site.py
+python build_site.py --output .
+python build_site.py --output _site
 ```
 
-`tg-docs.md` and `serverless-docs.md` are the source snapshots.
-`llms-docs/` holds the generated Bot API Markdown, with the Serverless set under
-`llms-docs/serverless/`. `_site/` is the ignored deployment artifact. Snapshot
-dates and the Bot API version come from the sources, not hardcoded UI values.
-Network or conversion validation failures stop publication instead of replacing
-a snapshot.
+`tg-docs.md` and `serverless-docs.md` are the source snapshots. The generated
+Bot API Markdown lives in `sections/`, `external/`, `llms.txt`, and
+`llms-full.txt`; the Serverless set lives in `serverless/`. `_site/` is the
+ignored artifact for an Actions deployment. Snapshot dates and the Bot API
+version come from the sources, not hardcoded UI values. Network or conversion
+validation failures stop publication instead of replacing a snapshot.
 
 The Bot API converter requires the official page's current heading structure.
 The Serverless set uses Telegram's official `/bots/serverless.md` endpoint, so it
@@ -85,7 +95,7 @@ under `external-docs/` and link rewriting points the section at the local copy
 (`../external/bots/features.md#keyboards`) instead of the live website. Links
 without a Markdown endpoint keep their original URL.
 
-The mirrored snapshots are generated into `llms-docs/external/` and listed under
+The mirrored snapshots are generated into `external/` and listed under
 **Referenced Telegram pages** in `llms.txt`. Passing `--externals` to
 `build_llms.py` or `build_site.py` selects a different snapshot directory; the
 default is `external-docs`.

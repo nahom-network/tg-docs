@@ -214,6 +214,21 @@ class ConversionTests(unittest.TestCase):
             for section in serverless['sections']:
                 self.assertTrue((output / 'serverless' / section['path']).is_file())
 
+    def test_published_site_serves_indexes_from_the_root(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory)
+            build_site.build_site(Path('tg-docs.md'), output)
+            for name in ('index.html', 'serverless/index.html', 'serverless.html',
+                         'docs.json', 'llms.txt', 'llms-full.txt',
+                         'serverless/llms.txt', 'serverless/llms-full.txt',
+                         'assets/site.js'):
+                self.assertTrue((output / name).is_file(), name)
+                self.assertNotIn('/llms-docs/', (output / name).read_text(encoding='utf-8'), name)
+            self.assertIn('url=serverless/',
+                          (output / 'serverless.html').read_text(encoding='utf-8'))
+            self.assertEqual((output / 'CNAME').read_text(encoding='utf-8').strip(),
+                             Path('CNAME').read_text(encoding='utf-8').strip())
+
     def test_serverless_snapshot_builds_linked_pages(self):
         text = Path('serverless-docs.md').read_text(encoding='utf-8-sig')
         files = build_llms.build(text)

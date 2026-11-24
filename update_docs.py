@@ -22,9 +22,9 @@ SERVERLESS_SUMMARY = (
     "Run backend code for your bot and Mini App directly on Telegram's infrastructure."
 )
 API_INPUT = Path("tg-docs.md")
-API_OUTPUT = Path("llms-docs")
+API_OUTPUT = Path(".")
 SERVERLESS_INPUT = Path("serverless-docs.md")
-SERVERLESS_OUTPUT = Path("llms-docs/serverless")
+SERVERLESS_OUTPUT = Path("serverless")
 EXTERNAL_DIR = Path("external-docs")
 
 

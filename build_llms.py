@@ -1,7 +1,8 @@
 """Split the saved Telegram Bot API Markdown into linked LLM documentation.
 
-Usage: python build_llms.py tg-docs.md --output llms-docs
-Rebuild: python build_llms.py tg-docs.md --output llms-docs --force
+Usage: python build_llms.py tg-docs.md --output .
+Rebuild: python build_llms.py tg-docs.md --output . --force
+Serverless: python build_llms.py serverless-docs.md --output serverless --force
 Python 3.10+; no third-party dependencies. The source is never modified.
 """
 
@@ -341,7 +342,7 @@ def build(text, externals=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("input", nargs="?", type=Path, default=Path("tg-docs.md"))
-    parser.add_argument("--output", type=Path, default=Path("llms-docs"))
+    parser.add_argument("--output", type=Path, default=Path("."))
     parser.add_argument("--externals", type=Path, default=Path("external-docs"),
                         help="Mirrored Telegram pages saved by update_docs.py (default: external-docs)")
     parser.add_argument("--force", action="store_true", help="Overwrite generated paths; never delete other files")

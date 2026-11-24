@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tg-docs.nahomships.tech/sitemap.xml
