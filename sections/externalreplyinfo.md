@@ -23,6 +23,7 @@ This object contains information about a message that is being replied to, which
 | video | [Video](video.md) | *Optional*. Message is a video, information about the video |
 | video\_note | [VideoNote](videonote.md) | *Optional*. Message is a [video note](https://telegram.org/blog/video-messages-and-telescope), information about the video message |
 | voice | [Voice](voice.md) | *Optional*. Message is a voice message, information about the file |
+| widget | [Widget](widget.md) | *Optional*. Message is an HTML widget, information about the widget |
 | has\_media\_spoiler | True | *Optional*. *True*, if the message media is covered by a spoiler animation |
 | checklist | [Checklist](checklist.md) | *Optional*. Message is a checklist |
 | contact | [Contact](contact.md) | *Optional*. Message is a shared contact, information about the contact |

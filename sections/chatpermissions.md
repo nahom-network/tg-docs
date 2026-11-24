@@ -16,7 +16,7 @@ Describes actions that a non-administrator user is allowed to take in a chat.
 | can\_send\_video\_notes | Boolean | *Optional*. *True*, if the user is allowed to send video notes |
 | can\_send\_voice\_notes | Boolean | *Optional*. *True*, if the user is allowed to send voice notes |
 | can\_send\_polls | Boolean | *Optional*. *True*, if the user is allowed to send polls and checklists |
-| can\_send\_other\_messages | Boolean | *Optional*. *True*, if the user is allowed to send animations, games, stickers and use inline bots |
+| can\_send\_other\_messages | Boolean | *Optional*. *True*, if the user is allowed to send animations, games, stickers, widgets and use inline bots |
 | can\_add\_web\_page\_previews | Boolean | *Optional*. *True*, if the user is allowed to add web page previews to their messages |
 | can\_react\_to\_messages | Boolean | *Optional*. *True*, if the user is allowed to react to messages. If omitted, defaults to the value of *can\_send\_messages*. |
 | can\_edit\_tag | Boolean | *Optional*. *True*, if the user is allowed to edit their own tag. If omitted, defaults to the value of *can\_pin\_messages*. |

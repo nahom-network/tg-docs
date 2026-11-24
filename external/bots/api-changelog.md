@@ -15,13 +15,34 @@ You will find all changes to our [**Bot API**](https://core.telegram.org/bots/ap
 
 ### 2026
 
+#### November 22, 2026
+
+**Bot API 10.5**
+
+**Bot Settings**
+
+- Added the method [setMySettings](https://core.telegram.org/bots/api/methods/setmysettings.md), allowing bots to change their settings, including inline mode settings, privacy mode, the ability to be added to groups, forum topic mode in private chats, and the mode of receiving callback queries.
+- Added the ability to receive callback queries from buttons in messages sent by the bot with the field *inline_message_id* instead of the field *message* in the class [CallbackQuery](https://core.telegram.org/bots/api/types/callbackquery.md), depending on the parameter *callback_query_mode* of the method [setMySettings](https://core.telegram.org/bots/api/methods/setmysettings.md).
+- Added the ability for bots to show the list of topics in a sidebar in private chats with the bot using the parameter *has_topic_sidebar* of the method [setMySettings](https://core.telegram.org/bots/api/methods/setmysettings.md).
+- Split out the class [BotFullInfo](https://core.telegram.org/bots/api/types/botfullinfo.md) from the class [User](https://core.telegram.org/bots/api/types/user.md) and changed the return type of the method [getMe](https://core.telegram.org/bots/api/methods/getme.md) to *BotFullInfo*. The fields that were returned only in [getMe](https://core.telegram.org/bots/api/methods/getme.md) were removed from the class [User](https://core.telegram.org/bots/api/types/user.md).
+- Added the field *active_usernames* to the class [BotFullInfo](https://core.telegram.org/bots/api/types/botfullinfo.md), allowing the bot to get the list of all its active usernames.
+- Added the field *inline_query_placeholder* to the class [BotFullInfo](https://core.telegram.org/bots/api/types/botfullinfo.md), allowing the bot to get its placeholder for inline queries.
+- Added the field *needs_inline_query_location* to the class [BotFullInfo](https://core.telegram.org/bots/api/types/botfullinfo.md), allowing the bot to check whether it requests the location of the user with every inline query.
+- Added the field *has_topic_sidebar* to the class [BotFullInfo](https://core.telegram.org/bots/api/types/botfullinfo.md), allowing the bot to check whether topics in private chats with the bot are shown in a sidebar.
+
+**General**
+
+- Added the ability for bot owners to invite up to 10 users at once to private chats with the bot by pressing the link `https://t.me/botinvite/<bot_username>`. The bot can send messages to the invited users.
+- Added the field *inviter* to the class [WriteAccessAllowed](https://core.telegram.org/bots/api/types/writeaccessallowed.md) for service messages about users invited to the private chat with the bot by the owner of the bot.
+- Replaced the field *text* with the field *blocks* in the classes [RichBlockExpandableBlockQuotation](https://core.telegram.org/bots/api/types/richblockexpandableblockquotation.md) and [InputRichBlockExpandableBlockQuotation](https://core.telegram.org/bots/api/types/inputrichblockexpandableblockquotation.md), allowing expandable block quotations to contain arbitrary blocks.
+
 #### November 9, 2026
 
 **Bot API 10.4**
 
 **Widgets**
 
-- Added the class [Widget](https://core.telegram.org/bots/api/types/widget.md) and the field *widget* to the classes [Message](https://core.telegram.org/bots/api/types/message.md) and [ExternalReplyInfo](https://core.telegram.org/bots/api/types/externalreplyinfo.md) for messages with [HTML widgets](https://core.telegram.org/bots/widgets.md).
+- Added the class [Widget](https://core.telegram.org/bots/api/types/widget.md) and the field *widget* to the classes [Message](https://core.telegram.org/bots/api/types/message.md) and [ExternalReplyInfo](https://core.telegram.org/bots/api/types/externalreplyinfo.md) for messages with [HTML widgets](widgets.md).
 - Added the method [sendWidget](https://core.telegram.org/bots/api/methods/sendwidget.md), allowing bots to send messages with HTML widgets. Currently, in the production environment, widgets can be sent only to private chats, and sent widgets automatically have protected content and therefore can't be forwarded.
 - Added the method [sendSharedWidget](https://core.telegram.org/bots/api/methods/sendsharedwidget.md), allowing bots to send again shared widgets created by the bot.
 - Added the class [WidgetQuery](https://core.telegram.org/bots/api/types/widgetquery.md) and the field *widget_query* to the class [Update](https://core.telegram.org/bots/api/types/update.md) for queries sent to the bot by widgets in messages sent by the bot or via the bot.
@@ -445,7 +466,7 @@ You will find all changes to our [**Bot API**](https://core.telegram.org/bots/ap
 - Added the method [upgradeGift](https://core.telegram.org/bots/api/methods/upgradegift.md), allowing bots to upgrade regular gifts received by a managed business account to unique gifts.
 - Added the method [transferGift](https://core.telegram.org/bots/api/methods/transfergift.md), allowing bots to transfer unique gifts owned by a managed business account.
 - Added the classes [InputStoryContentPhoto](https://core.telegram.org/bots/api/types/inputstorycontentphoto.md) and [InputStoryContentVideo](https://core.telegram.org/bots/api/types/inputstorycontentvideo.md) representing the content of a story to post.
-- Added the classes [StoryArea](https://core.telegram.org/bots/api/types/storyarea.md), [StoryAreaPosition](../../sections/storyareaposition.md), [LocationAddress](https://core.telegram.org/bots/api/types/locationaddress.md), [StoryAreaTypeLocation](https://core.telegram.org/bots/api/types/storyareatypelocation.md), [StoryAreaTypeSuggestedReaction](https://core.telegram.org/bots/api/types/storyareatypesuggestedreaction.md), [StoryAreaTypeLink](https://core.telegram.org/bots/api/types/storyareatypelink.md), [StoryAreaTypeWeather](https://core.telegram.org/bots/api/types/storyareatypeweather.md) and [StoryAreaTypeUniqueGift](https://core.telegram.org/bots/api/types/storyareatypeuniquegift.md), describing clickable active areas on stories.
+- Added the classes [StoryArea](https://core.telegram.org/bots/api/types/storyarea.md), [StoryAreaPosition](https://core.telegram.org/bots/api.md#storyareaposition), [LocationAddress](https://core.telegram.org/bots/api/types/locationaddress.md), [StoryAreaTypeLocation](https://core.telegram.org/bots/api/types/storyareatypelocation.md), [StoryAreaTypeSuggestedReaction](https://core.telegram.org/bots/api/types/storyareatypesuggestedreaction.md), [StoryAreaTypeLink](https://core.telegram.org/bots/api/types/storyareatypelink.md), [StoryAreaTypeWeather](https://core.telegram.org/bots/api/types/storyareatypeweather.md) and [StoryAreaTypeUniqueGift](https://core.telegram.org/bots/api/types/storyareatypeuniquegift.md), describing clickable active areas on stories.
 - Added the method [postStory](https://core.telegram.org/bots/api/methods/poststory.md), allowing bots to post a story on behalf of a managed business account.
 - Added the method [editStory](https://core.telegram.org/bots/api/methods/editstory.md), allowing bots to edit stories they had previously posted on behalf of a managed business account.
 - Added the method [deleteStory](https://core.telegram.org/bots/api/methods/deletestory.md), allowing bots to delete stories they had previously posted on behalf of a managed business account.

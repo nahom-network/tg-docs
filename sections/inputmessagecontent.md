@@ -12,3 +12,5 @@ This object represents the content of a message to be sent as a result of an inl
 - [InputVenueMessageContent](inputvenuemessagecontent.md)
 - [InputContactMessageContent](inputcontactmessagecontent.md)
 - [InputInvoiceMessageContent](inputinvoicemessagecontent.md)
+- [InputWidgetMessageContent](inputwidgetmessagecontent.md)
+- [InputSharedWidgetMessageContent](inputsharedwidgetmessagecontent.md)

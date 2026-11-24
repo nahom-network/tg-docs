@@ -58,9 +58,10 @@ This object represents a message.
 | video | [Video](video.md) | *Optional*. Message is a video, information about the video |
 | video\_note | [VideoNote](videonote.md) | *Optional*. Message is a [video note](https://telegram.org/blog/video-messages-and-telescope), information about the video message |
 | voice | [Voice](voice.md) | *Optional*. Message is a voice message, information about the file |
-| caption | String | *Optional*. Caption for the animation, audio, document, paid media, photo, video or voice |
+| widget | [Widget](widget.md) | *Optional*. Message is an HTML widget, information about the widget |
+| caption | String | *Optional*. Caption for the animation, audio, document, live photo, paid media, photo, video, voice, or widget |
 | caption\_entities | Array of [MessageEntity](messageentity.md) | *Optional*. For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the caption |
-| show\_caption\_above\_media | True | *Optional*. *True*, if the caption must be shown above the message media |
+| show\_caption\_above\_media | True | *Optional*. *True*, if the caption must be shown above the message media or the widget |
 | has\_media\_spoiler | True | *Optional*. *True*, if the message media is covered by a spoiler animation |
 | checklist | [Checklist](checklist.md) | *Optional*. Message is a checklist |
 | contact | [Contact](contact.md) | *Optional*. Message is a shared contact, information about the contact |
@@ -92,7 +93,7 @@ This object represents a message.
 | unique\_gift | [UniqueGiftInfo](uniquegiftinfo.md) | *Optional*. Service message: a unique gift was sent or received |
 | gift\_upgrade\_sent | [GiftInfo](giftinfo.md) | *Optional*. Service message: upgrade of a gift was purchased after the gift was sent |
 | connected\_website | String | *Optional*. The domain name of the website on which the user has logged in. [More about Telegram Login »](../external/widgets/login.md) |
-| write\_access\_allowed | [WriteAccessAllowed](writeaccessallowed.md) | *Optional*. Service message: the user allowed the bot to write messages after adding it to the attachment or side menu, launching a Web App from a link, or accepting an explicit request from a Web App sent by the method [requestWriteAccess](../external/bots/webapps.md#initializing-mini-apps) |
+| write\_access\_allowed | [WriteAccessAllowed](writeaccessallowed.md) | *Optional*. Service message: the user allowed the bot to write messages after adding it to the attachment or side menu, launching a Web App from a link, or accepting an explicit request from a Web App sent by the method [requestWriteAccess](../external/bots/webapps.md#initializing-mini-apps), or the user was invited to the private chat with the bot by the owner of the bot |
 | passport\_data | [PassportData](passportdata.md) | *Optional*. Telegram Passport data |
 | proximity\_alert\_triggered | [ProximityAlertTriggered](proximityalerttriggered.md) | *Optional*. Service message: a user in the chat triggered another user's proximity alert while sharing Live Location |
 | boost\_added | [ChatBoostAdded](chatboostadded.md) | *Optional*. Service message: user boosted the chat |
@@ -115,6 +116,7 @@ This object represents a message.
 | giveaway\_completed | [GiveawayCompleted](giveawaycompleted.md) | *Optional*. Service message: a giveaway without public winners was completed |
 | managed\_bot\_created | [ManagedBotCreated](managedbotcreated.md) | *Optional*. Service message: user created a bot that will be managed by the current bot |
 | paid\_message\_price\_changed | [PaidMessagePriceChanged](paidmessagepricechanged.md) | *Optional*. Service message: the price for paid messages has changed in the chat |
+| paid\_messages\_waived | [PaidMessagesWaived](paidmessageswaived.md) | *Optional*. Service message: the sender of the message used a link of the other user, which allows sending messages to the user without paying Telegram Stars |
 | poll\_option\_added | [PollOptionAdded](polloptionadded.md) | *Optional*. Service message: answer option was added to a poll |
 | poll\_option\_deleted | [PollOptionDeleted](polloptiondeleted.md) | *Optional*. Service message: answer option was deleted from a poll |
 | suggested\_post\_approved | [SuggestedPostApproved](suggestedpostapproved.md) | *Optional*. Service message: a suggested post was approved |
@@ -122,6 +124,7 @@ This object represents a message.
 | suggested\_post\_declined | [SuggestedPostDeclined](suggestedpostdeclined.md) | *Optional*. Service message: a suggested post was declined |
 | suggested\_post\_paid | [SuggestedPostPaid](suggestedpostpaid.md) | *Optional*. Service message: payment for a suggested post was received |
 | suggested\_post\_refunded | [SuggestedPostRefunded](suggestedpostrefunded.md) | *Optional*. Service message: payment for a suggested post was refunded |
+| ton\_wallet\_transfer | [TonWalletTransfer](tonwallettransfer.md) | *Optional*. Service message: a transfer with a TON wallet |
 | video\_chat\_scheduled | [VideoChatScheduled](videochatscheduled.md) | *Optional*. Service message: video chat scheduled |
 | video\_chat\_started | [VideoChatStarted](videochatstarted.md) | *Optional*. Service message: video chat started |
 | video\_chat\_ended | [VideoChatEnded](videochatended.md) | *Optional*. Service message: video chat ended |

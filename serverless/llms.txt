@@ -97,4 +97,8 @@ Read the relevant section and follow its local links.
 
 Pages linked from the sections above, mirrored as raw Markdown:
 
+- [CallbackQuery](external/bots/api/types/callbackquery.md)
+- [Message](external/bots/api/types/message.md)
 - [Telegram Mini Apps](external/bots/webapps.md)
+- [Telegram Serverless](external/bots/serverless.md)
+- [Update](external/bots/api/types/update.md)

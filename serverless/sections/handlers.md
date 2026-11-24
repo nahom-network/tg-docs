@@ -18,7 +18,7 @@ export default async function (message) {
 }
 ```
 
-A handler receives the update's **payload** as its argument — the platform unwraps the Telegram [Update](https://core.telegram.org/bots/api/types/update.md) for you. `handlers/message.js` gets the [Message](https://core.telegram.org/bots/api/types/message.md) (i.e. `update.message`); `handlers/callback_query.js` gets the [CallbackQuery](https://core.telegram.org/bots/api/types/callbackquery.md); and so on. The handler's **second argument** is a per‑invocation context object, `ctx`. It carries the raw `Update` as `ctx.update` — reach for it when you need something outside the payload, like `update_id`.
+A handler receives the update's **payload** as its argument — the platform unwraps the Telegram [Update](../external/bots/api/types/update.md) for you. `handlers/message.js` gets the [Message](../external/bots/api/types/message.md) (i.e. `update.message`); `handlers/callback_query.js` gets the [CallbackQuery](../external/bots/api/types/callbackquery.md); and so on. The handler's **second argument** is a per‑invocation context object, `ctx`. It carries the raw `Update` as `ctx.update` — reach for it when you need something outside the payload, like `update_id`.
 
 A handler can be `async` (usually is) and may return a value. It reaches the Bot API, the database, and outbound HTTP through the SDK.
 

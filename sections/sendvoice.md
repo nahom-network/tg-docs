@@ -9,7 +9,7 @@ Use this method to send audio files, if you want Telegram clients to display the
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | business\_connection\_id | String | Optional | Unique identifier of the business connection on behalf of which the message will be sent |
-| chat\_id | Integer or String | Yes | Unique identifier for the target chat or username of the target bot, supergroup or channel in the format `@username` |
+| chat\_id | Integer or String | Optional | Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format `@username`; required unless the message is sent as an ephemeral reply to a callback query |
 | message\_thread\_id | Integer | Optional | Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only |
 | direct\_messages\_topic\_id | Integer | Optional | Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat |
 | ephemeral\_message\_parameters | [EphemeralMessageParameters](ephemeralmessageparameters.md) | Optional | A JSON-serialized object containing the parameters of the ephemeral message to send |

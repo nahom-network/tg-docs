@@ -16,6 +16,8 @@ Please note, that it is currently only possible to edit messages without *reply\
 - [editMessageLiveLocation](editmessagelivelocation.md)
 - [stopMessageLiveLocation](stopmessagelivelocation.md)
 - [editMessageChecklist](editmessagechecklist.md)
+- [editMessageWidgetData](editmessagewidgetdata.md)
+- [editSharedWidgetData](editsharedwidgetdata.md)
 - [editMessageReplyMarkup](editmessagereplymarkup.md)
 - [stopPoll](stoppoll.md)
 - [editEphemeralMessageText](editephemeralmessagetext.md)

@@ -33,6 +33,7 @@ The following methods and objects allow your bot to handle and send rich message
 - [RichTextEmailAddress](richtextemailaddress.md)
 - [RichTextPhoneNumber](richtextphonenumber.md)
 - [RichTextBankCardNumber](richtextbankcardnumber.md)
+- [RichTextTonAddress](richtexttonaddress.md)
 - [RichTextMention](richtextmention.md)
 - [RichTextHashtag](richtexthashtag.md)
 - [RichTextCashtag](richtextcashtag.md)

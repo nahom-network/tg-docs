@@ -23,6 +23,7 @@ This object represents a rich formatted text. Currently, it can be either a Stri
 - [RichTextEmailAddress](richtextemailaddress.md)
 - [RichTextPhoneNumber](richtextphonenumber.md)
 - [RichTextBankCardNumber](richtextbankcardnumber.md)
+- [RichTextTonAddress](richtexttonaddress.md)
 - [RichTextMention](richtextmention.md)
 - [RichTextHashtag](richtexthashtag.md)
 - [RichTextCashtag](richtextcashtag.md)

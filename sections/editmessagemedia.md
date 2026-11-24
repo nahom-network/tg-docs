@@ -9,7 +9,7 @@ Use this method to edit animation, audio, document, live photo, photo, or video 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | business\_connection\_id | String | Optional | Unique identifier of the business connection on behalf of which the message to be edited was sent |
-| chat\_id | Integer or String | Optional | Required if *inline\_message\_id* is not specified. Unique identifier for the target chat or username of the target bot, supergroup or channel in the format `@username`. |
+| chat\_id | Integer or String | Optional | Required if *inline\_message\_id* is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format `@username`. |
 | message\_id | Integer | Optional | Required if *inline\_message\_id* is not specified. Identifier of the message to edit. |
 | inline\_message\_id | String | Optional | Required if *chat\_id* and *message\_id* are not specified. Identifier of the inline message. |
 | media | [InputMedia](inputmedia.md) | Yes | A JSON-serialized object for the new media content of the message |

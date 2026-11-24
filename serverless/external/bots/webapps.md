@@ -370,7 +370,7 @@ Starting from ==Bot API 7.6==, by default, Mini Apps of this type open to full-s
 
 >**TL;DR:** Mini Apps can be launched when the bot is set up as a guard bot of a chat and a user sends join request to the chat. This offers a way to handle join requests using a Mini App.
 
-When a user joins a chat in which the bot was set up as a guard bot, the bot receives an [Update](https://core.telegram.org/bots/api/types/update.md) "chat_join_request" with the field *query_id*. The bot may call the method [sendChatJoinRequestWebApp](https://core.telegram.org/bots/api/methods/sendchatjoinrequestwebapp.md) to show the Mini App to the user before deciding the outcome of the request.
+When a user joins a chat in which the bot was set up as a guard bot, the bot receives an [Update](api/types/update.md) "chat_join_request" with the field *query_id*. The bot may call the method [sendChatJoinRequestWebApp](https://core.telegram.org/bots/api/methods/sendchatjoinrequestwebapp.md) to show the Mini App to the user before deciding the outcome of the request.
 
 In addition to the user's [theme settings](#color-schemes), the bot will receive basic user information (`ID`, `name`, `username`, `language_code`, `photo`), the chat info (`ID`, `type`, `title`, `username`, `photo`) and a unique identifier for the join request query **chat_join_request_query_id**, which allows to process the query.
 
@@ -451,7 +451,7 @@ The application can display just the top part of the Mini App, with its lower pa
 | LocationManager |[LocationManager](#locationmanager)|An object for controlling location on the device. |
 | DeviceStorage |[DeviceStorage](#devicestorage)|An object for storing and retrieving data from the device's local storage. |
 | SecureStorage |[SecureStorage](#securestorage)|An object for storing and retrieving data from the device's secure storage. |
-| Serverless ^==NEW==^ |[Serverless](#serverless)|An object for calling the endpoints of the bot's [Serverless](https://core.telegram.org/bots/serverless.md) project. |
+| Serverless ^==NEW==^ |[Serverless](#serverless)|An object for calling the endpoints of the bot's [Serverless](serverless.md) project. |
 | isVersionAtLeast(version) |Function|Returns true if the user's app supports a version of the Bot API that is equal to or higher than the version passed as the parameter. |
 | setHeaderColor(color) |Function|==Bot API 6.1+== A method that sets the app header color in the `#RRGGBB` format. You can also use keywords *bg_color* and *secondary_bg_color*. \
 \
@@ -474,7 +474,7 @@ Up to ==Bot API 6.9== You can only pass *Telegram.WebApp.themeParams.bg_color* o
 - **missed** – the icon has not been added to the home screen. |
 | onEvent(eventType, eventHandler) |Function|A method that sets the app event handler. Check [the list of available events](#events-available-for-mini-apps).|
 | offEvent(eventType, eventHandler) |Function|A method that deletes a previously set event handler. |
-| sendData(data) |Function|A method used to send data to the bot. When this method is called, a service message is sent to the bot containing the data *data* of the length up to 4096 bytes, and the Mini App is closed. See the field *web_app_data* in the class [Message](https://core.telegram.org/bots/api/types/message.md).\
+| sendData(data) |Function|A method used to send data to the bot. When this method is called, a service message is sent to the bot containing the data *data* of the length up to 4096 bytes, and the Mini App is closed. See the field *web_app_data* in the class [Message](api/types/message.md).\
 \
 *This method is only available for Mini Apps launched via a [Keyboard button](#keyboard-button-mini-apps).*|
 | switchInlineQuery(query\[, choose_chat_types]) |Function|==Bot API 6.7+== A method that inserts the bot's username and the specified inline *query* in the current chat's input field. Query may be empty, in which case only the bot's username will be inserted. If an optional *choose_chat_types* parameter was passed, the client prompts the user to choose a specific chat, then opens that chat and inserts the bot's username and the specified inline query in the input field. You can specify which types of chats the user will be able to choose from. It can be one or more of the following types: *users*, *bots*, *groups*, *channels*. |
@@ -955,7 +955,7 @@ All these methods return the [SecureStorage](#securestorage) object, so they can
 
 #### Serverless
 
-This object lets a Mini App hosted on [Telegram Serverless](https://core.telegram.org/bots/serverless.md) call the bot's [endpoints](../../sections/endpoints.md) – the server-side functions of the Mini App. Each call is sent together with the Mini App's *initData*, which the platform validates before running the endpoint, so the endpoint always knows which user is calling it.
+This object lets a Mini App hosted on [Telegram Serverless](serverless.md) call the bot's [endpoints](../../sections/endpoints.md) – the server-side functions of the Mini App. Each call is sent together with the Mini App's *initData*, which the platform validates before running the endpoint, so the endpoint always knows which user is calling it.
 
 | Field | Type | Description |
 |-----------|

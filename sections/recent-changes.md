@@ -8,7 +8,7 @@ Source: https://core.telegram.org/bots/api#recent-changes
 
 ## In this section
 
+- [November 22, 2026](november-22-2026.md)
+- [November 9, 2026](november-9-2026.md)
 - [August 24, 2026](august-24-2026.md)
 - [July 14, 2026](july-14-2026.md)
-- [June 11, 2026](june-11-2026.md)
-- [May 8, 2026](may-8-2026.md)

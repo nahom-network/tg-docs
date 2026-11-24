@@ -4,14 +4,14 @@ Source: https://core.telegram.org/bots/api#copymessage
 
 [Documentation index](../llms.txt)
 
-Use this method to copy messages of any kind. Service messages, paid media messages, giveaway messages, giveaway winners messages, and invoice messages can't be copied. A quiz [poll](poll.md) can be copied only if the value of the field *correct\_option\_ids* is known to the bot. The method is analogous to the method [forwardMessage](forwardmessage.md), but the copied message doesn't have a link to the original message. Returns the [MessageId](messageid.md) of the sent message on success.
+Use this method to copy messages of any kind. Service messages, paid media messages, giveaway messages, giveaway winners messages, invoice messages, and widget messages can't be copied. A quiz [poll](poll.md) can be copied only if the value of the field *correct\_option\_ids* is known to the bot. The method is analogous to the method [forwardMessage](forwardmessage.md), but the copied message doesn't have a link to the original message. Returns the [MessageId](messageid.md) of the sent message on success.
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| chat\_id | Integer or String | Yes | Unique identifier for the target chat or username of the target bot, supergroup or channel in the format `@username` |
+| chat\_id | Integer or String | Yes | Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format `@username` |
 | message\_thread\_id | Integer | Optional | Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only |
 | direct\_messages\_topic\_id | Integer | Optional | Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat |
-| from\_chat\_id | Integer or String | Yes | Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup or channel in the format `@username`) |
+| from\_chat\_id | Integer or String | Yes | Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup, or channel in the format `@username`) |
 | message\_id | Integer | Yes | Message identifier in the chat specified in *from\_chat\_id* |
 | video\_start\_timestamp | Integer | Optional | New start timestamp for the copied video in the message |
 | caption | String | Optional | New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept. |

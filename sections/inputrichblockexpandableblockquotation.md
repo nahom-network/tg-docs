@@ -9,5 +9,5 @@ A block quotation, corresponding to the HTML tag `<blockquote>` with custom attr
 | Field | Type | Description |
 | --- | --- | --- |
 | type | String | Type of the block, always “expandable\_blockquote” |
-| text | [RichText](richtext.md) | Content of the block |
+| blocks | Array of [InputRichBlock](inputrichblock.md) | Content of the block |
 | credit | [RichText](richtext.md) | *Optional*. Credit of the block |

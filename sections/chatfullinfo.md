@@ -61,3 +61,5 @@ This object contains full information about a chat.
 | paid\_message\_star\_count | Integer | *Optional*. The number of Telegram Stars a general user has to pay to send a message to the chat |
 | guard\_bot | [User](user.md) | *Optional*. The bot that processes join request queries in the chat. The field is only available to chat administrators. |
 | community | [Community](community.md) | *Optional*. The [Community](community.md) to which the chat belongs |
+| ton\_wallet\_card | [TonWalletCard](tonwalletcard.md) | *Optional*. For private chats, the TON wallet card of the user, which is shown on their profile page |
+| share\_theme | [ChatShareTheme](chatsharetheme.md) | *Optional*. For private chats, supergroups and channels, the theme of the screen for sharing a link to the user or the chat; omitted if the default theme is used |

@@ -2,15 +2,27 @@
   "title": "Telegram Bot API",
   "source": "https://core.telegram.org/bots/api",
   "summary": "The Bot API is an HTTP-based interface for developing Telegram bots.",
-  "updated_at": "2026-10-26T13:21:25+00:00",
-  "version": "10.3",
-  "page_count": 615,
+  "updated_at": "2026-11-24T09:46:37+00:00",
+  "version": "10.5",
+  "page_count": 650,
   "sections": [
     {
       "title": "Recent changes",
       "group": "Recent changes",
       "path": "sections/recent-changes.md",
       "description": ""
+    },
+    {
+      "title": "November 22, 2026",
+      "group": "Recent changes",
+      "path": "sections/november-22-2026.md",
+      "description": "Bot API 10.5"
+    },
+    {
+      "title": "November 9, 2026",
+      "group": "Recent changes",
+      "path": "sections/november-9-2026.md",
+      "description": "Bot API 10.4"
     },
     {
       "title": "August 24, 2026",
@@ -23,18 +35,6 @@
       "group": "Recent changes",
       "path": "sections/july-14-2026.md",
       "description": "Bot API 10.2"
-    },
-    {
-      "title": "June 11, 2026",
-      "group": "Recent changes",
-      "path": "sections/june-11-2026.md",
-      "description": "Bot API 10.1"
-    },
-    {
-      "title": "May 8, 2026",
-      "group": "Recent changes",
-      "path": "sections/may-8-2026.md",
-      "description": "Bot API 10.0"
     },
     {
       "title": "Authorizing your bot",
@@ -113,6 +113,12 @@
       "group": "Available types",
       "path": "sections/available-types.md",
       "description": "All types used in the Bot API responses are represented as JSON-objects."
+    },
+    {
+      "title": "BotFullInfo",
+      "group": "Available types",
+      "path": "sections/botfullinfo.md",
+      "description": "This object contains full information about the bot itself."
     },
     {
       "title": "User",
@@ -275,6 +281,12 @@
       "group": "Available types",
       "path": "sections/voice.md",
       "description": "This object represents a voice note."
+    },
+    {
+      "title": "Widget",
+      "group": "Available types",
+      "path": "sections/widget.md",
+      "description": "This object describes an HTML widget."
     },
     {
       "title": "PaidMediaInfo",
@@ -685,6 +697,18 @@
       "description": "Describes a service message about a payment refund for a suggested post."
     },
     {
+      "title": "PaidMessagesWaived",
+      "group": "Available types",
+      "path": "sections/paidmessageswaived.md",
+      "description": "Describes a service message about the sender of the message using a link of the other user, which allows sending messages to the user without paying Telegram Stars. Currently holds no information."
+    },
+    {
+      "title": "TonWalletTransfer",
+      "group": "Available types",
+      "path": "sections/tonwallettransfer.md",
+      "description": "Describes a service message about a transfer with a TON wallet."
+    },
+    {
       "title": "GiveawayCreated",
       "group": "Available types",
       "path": "sections/giveawaycreated.md",
@@ -844,7 +868,49 @@
       "title": "CallbackQuery",
       "group": "Available types",
       "path": "sections/callbackquery.md",
-      "description": "This object represents an incoming callback query from a callback button in an inline keyboard. If the button that originated the query was attached to a message sent by the bot, the field message will be present. If the"
+      "description": "This object represents an incoming callback query from a callback button in an inline keyboard or in a rich message. If the button that originated the query belongs to a message sent by the bot, the field message will be"
+    },
+    {
+      "title": "WidgetQueryType",
+      "group": "Available types",
+      "path": "sections/widgetquerytype.md",
+      "description": "This object describes the type of a query from a widget. Currently, it can be one of"
+    },
+    {
+      "title": "WidgetQueryTypeData",
+      "group": "Available types",
+      "path": "sections/widgetquerytypedata.md",
+      "description": "The query contains data for the bot."
+    },
+    {
+      "title": "WidgetQueryTypeSignData",
+      "group": "Available types",
+      "path": "sections/widgetquerytypesigndata.md",
+      "description": "The query contains data signed by a TON wallet of the user who sent the query. The data is signed for the domain bot<botid>, where <botid> is the identifier of the bot."
+    },
+    {
+      "title": "WidgetQueryTypeSentTransaction",
+      "group": "Available types",
+      "path": "sections/widgetquerytypesenttransaction.md",
+      "description": "The query notifies the bot about a transaction sent from a TON wallet of the user who sent the query."
+    },
+    {
+      "title": "WidgetQueryWallet",
+      "group": "Available types",
+      "path": "sections/widgetquerywallet.md",
+      "description": "This object describes a TON wallet of the user, which is used in a query from a widget."
+    },
+    {
+      "title": "WidgetQuery",
+      "group": "Available types",
+      "path": "sections/widgetquery.md",
+      "description": "This object represents an incoming query from a widget in a message sent by the bot or via the bot. Use answerWidgetQuery to answer the query. Each user can send at most 5 queries per 5 seconds to the bot from all its wi"
+    },
+    {
+      "title": "SharedWidgetQuery",
+      "group": "Available types",
+      "path": "sections/sharedwidgetquery.md",
+      "description": "This object represents an incoming query from a forwarded message with a shared widget created by the bot. Use answerWidgetQuery to answer the query. Each user can send at most 5 queries per 5 seconds to the bot from all"
     },
     {
       "title": "ForceReply",
@@ -973,10 +1039,82 @@
       "description": "This object describes the rating of a user based on their Telegram Star spendings."
     },
     {
-      "title": "StoryAreaPosition",
+      "title": "AreaPosition",
       "group": "Available types",
-      "path": "sections/storyareaposition.md",
-      "description": "Describes the position of a clickable area within a story."
+      "path": "sections/areaposition.md",
+      "description": "Describes the position of a rectangle area on a story media or a TON wallet card."
+    },
+    {
+      "title": "TonNft",
+      "group": "Available types",
+      "path": "sections/tonnft.md",
+      "description": "This object represents an NFT in the TON blockchain."
+    },
+    {
+      "title": "TonNftAttribute",
+      "group": "Available types",
+      "path": "sections/tonnftattribute.md",
+      "description": "This object represents an attribute of an NFT in the TON blockchain."
+    },
+    {
+      "title": "TonWalletCardSticker",
+      "group": "Available types",
+      "path": "sections/tonwalletcardsticker.md",
+      "description": "This object describes a sticker on a TON wallet card."
+    },
+    {
+      "title": "TonWalletCard",
+      "group": "Available types",
+      "path": "sections/tonwalletcard.md",
+      "description": "This object describes a TON wallet card, which is shown on the profile page of a user to everyone."
+    },
+    {
+      "title": "EmojiType",
+      "group": "Available types",
+      "path": "sections/emojitype.md",
+      "description": "This object describes an emoji. Currently, it can be one of"
+    },
+    {
+      "title": "EmojiTypeEmoji",
+      "group": "Available types",
+      "path": "sections/emojitypeemoji.md",
+      "description": "A regular emoji."
+    },
+    {
+      "title": "EmojiTypeCustomEmoji",
+      "group": "Available types",
+      "path": "sections/emojitypecustomemoji.md",
+      "description": "A custom emoji."
+    },
+    {
+      "title": "ChatShareTheme",
+      "group": "Available types",
+      "path": "sections/chatsharetheme.md",
+      "description": "This object describes the theme of the screen for sharing a link to a user or a chat. Currently, it can be one of"
+    },
+    {
+      "title": "ChatShareThemeEmoji",
+      "group": "Available types",
+      "path": "sections/chatsharethemeemoji.md",
+      "description": "The theme with emoji placed on a background."
+    },
+    {
+      "title": "ChatShareThemeUniqueGift",
+      "group": "Available types",
+      "path": "sections/chatsharethemeuniquegift.md",
+      "description": "The theme based on a unique gift owned by the user or the chat."
+    },
+    {
+      "title": "ChatShareThemeBackdrops",
+      "group": "Available types",
+      "path": "sections/chatsharethemebackdrops.md",
+      "description": "This object contains a list of backdrops, which can be used as the background of a theme of the screen for sharing a link to a user or a chat."
+    },
+    {
+      "title": "ChatShareThemeBackdrop",
+      "group": "Available types",
+      "path": "sections/chatsharethemebackdrop.md",
+      "description": "This object describes a backdrop, which can be used as the background of a theme of the screen for sharing a link to a user or a chat."
     },
     {
       "title": "LocationAddress",
@@ -1570,7 +1708,7 @@
       "title": "getMe",
       "group": "Available methods",
       "path": "sections/getme.md",
-      "description": "A simple method for testing your bot's authentication token. Requires no parameters. Returns basic information about the bot in form of a User object."
+      "description": "A simple method for testing your bot's authentication token. Requires no parameters. Returns information about the bot in form of a BotFullInfo object."
     },
     {
       "title": "logOut",
@@ -1624,13 +1762,13 @@
       "title": "copyMessage",
       "group": "Available methods",
       "path": "sections/copymessage.md",
-      "description": "Use this method to copy messages of any kind. Service messages, paid media messages, giveaway messages, giveaway winners messages, and invoice messages can't be copied. A quiz poll can be copied only if the value of the "
+      "description": "Use this method to copy messages of any kind. Service messages, paid media messages, giveaway messages, giveaway winners messages, invoice messages, and widget messages can't be copied. A quiz poll can be copied only if "
     },
     {
       "title": "copyMessages",
       "group": "Available methods",
       "path": "sections/copymessages.md",
-      "description": "Use this method to copy messages of any kind. If some of the specified messages can't be found or copied, they are skipped. Service messages, paid media messages, giveaway messages, giveaway winners messages, and invoice"
+      "description": "Use this method to copy messages of any kind. If some of the specified messages can't be found or copied, they are skipped. Service messages, paid media messages, giveaway messages, giveaway winners messages, invoice mes"
     },
     {
       "title": "sendPhoto",
@@ -1679,6 +1817,18 @@
       "group": "Available methods",
       "path": "sections/sendvideonote.md",
       "description": "Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent Message is returned."
+    },
+    {
+      "title": "sendWidget",
+      "group": "Available methods",
+      "path": "sections/sendwidget.md",
+      "description": "Use this method to send a message with an HTML widget. Currently, in the production environment, widgets can be sent only to private chats, and sent widgets automatically have protected content and therefore can't be for"
+    },
+    {
+      "title": "sendSharedWidget",
+      "group": "Available methods",
+      "path": "sections/sendsharedwidget.md",
+      "description": "Use this method to send again a shared widget created by the bot. Currently, in the production environment, widgets can be sent only to private chats, and sent widgets automatically have protected content and therefore c"
     },
     {
       "title": "sendPaidMedia",
@@ -1957,6 +2107,12 @@
       "description": "Use this method to get information about a member of a chat. The method is only guaranteed to work for other users if the bot is an administrator in the chat. Returns a ChatMember object on success."
     },
     {
+      "title": "getChatShareThemeBackdrops",
+      "group": "Available methods",
+      "path": "sections/getchatsharethemebackdrops.md",
+      "description": "Use this method to get the list of backdrops, which can be used as the background of a theme of the screen for sharing a link to a user or a chat. Requires no parameters. Returns a ChatShareThemeBackdrops object."
+    },
+    {
       "title": "getUserPersonalChatMessages",
       "group": "Available methods",
       "path": "sections/getuserpersonalchatmessages.md",
@@ -2056,7 +2212,13 @@
       "title": "answerCallbackQuery",
       "group": "Available methods",
       "path": "sections/answercallbackquery.md",
-      "description": "Use this method to send answers to callback queries sent from inline keyboards. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, True is returned."
+      "description": "Use this method to send answers to callback queries sent from inline keyboards or rich messages. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, True i"
+    },
+    {
+      "title": "answerWidgetQuery",
+      "group": "Available methods",
+      "path": "sections/answerwidgetquery.md",
+      "description": "Use this method to send an answer to a query from a widget. The query must be answered within 15 seconds. The answer is received only by the widget that sent the query and doesn't change data of the widget; use editMessa"
     },
     {
       "title": "answerGuestQuery",
@@ -2099,6 +2261,12 @@
       "group": "Available methods",
       "path": "sections/setmanagedbotaccesssettings.md",
       "description": "Use this method to change the access settings of a managed bot. Returns True on success."
+    },
+    {
+      "title": "setMySettings",
+      "group": "Available methods",
+      "path": "sections/setmysettings.md",
+      "description": "Use this method to change settings of the bot. Settings that aren't specified remain unchanged. Returns True on success."
     },
     {
       "title": "setMyCommands",
@@ -2311,6 +2479,12 @@
       "description": "Returns the gifts owned by a chat. Returns OwnedGifts on success."
     },
     {
+      "title": "getUniqueGift",
+      "group": "Available methods",
+      "path": "sections/getuniquegift.md",
+      "description": "Use this method to get information about a unique gift by its name. Returns a UniqueGift object on success."
+    },
+    {
       "title": "convertGiftToStars",
       "group": "Available methods",
       "path": "sections/convertgifttostars.md",
@@ -2327,6 +2501,12 @@
       "group": "Available methods",
       "path": "sections/transfergift.md",
       "description": "Transfers an owned unique gift to another user. Requires the can\\transfer\\and\\upgrade\\gifts business bot right. Requires can\\transfer\\stars business bot right if the transfer is paid. Returns True on success."
+    },
+    {
+      "title": "deleteBusinessAccountGift",
+      "group": "Available methods",
+      "path": "sections/deletebusinessaccountgift.md",
+      "description": "Deletes a regular gift owned by a managed business account without receiving Telegram Stars for it. Requires the can\\convert\\gifts\\to\\stars business bot right. The gift can be deleted only if it isn't limited (the field "
     },
     {
       "title": "postStory",
@@ -2417,6 +2597,18 @@
       "group": "Updating messages",
       "path": "sections/editmessagechecklist.md",
       "description": "Use this method to edit a checklist on behalf of a connected business account. On success, the edited Message is returned."
+    },
+    {
+      "title": "editMessageWidgetData",
+      "group": "Updating messages",
+      "path": "sections/editmessagewidgetdata.md",
+      "description": "Use this method to edit data of a widget in a message sent by the bot or via the bot (for inline bots). Public data of a shared widget can be changed at most once per second. On success, True is returned."
+    },
+    {
+      "title": "editSharedWidgetData",
+      "group": "Updating messages",
+      "path": "sections/editsharedwidgetdata.md",
+      "description": "Use this method to edit public data of a shared widget created by the bot. A shared widget can be edited at most once per second. On success, True is returned."
     },
     {
       "title": "editMessageReplyMarkup",
@@ -2777,6 +2969,12 @@
       "group": "Rich messages",
       "path": "sections/richtextbankcardnumber.md",
       "description": "A text with a bank card number."
+    },
+    {
+      "title": "RichTextTonAddress",
+      "group": "Rich messages",
+      "path": "sections/richtexttonaddress.md",
+      "description": "An address in the TON blockchain."
     },
     {
       "title": "RichTextMention",
@@ -3347,6 +3545,18 @@
       "group": "Inline mode",
       "path": "sections/inputinvoicemessagecontent.md",
       "description": "Represents the content of an invoice message to be sent as the result of an inline query."
+    },
+    {
+      "title": "InputWidgetMessageContent",
+      "group": "Inline mode",
+      "path": "sections/inputwidgetmessagecontent.md",
+      "description": "Represents the content of a message with an HTML widget to be sent as the result of an inline query. Currently, widgets can't be sent in response to inline queries in the production environment."
+    },
+    {
+      "title": "InputSharedWidgetMessageContent",
+      "group": "Inline mode",
+      "path": "sections/inputsharedwidgetmessagecontent.md",
+      "description": "Represents the content of a message with a shared widget to be sent as the result of an inline query. Currently, widgets can't be sent in response to inline queries in the production environment."
     },
     {
       "title": "ChosenInlineResult",

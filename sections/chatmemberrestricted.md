@@ -20,7 +20,7 @@ Represents a [chat member](chatmember.md) that is under certain restrictions in 
 | can\_send\_video\_notes | Boolean | *True*, if the user is allowed to send video notes |
 | can\_send\_voice\_notes | Boolean | *True*, if the user is allowed to send voice notes |
 | can\_send\_polls | Boolean | *True*, if the user is allowed to send polls and checklists |
-| can\_send\_other\_messages | Boolean | *True*, if the user is allowed to send animations, games, stickers and use inline bots |
+| can\_send\_other\_messages | Boolean | *True*, if the user is allowed to send animations, games, stickers, widgets and use inline bots |
 | can\_add\_web\_page\_previews | Boolean | *True*, if the user is allowed to add web page previews to their messages |
 | can\_react\_to\_messages | Boolean | *True*, if the user is allowed to react to messages |
 | can\_edit\_tag | Boolean | *True*, if the user is allowed to edit their own tag |
