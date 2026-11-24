@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#inputrichblockphoto
 
 [Documentation index](../llms.txt)
 
-A block with a photo, corresponding to the HTML tag `<img>`.
+A block with a photo, corresponding to the HTML tag `<img>.
 
 | Field | Type | Description |
 | --- | --- | --- |

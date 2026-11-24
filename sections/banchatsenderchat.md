@@ -8,5 +8,5 @@ Use this method to ban a channel chat in a supergroup or a channel. Until the ch
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| chat\_id | Integer or String | Yes | Unique identifier for the target chat or username of the target channel in the format `@username` |
-| sender\_chat\_id | Integer | Yes | Unique identifier of the target sender chat |
+| chat_id | Integer or String | Yes | Unique identifier for the target chat or username of the target channel in the format `@username |
+| sender_chat_id | Integer | Yes | Unique identifier of the target sender chat |

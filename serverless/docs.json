@@ -112,7 +112,7 @@
       "title": "Anatomy of a project",
       "group": "Projects and modules",
       "path": "sections/anatomy-of-a-project.md",
-      "description": "examplebot/"
+      "description": "example_bot/"
     },
     {
       "title": "The module system",
@@ -160,7 +160,7 @@
       "title": "No foreign keys",
       "group": "The database",
       "path": "sections/no-foreign-keys.md",
-      "description": "The runtime runs with PRAGMA foreignkeys off. A declared foreign key would be silently inert — no cascades, no orphan protection — which is worse than having none at all, so the DSL makes it impossible. Namely, .referenc"
+      "description": "The runtime runs with PRAGMA foreign_keys off. A declared foreign key would be silently inert — no cascades, no orphan protection — which is worse than having none at all, so the DSL makes it impossible. Namely, .referen"
     },
     {
       "title": "Querying",

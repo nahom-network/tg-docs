@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#inputrichblockparagraph
 
 [Documentation index](../llms.txt)
 
-A text paragraph, corresponding to the HTML tag `<p>`.
+A text paragraph, corresponding to the HTML tag `<p>.
 
 | Field | Type | Description |
 | --- | --- | --- |

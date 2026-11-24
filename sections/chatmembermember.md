@@ -11,4 +11,4 @@ Represents a [chat member](chatmember.md) that has no additional privileges or r
 | status | String | The member's status in the chat, always “member” |
 | tag | String | *Optional*. Tag of the member |
 | user | [User](user.md) | Information about the user |
-| until\_date | Integer | *Optional*. Date when the user's subscription will expire; Unix time |
+| until_date | Integer | *Optional*. Date when the user's subscription will expire; Unix time |

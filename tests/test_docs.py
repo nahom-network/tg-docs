@@ -48,6 +48,14 @@ class ConversionTests(unittest.TestCase):
                                            externals=None)
                 self.assertEqual(source.read_text(encoding='utf-8'), 'keep me')
 
+    def test_conversion_keeps_identifier_underscores(self):
+        html = sample_html('<h4>BotFullInfo</h4>'
+                           '<p>Fields is_bot and receiver_user_id.</p>')
+        body = update_docs.convert_html(html)
+        self.assertIn('is_bot', body)
+        self.assertIn('receiver_user_id', body)
+        self.assertNotIn(r'is\_bot', body)
+
     def test_unchanged_fetch_does_not_change_date(self):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / 'source.md'
@@ -165,6 +173,26 @@ class ConversionTests(unittest.TestCase):
             self.assertFalse((directory / 'external-docs/bots/url.md').exists())
             self.assertIn('https://core.telegram.org/bots/features',
                           build_llms.load_externals(directory / 'external-docs'))
+
+    def test_build_unescapes_identifiers_but_not_code_or_escape_examples(self):
+        text = ('### Recent changes\n\n#### BotFullInfo\n\n'
+                '| Field | Type |\n| --- | --- |\n| is\\_bot | True |\n\n'
+                'Use `_snake_\\__case_` for italic and the marker \'\\_\'.\n')
+        page = build_llms.build(text)['sections/botfullinfo.md']
+        self.assertIn('| is_bot | True |', page)
+        self.assertIn('`_snake_\\__case_`', page)
+        self.assertIn("'\\_'", page)
+
+    def test_descriptions_keep_identifier_underscores(self):
+        section = build_llms.Section(4, 'BotFullInfo', 'botfullinfo',
+                                     ['The can_delete_messages right.'], 'Group')
+        description = build_site.section_description(section)
+        self.assertIn('can_delete_messages', description)
+        self.assertNotIn(r'can\_delete\_messages', description)
+
+    def test_source_snapshot_is_normalized_outside_code(self):
+        text = Path('tg-docs.md').read_text(encoding='utf-8-sig')
+        self.assertEqual(build_llms.normalize_identifier_underscores(text), text)
 
     def test_site_publishes_linked_pages(self):
         with tempfile.TemporaryDirectory() as directory:

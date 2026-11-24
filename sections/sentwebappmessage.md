@@ -8,4 +8,4 @@ Describes an inline message sent by a [Web App](../external/bots/webapps.md) on 
 
 | Field | Type | Description |
 | --- | --- | --- |
-| inline\_message\_id | String | *Optional*. Identifier of the sent inline message. Available only if there is an [inline keyboard](inlinekeyboardmarkup.md) attached to the message. |
+| inline_message_id | String | *Optional*. Identifier of the sent inline message. Available only if there is an [inline keyboard](inlinekeyboardmarkup.md) attached to the message. |

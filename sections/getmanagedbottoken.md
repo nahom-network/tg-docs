@@ -8,4 +8,4 @@ Use this method to get the token of a managed bot. Returns the token as *String*
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| user\_id | Integer | Yes | User identifier of the managed bot whose token will be returned |
+| user_id | Integer | Yes | User identifier of the managed bot whose token will be returned |

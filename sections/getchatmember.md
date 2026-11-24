@@ -8,5 +8,5 @@ Use this method to get information about a member of a chat. The method is only 
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| chat\_id | Integer or String | Yes | Unique identifier for the target chat or username of the target supergroup or channel in the format `@username` |
-| user\_id | Integer | Yes | Unique identifier of the target user |
+| chat_id | Integer or String | Yes | Unique identifier for the target chat or username of the target supergroup or channel in the format `@username |
+| user_id | Integer | Yes | Unique identifier of the target user |

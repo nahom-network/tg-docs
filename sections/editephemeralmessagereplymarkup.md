@@ -8,7 +8,7 @@ Use this method to edit only the reply markup of an ephemeral message. Note that
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| chat\_id | Integer or String | Yes | Unique identifier for the target chat or username of the target supergroup in the format `@username` |
-| receiver\_user\_id | Integer | Yes | Identifier of the user who received the message |
-| ephemeral\_message\_id | Integer | Yes | Identifier of the ephemeral message to edit |
-| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | Optional | A JSON-serialized object for an [inline keyboard](../external/bots/features.md#inline-keyboards) |
+| chat_id | Integer or String | Yes | Unique identifier for the target chat or username of the target supergroup in the format `@username |
+| receiver_user_id | Integer | Yes | Identifier of the user who received the message |
+| ephemeral_message_id | Integer | Yes | Identifier of the ephemeral message to edit |
+| reply_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | Optional | A JSON-serialized object for an [inline keyboard](../external/bots/features.md#inline-keyboards) |

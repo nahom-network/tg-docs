@@ -10,4 +10,4 @@ Represents a [chat member](chatmember.md) that was banned in the chat and can't 
 | --- | --- | --- |
 | status | String | The member's status in the chat, always “kicked” |
 | user | [User](user.md) | Information about the user |
-| until\_date | Integer | Date when restrictions will be lifted for this user; Unix time. If 0, then the user is banned forever. |
+| until_date | Integer | Date when restrictions will be lifted for this user; Unix time. If 0, then the user is banned forever. |

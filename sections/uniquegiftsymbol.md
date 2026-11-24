@@ -10,4 +10,4 @@ This object describes the symbol shown on the pattern of a unique gift.
 | --- | --- | --- |
 | name | String | Name of the symbol |
 | sticker | [Sticker](sticker.md) | The sticker that represents the unique gift |
-| rarity\_per\_mille | Integer | The number of unique gifts that receive this model for every 1000 gifts upgraded |
+| rarity_per_mille | Integer | The number of unique gifts that receive this model for every 1000 gifts upgraded |

@@ -8,6 +8,6 @@ A bot command.
 
 | Field | Type | Description |
 | --- | --- | --- |
-| type | String | Type of the rich text, always “bot\_command” |
+| type | String | Type of the rich text, always “bot_command” |
 | text | [RichText](richtext.md) | The text |
-| bot\_command | String | The bot command |
+| bot_command | String | The bot command |

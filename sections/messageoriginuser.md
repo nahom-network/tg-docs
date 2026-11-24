@@ -10,4 +10,4 @@ The message was originally sent by a known user.
 | --- | --- | --- |
 | type | String | Type of the message origin, always “user” |
 | date | Integer | Date the message was sent originally in Unix time |
-| sender\_user | [User](user.md) | User that sent the message originally |
+| sender_user | [User](user.md) | User that sent the message originally |

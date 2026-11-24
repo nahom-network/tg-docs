@@ -8,5 +8,5 @@ Use this method to set the result of an interaction with a [Web App](../external
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| web\_app\_query\_id | String | Yes | Unique identifier for the query to be answered |
+| web_app_query_id | String | Yes | Unique identifier for the query to be answered |
 | result | [InlineQueryResult](inlinequeryresult.md) | Yes | A JSON-serialized object describing the message to be sent |

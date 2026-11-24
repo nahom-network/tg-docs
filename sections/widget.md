@@ -12,5 +12,5 @@ This object describes an [HTML widget](../external/bots/widgets.md).
 | width | Integer | *Optional*. Width of the widget in logical pixels; omitted if the widget must occupy the whole width of the message bubble |
 | height | Integer | *Optional*. Height of the widget in logical pixels; omitted if the height of the widget isn't fixed |
 | html | String | HTML code of the widget |
-| public\_data | String | *Optional*. Public data of the widget, which is available wherever the widget is shown. All messages with a shared widget have the same public data. |
-| chat\_data | String | *Optional*. Data of the widget, which is specific to the message |
+| public_data | String | *Optional*. Public data of the widget, which is available wherever the widget is shown. All messages with a shared widget have the same public data. |
+| chat_data | String | *Optional*. Data of the widget, which is specific to the message |

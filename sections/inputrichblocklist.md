@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#inputrichblocklist
 
 [Documentation index](../llms.txt)
 
-A list of blocks, corresponding to the HTML tag `<ul>` or `<ol>` with multiple nested tags `<li>`.
+A list of blocks, corresponding to the HTML tag `<ul> or `<ol> with multiple nested tags `<li>.
 
 | Field | Type | Description |
 | --- | --- | --- |

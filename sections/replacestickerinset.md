@@ -8,7 +8,7 @@ Use this method to replace an existing sticker in a sticker set with a new one. 
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| user\_id | Integer | Yes | User identifier of the sticker set owner |
+| user_id | Integer | Yes | User identifier of the sticker set owner |
 | name | String | Yes | Sticker set name |
-| old\_sticker | String | Yes | File identifier of the replaced sticker |
+| old_sticker | String | Yes | File identifier of the replaced sticker |
 | sticker | [InputSticker](inputsticker.md) | Yes | A JSON-serialized object with information about the added sticker. If exactly the same sticker had already been added to the set, then the set remains unchanged. |

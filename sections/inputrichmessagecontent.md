@@ -8,4 +8,4 @@ Represents the [content](inputmessagecontent.md) of a rich message to be sent as
 
 | Field | Type | Description |
 | --- | --- | --- |
-| rich\_message | [InputRichMessage](inputrichmessage.md) | The message to be sent. Only previously uploaded files may be used in the message. |
+| rich_message | [InputRichMessage](inputrichmessage.md) | The message to be sent. Only previously uploaded files may be used in the message. |

@@ -54,6 +54,7 @@ def convert_html(html, source=API_URL):
             if node.has_attr(attr):
                 node[attr] = build_llms.urljoin(source, node[attr])
     body = APIConverter(heading_style="ATX", bullets="-", strip=["div"]).convert(str(content))
+    body = build_llms.normalize_identifier_underscores(body)
     return body.strip() + "\n"
 
 

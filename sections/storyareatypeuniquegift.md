@@ -8,5 +8,5 @@ Describes a story area pointing to a unique gift. Currently, a story can have at
 
 | Field | Type | Description |
 | --- | --- | --- |
-| type | String | Type of the area, always “unique\_gift” |
+| type | String | Type of the area, always “unique_gift” |
 | name | String | Unique name of the gift |

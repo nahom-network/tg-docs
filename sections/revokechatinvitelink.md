@@ -8,5 +8,5 @@ Use this method to revoke an invite link created by the bot. If the primary link
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| chat\_id | Integer or String | Yes | Unique identifier of the target chat or username of the target channel in the format `@username` |
-| invite\_link | String | Yes | The invite link to revoke |
+| chat_id | Integer or String | Yes | Unique identifier of the target chat or username of the target channel in the format `@username |
+| invite_link | String | Yes | The invite link to revoke |

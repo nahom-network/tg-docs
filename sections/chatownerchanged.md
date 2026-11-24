@@ -8,4 +8,4 @@ Describes a service message about an ownership change in the chat.
 
 | Field | Type | Description |
 | --- | --- | --- |
-| new\_owner | [User](user.md) | The new owner of the chat |
+| new_owner | [User](user.md) | The new owner of the chat |

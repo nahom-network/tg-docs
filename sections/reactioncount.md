@@ -9,4 +9,4 @@ Represents a reaction added to a message along with the number of times it was a
 | Field | Type | Description |
 | --- | --- | --- |
 | type | [ReactionType](reactiontype.md) | Type of the reaction |
-| total\_count | Integer | Number of times the reaction was added |
+| total_count | Integer | Number of times the reaction was added |

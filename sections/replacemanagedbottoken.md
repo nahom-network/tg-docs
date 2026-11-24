@@ -8,4 +8,4 @@ Use this method to revoke the current token of a managed bot and generate a new 
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| user\_id | Integer | Yes | User identifier of the managed bot whose token will be replaced |
+| user_id | Integer | Yes | User identifier of the managed bot whose token will be replaced |

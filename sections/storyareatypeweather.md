@@ -11,4 +11,4 @@ Describes a story area containing weather information. Currently, a story can ha
 | type | String | Type of the area, always “weather” |
 | temperature | Float | Temperature, in degree Celsius |
 | emoji | String | Emoji representing the weather |
-| background\_color | Integer | A color of the area background in the ARGB format |
+| background_color | Integer | A color of the area background in the ARGB format |

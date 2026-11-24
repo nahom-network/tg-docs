@@ -11,10 +11,10 @@ Note that Telegram clients will display an **alert** to the user before opening 
 Message entities can be nested, providing following restrictions are met:  
 - If two entities have common characters, then one of them is fully contained inside another.  
 - *bold*, *italic*, *underline*, *strikethrough*, and *spoiler* entities can contain and can be part of any other entities, except *pre* and *code*.  
-- *blockquote* and *expandable\_blockquote* entities can't be nested.  
+- *blockquote* and *expandable_blockquote* entities can't be nested.  
 - All other entities can't contain each other.
 
-Links `tg://user?id=<user_id>` can be used to mention a user by their identifier without using a username. Please note:
+Links `tg://user?id=<user_id> can be used to mention a user by their identifier without using a username. Please note:
 
 - These links will work **only** if they are used inside an inline link or in an inline keyboard button. For example, they will not work, when used in a message text.
 - Unless the user is a member of the chat where they were mentioned, these mentions are only guaranteed to work if the user has contacted the bot in private in the past or has sent a callback query to the bot via an inline button and doesn't have Forwarded Messages privacy enabled for the bot.
@@ -23,20 +23,20 @@ You can find the list of programming and markup languages for which syntax highl
 
 ###### Date-time entity formatting
 
-Date-time entity formatting is specified by a format string, which must adhere to the following regular expression: `r|w?[dD]?[tT]?`.
+Date-time entity formatting is specified by a format string, which must adhere to the following regular expression: `r|w?[dD]?[tT]?.
 
 If the format string is empty, the underlying text is displayed as-is; however, the user can still receive the underlying date in their local format. When populated, the format string determines the output based on the presence of the following control characters:
 
-- **`r`**: Displays the time relative to the current time. Cannot be combined with any other control characters.
-- **`w`**: Displays the day of the week in the user's localized language.
-- **`d`**: Displays the date in short form (e.g., “17.03.22”).
-- **`D`**: Displays the date in long form (e.g., “March 17, 2022”).
-- **`t`**: Displays the time in short form (e.g., “22:45”).
-- **`T`**: Displays the time in long form (e.g., “22:45:00”).
+- **`r**: Displays the time relative to the current time. Cannot be combined with any other control characters.
+- **`w**: Displays the day of the week in the user's localized language.
+- **`d**: Displays the date in short form (e.g., “17.03.22”).
+- **`D**: Displays the date in long form (e.g., “March 17, 2022”).
+- **`t**: Displays the time in short form (e.g., “22:45”).
+- **`T**: Displays the time in long form (e.g., “22:45:00”).
 
 ###### MarkdownV2 style
 
-To use this mode, pass *MarkdownV2* in the *parse\_mode* field. Use the following syntax in your message:
+To use this mode, pass *MarkdownV2* in the *parse_mode* field. Use the following syntax in your message:
 
 ````
 *bold \*text*
@@ -75,17 +75,17 @@ pre-formatted fixed-width code block written in the Python programming language
 Please note:
 
 - Any character with code between 1 and 126 inclusively can be escaped anywhere with a preceding '\' character, in which case it is treated as an ordinary character and not a part of the markup. This implies that '\' character usually must be escaped with a preceding '\' character.
-- Inside `pre` and `code` entities, all '`' and '\' characters must be escaped with a preceding '\' character.
-- Inside the `(...)` part of the inline link and custom emoji definition, all ')' and '\' must be escaped with a preceding '\' character.
+- Inside `pre and `code entities, all '`' and '\' characters must be escaped with a preceding '\' character.
+- Inside the `(...) part of the inline link and custom emoji definition, all ')' and '\' must be escaped with a preceding '\' character.
 - In all other places characters '\_', '\*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!' must be escaped with the preceding character '\'.
-- In case of ambiguity between `italic` and `underline` entities `__` is always greedily treated from left to right as beginning or end of an `underline` entity, so instead of `___italic underline___` use `___italic underline_**__`, adding an empty bold entity as a separator.
+- In case of ambiguity between `italic and `underline entities `__ is always greedily treated from left to right as beginning or end of an `underline entity, so instead of `___italic underline___ use `___italic underline_**__, adding an empty bold entity as a separator.
 - A valid emoji must be provided as an alternative value for the custom emoji. The emoji will be shown instead of the custom emoji in places where a custom emoji cannot be displayed (e.g., system notifications) or if the message is forwarded by a non-premium user. It is recommended to use the emoji from the **emoji** field of the custom emoji [sticker](sticker.md).
 - Custom emoji entities can only be used by bots that purchased additional usernames on [Fragment](https://fragment.com) or in the messages directly sent by the bot to private, group and supergroup chats if the owner of the bot has a Telegram Premium subscription.
 - See [date-time entity formatting](formatting-options.md#date-time-entity-formatting) for more details about supported date-time formats.
 
 ###### HTML style
 
-To use this mode, pass *HTML* in the *parse\_mode* field. The following tags are currently supported:
+To use this mode, pass *HTML* in the *parse_mode* field. The following tags are currently supported:
 
 ```
 <b>bold</b>, <strong>bold</strong>
@@ -118,18 +118,18 @@ The last line of the block quotation</blockquote>
 Please note:
 
 - Only the tags mentioned above are currently supported.
-- All `<`, `>` and `&` symbols that are not a part of a tag or an HTML entity must be replaced with the corresponding HTML entities (`<` with `&lt;`, `>` with `&gt;` and `&` with `&amp;`).
+- All `<, `> and `& symbols that are not a part of a tag or an HTML entity must be replaced with the corresponding HTML entities (`< with `&lt;, `> with `&gt; and `& with `&amp;).
 - All numerical HTML entities are supported.
-- The API currently supports only the following named HTML entities: `&lt;`, `&gt;`, `&amp;` and `&quot;`.
-- Use nested `pre` and `code` tags, to define programming language for `pre` entity.
-- Programming language can't be specified for standalone `code` tags.
-- A valid emoji must be used as the content of the `tg-emoji` tag. The emoji will be shown instead of the custom emoji in places where a custom emoji cannot be displayed (e.g., system notifications) or if the message is forwarded by a non-premium user. It is recommended to use the emoji from the **emoji** field of the custom emoji [sticker](sticker.md).
+- The API currently supports only the following named HTML entities: `&lt;, `&gt;, `&amp; and `&quot;.
+- Use nested `pre and `code tags, to define programming language for `pre entity.
+- Programming language can't be specified for standalone `code tags.
+- A valid emoji must be used as the content of the `tg-emoji tag. The emoji will be shown instead of the custom emoji in places where a custom emoji cannot be displayed (e.g., system notifications) or if the message is forwarded by a non-premium user. It is recommended to use the emoji from the **emoji** field of the custom emoji [sticker](sticker.md).
 - Custom emoji entities can only be used by bots that purchased additional usernames on [Fragment](https://fragment.com) or in the messages directly sent by the bot to private, group and supergroup chats if the owner of the bot has a Telegram Premium subscription.
 - See [date-time entity formatting](formatting-options.md#date-time-entity-formatting) for more details about supported date-time formats.
 
 ###### Markdown style
 
-This is a legacy mode, retained for backward compatibility. To use this mode, pass *Markdown* in the *parse\_mode* field. Use the following syntax in your message:
+This is a legacy mode, retained for backward compatibility. To use this mode, pass *Markdown* in the *parse_mode* field. Use the following syntax in your message:
 
 ````
 *bold text*
@@ -148,6 +148,6 @@ pre-formatted fixed-width code block written in the Python programming language
 Please note:
 
 - Entities must not be nested, use parse mode [MarkdownV2](formatting-options.md#markdownv2-style) instead.
-- There is no way to specify “underline”, “strikethrough”, “spoiler”, “blockquote”, “expandable\_blockquote”, “custom\_emoji”, and “date\_time” entities, use parse mode [MarkdownV2](formatting-options.md#markdownv2-style) instead.
+- There is no way to specify “underline”, “strikethrough”, “spoiler”, “blockquote”, “expandable_blockquote”, “custom_emoji”, and “date_time” entities, use parse mode [MarkdownV2](formatting-options.md#markdownv2-style) instead.
 - To escape characters '\_', '\*', '`', '[' outside of an entity, prepend the character '\' before them.
-- Escaping inside entities is not allowed, so entity must be closed first and reopened again: use `_snake_\__case_` for italic `snake_case` and `*2*\**2=4*` for bold `2*2=4`.
+- Escaping inside entities is not allowed, so entity must be closed first and reopened again: use `_snake_\__case_ for italic `snake_case and `*2*\**2=4* for bold `2*2=4.

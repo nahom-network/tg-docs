@@ -8,4 +8,4 @@ Use this method to remove webhook integration if you decide to switch back to [g
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| drop\_pending\_updates | Boolean | Optional | Pass *True* to drop all pending updates |
+| drop_pending_updates | Boolean | Optional | Pass *True* to drop all pending updates |

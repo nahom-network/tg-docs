@@ -8,4 +8,4 @@ This object represents a service message about a video chat scheduled in the cha
 
 | Field | Type | Description |
 | --- | --- | --- |
-| start\_date | Integer | Point in time (Unix timestamp) when the video chat is supposed to be started by a chat administrator |
+| start_date | Integer | Point in time (Unix timestamp) when the video chat is supposed to be started by a chat administrator |

@@ -8,4 +8,4 @@ Describes a withdrawal transaction to the Telegram Ads platform.
 
 | Field | Type | Description |
 | --- | --- | --- |
-| type | String | Type of the transaction partner, always “telegram\_ads” |
+| type | String | Type of the transaction partner, always “telegram_ads” |

@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#inputrichblockblockquotation
 
 [Documentation index](../llms.txt)
 
-A block quotation, corresponding to the HTML tag `<blockquote>`.
+A block quotation, corresponding to the HTML tag `<blockquote>.
 
 | Field | Type | Description |
 | --- | --- | --- |

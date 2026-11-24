@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#richblockanchor
 
 [Documentation index](../llms.txt)
 
-A block with an anchor, corresponding to the HTML tag `<a>` with the attribute `name`.
+A block with an anchor, corresponding to the HTML tag `<a> with the attribute `name.
 
 | Field | Type | Description |
 | --- | --- | --- |

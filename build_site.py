@@ -32,7 +32,7 @@ def section_description(section):
     description = next((line.strip() for line in section.lines
                         if line.strip() and not line.startswith(("#", "|", ">", "-", "```", "~~~"))), "")
     description = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", description)
-    description = re.sub(r"[*`_]", "", description)
+    description = re.sub(r"[*`]", "", description)
     return description[:220]
 
 

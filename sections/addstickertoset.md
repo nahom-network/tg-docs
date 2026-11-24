@@ -8,6 +8,6 @@ Use this method to add a new sticker to a set created by the bot. Emoji sticker 
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| user\_id | Integer | Yes | User identifier of sticker set owner |
+| user_id | Integer | Yes | User identifier of sticker set owner |
 | name | String | Yes | Sticker set name |
 | sticker | [InputSticker](inputsticker.md) | Yes | A JSON-serialized object with information about the added sticker. If exactly the same sticker had already been added to the set, then the set isn't changed. |

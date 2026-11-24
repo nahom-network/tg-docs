@@ -10,4 +10,4 @@ The background is automatically filled based on the selected colors.
 | --- | --- | --- |
 | type | String | Type of the background, always “fill” |
 | fill | [BackgroundFill](backgroundfill.md) | The background fill |
-| dark\_theme\_dimming | Integer | Dimming of the background in dark themes, as a percentage; 0-100 |
+| dark_theme_dimming | Integer | Dimming of the background in dark themes, as a percentage; 0-100 |

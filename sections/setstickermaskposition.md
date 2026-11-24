@@ -9,4 +9,4 @@ Use this method to change the [mask position](maskposition.md) of a mask sticker
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | sticker | String | Yes | File identifier of the sticker |
-| mask\_position | [MaskPosition](maskposition.md) | Optional | A JSON-serialized object with the position where the mask should be placed on faces. Omit the parameter to remove the mask position. |
+| mask_position | [MaskPosition](maskposition.md) | Optional | A JSON-serialized object with the position where the mask should be placed on faces. Omit the parameter to remove the mask position. |

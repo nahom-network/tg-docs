@@ -14,7 +14,7 @@ Read the relevant section and follow its local links.
 ## Recent changes
 
 - [Recent changes](sections/recent-changes.md)
-- [October 6, 2026](sections/october-6-2026.md): - Added Mini App hosting. The build output of your Mini App's front‑end is deployed together with the bot and served at https://app<appid>.tgcloud.ai/.
+- [October 6, 2026](sections/october-6-2026.md): - Added Mini App hosting. The build output of your Mini App's front‑end is deployed together with the bot and served at https://app<app_id>.tgcloud.ai/.
 
 ## Why serverless
 
@@ -51,7 +51,7 @@ Read the relevant section and follow its local links.
 ## Projects and modules
 
 - [Projects and modules](sections/projects-and-modules.md): A serverless project is an ordinary folder under version control. Everything the platform runs sits in one folder, tgcloud/; the rest of the project is yours — a mini‑app front‑end
-- [Anatomy of a project](sections/anatomy-of-a-project.md): examplebot/
+- [Anatomy of a project](sections/anatomy-of-a-project.md): example_bot/
 - [The module system](sections/the-module-system.md): At runtime, a module can see exactly two things: the platform SDK and the other modules in your project. There are no npm packages, no filesystem, and no network except through the
 - [Handlers](sections/handlers.md): A handler is a module in handlers/ whose default export the platform invokes when a matching update arrives.
 - [Endpoints](sections/endpoints.md): An endpoint is a module in endpoints/ that your Mini App calls — the place for anything the front‑end can't do on its own, like reading and writing the database, calling the Bot AP
@@ -62,7 +62,7 @@ Read the relevant section and follow its local links.
 
 - [The database](sections/the-database.md): Every bot gets its own database — an SQLite‑backed store that persists between invocations and is available to every module through db. You describe your tables in schema.js with a
 - [Declaring tables](sections/declaring-tables.md): Tables are named exports in schema.js. Calling table() builds a description at load time (it does not touch the database); the platform discovers the exported tables when you deplo
-- [No foreign keys](sections/no-foreign-keys.md): The runtime runs with PRAGMA foreignkeys off. A declared foreign key would be silently inert — no cascades, no orphan protection — which is worse than having none at all, so the DS
+- [No foreign keys](sections/no-foreign-keys.md): The runtime runs with PRAGMA foreign_keys off. A declared foreign key would be silently inert — no cascades, no orphan protection — which is worse than having none at all, so the D
 - [Querying](sections/querying.md): db is a fluent query builder. Every query is asynchronous — the terminal methods (.all(), .get(), .values(), .run()) return Promises, so always await.
 - [Migrations](sections/migrations.md): Your database changes as your bot grows. The platform keeps that safe by separating deploying code from changing data, and by classifying every schema change by how risky it is.
 

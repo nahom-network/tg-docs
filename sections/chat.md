@@ -12,7 +12,7 @@ This object represents a chat.
 | type | String | Type of the chat, can be either “private”, “group”, “supergroup” or “channel” |
 | title | String | *Optional*. Title, for supergroups, channels and group chats |
 | username | String | *Optional*. Username, for private chats, supergroups and channels if available |
-| first\_name | String | *Optional*. First name of the other party in a private chat |
-| last\_name | String | *Optional*. Last name of the other party in a private chat |
-| is\_forum | True | *Optional*. *True*, if the supergroup chat is a forum (has [topics](https://telegram.org/blog/topics-in-groups-collectible-usernames#topics-in-groups) enabled) |
-| is\_direct\_messages | True | *Optional*. *True*, if the chat is the direct messages chat of a channel |
+| first_name | String | *Optional*. First name of the other party in a private chat |
+| last_name | String | *Optional*. Last name of the other party in a private chat |
+| is_forum | True | *Optional*. *True*, if the supergroup chat is a forum (has [topics](https://telegram.org/blog/topics-in-groups-collectible-usernames#topics-in-groups) enabled) |
+| is_direct_messages | True | *Optional*. *True*, if the chat is the direct messages chat of a channel |

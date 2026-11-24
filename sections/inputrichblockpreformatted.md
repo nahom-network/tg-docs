@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#inputrichblockpreformatted
 
 [Documentation index](../llms.txt)
 
-A preformatted text block, corresponding to the nested HTML tags `<pre>` and `<code>`.
+A preformatted text block, corresponding to the nested HTML tags `<pre> and `<code>.
 
 | Field | Type | Description |
 | --- | --- | --- |

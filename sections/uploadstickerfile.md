@@ -8,6 +8,6 @@ Use this method to upload a file with a sticker for later use in the [createNewS
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| user\_id | Integer | Yes | User identifier of sticker file owner |
+| user_id | Integer | Yes | User identifier of sticker file owner |
 | sticker | [InputFile](inputfile.md) | Yes | A file with the sticker in .WEBP, .PNG, .TGS, or .WEBM format. See [<https://core.telegram.org/stickers>](../external/stickers.md) for technical requirements. [More information on Sending Files »](sending-files.md) |
-| sticker\_format | String | Yes | Format of the sticker, must be one of “static”, “animated”, “video” |
+| sticker_format | String | Yes | Format of the sticker, must be one of “static”, “animated”, “video” |

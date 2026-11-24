@@ -12,5 +12,5 @@ The background is a .PNG or .TGV (gzipped subset of SVG with MIME type “applic
 | document | [Document](document.md) | Document with the pattern |
 | fill | [BackgroundFill](backgroundfill.md) | The background fill that is combined with the pattern |
 | intensity | Integer | Intensity of the pattern when it is shown above the filled background; 0-100 |
-| is\_inverted | True | *Optional*. *True*, if the background fill must be applied only to the pattern itself. All other pixels are black in this case. For dark themes only. |
-| is\_moving | True | *Optional*. *True*, if the background moves slightly when the device is tilted |
+| is_inverted | True | *Optional*. *True*, if the background fill must be applied only to the pattern itself. All other pixels are black in this case. For dark themes only. |
+| is_moving | True | *Optional*. *True*, if the background moves slightly when the device is tilted |

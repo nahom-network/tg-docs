@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#inputrichblocksectionheading
 
 [Documentation index](../llms.txt)
 
-A section heading, corresponding to the HTML tags `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, or `<h6>`.
+A section heading, corresponding to the HTML tags `<h1>, `<h2>, `<h3>, `<h4>, `<h5>, or `<h6>.
 
 | Field | Type | Description |
 | --- | --- | --- |

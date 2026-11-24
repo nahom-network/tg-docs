@@ -8,5 +8,5 @@ The boost was obtained by the creation of Telegram Premium gift codes to boost a
 
 | Field | Type | Description |
 | --- | --- | --- |
-| source | String | Source of the boost, always “gift\_code” |
+| source | String | Source of the boost, always “gift_code” |
 | user | [User](user.md) | User for which the gift code was created |

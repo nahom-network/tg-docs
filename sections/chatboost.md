@@ -8,7 +8,7 @@ This object contains information about a chat boost.
 
 | Field | Type | Description |
 | --- | --- | --- |
-| boost\_id | String | Unique identifier of the boost |
-| add\_date | Integer | Point in time (Unix timestamp) when the chat was boosted |
-| expiration\_date | Integer | Point in time (Unix timestamp) when the boost will automatically expire, unless the booster's Telegram Premium subscription is prolonged |
+| boost_id | String | Unique identifier of the boost |
+| add_date | Integer | Point in time (Unix timestamp) when the chat was boosted |
+| expiration_date | Integer | Point in time (Unix timestamp) when the boost will automatically expire, unless the booster's Telegram Premium subscription is prolonged |
 | source | [ChatBoostSource](chatboostsource.md) | Source of the added boost |

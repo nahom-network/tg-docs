@@ -4,18 +4,18 @@ Source: https://core.telegram.org/bots/api#inlinequeryresultaudio
 
 [Documentation index](../llms.txt)
 
-Represents a link to an MP3 audio file. By default, this audio file will be sent by the user. Alternatively, you can use *input\_message\_content* to send a message with the specified content instead of the audio.
+Represents a link to an MP3 audio file. By default, this audio file will be sent by the user. Alternatively, you can use *input_message_content* to send a message with the specified content instead of the audio.
 
 | Field | Type | Description |
 | --- | --- | --- |
 | type | String | Type of the result, must be *audio* |
 | id | String | Unique identifier for this result, 1-64 bytes |
-| audio\_url | String | A valid URL for the audio file |
+| audio_url | String | A valid URL for the audio file |
 | title | String | Title |
 | caption | String | *Optional*. Caption, 0-1024 characters after entities parsing |
-| parse\_mode | String | *Optional*. Mode for parsing entities in the audio caption. See [formatting options](formatting-options.md) for more details. |
-| caption\_entities | Array of [MessageEntity](messageentity.md) | *Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\_mode* |
+| parse_mode | String | *Optional*. Mode for parsing entities in the audio caption. See [formatting options](formatting-options.md) for more details. |
+| caption_entities | Array of [MessageEntity](messageentity.md) | *Optional*. List of special entities that appear in the caption, which can be specified instead of *parse_mode* |
 | performer | String | *Optional*. Performer |
-| audio\_duration | Integer | *Optional*. Audio duration in seconds |
-| reply\_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | *Optional*. [Inline keyboard](../external/bots/features.md#inline-keyboards) attached to the message |
-| input\_message\_content | [InputMessageContent](inputmessagecontent.md) | *Optional*. Content of the message to be sent instead of the audio |
+| audio_duration | Integer | *Optional*. Audio duration in seconds |
+| reply_markup | [InlineKeyboardMarkup](inlinekeyboardmarkup.md) | *Optional*. [Inline keyboard](../external/bots/features.md#inline-keyboards) attached to the message |
+| input_message_content | [InputMessageContent](inputmessagecontent.md) | *Optional*. Content of the message to be sent instead of the audio |

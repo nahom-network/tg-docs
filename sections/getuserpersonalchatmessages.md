@@ -8,5 +8,5 @@ Use this method to get the last messages from the personal chat (i.e., the chat 
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| user\_id | Integer | Yes | Unique identifier for the target user |
+| user_id | Integer | Yes | Unique identifier for the target user |
 | limit | Integer | Yes | The maximum number of messages to return; 1-20 |

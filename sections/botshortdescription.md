@@ -8,4 +8,4 @@ This object represents the bot's short description.
 
 | Field | Type | Description |
 | --- | --- | --- |
-| short\_description | String | The bot's short description |
+| short_description | String | The bot's short description |

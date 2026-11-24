@@ -8,7 +8,7 @@ Represents an issue with the translated version of a document. The error is cons
 
 | Field | Type | Description |
 | --- | --- | --- |
-| source | String | Error source, must be *translation\_files* |
-| type | String | Type of element of the user's Telegram Passport which has the issue, one of “passport”, “driver\_license”, “identity\_card”, “internal\_passport”, “utility\_bill”, “bank\_statement”, “rental\_agreement”, “passport\_registration”, “temporary\_registration” |
-| file\_hashes | Array of String | List of base64-encoded file hashes |
+| source | String | Error source, must be *translation_files* |
+| type | String | Type of element of the user's Telegram Passport which has the issue, one of “passport”, “driver_license”, “identity_card”, “internal_passport”, “utility_bill”, “bank_statement”, “rental_agreement”, “passport_registration”, “temporary_registration” |
+| file_hashes | Array of String | List of base64-encoded file hashes |
 | message | String | Error message |

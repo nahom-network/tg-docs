@@ -9,6 +9,6 @@ Represents an issue with the selfie with a document. The error is considered res
 | Field | Type | Description |
 | --- | --- | --- |
 | source | String | Error source, must be *selfie* |
-| type | String | The section of the user's Telegram Passport which has the issue, one of “passport”, “driver\_license”, “identity\_card”, “internal\_passport” |
-| file\_hash | String | Base64-encoded hash of the file with the selfie |
+| type | String | The section of the user's Telegram Passport which has the issue, one of “passport”, “driver_license”, “identity_card”, “internal_passport” |
+| file_hash | String | Base64-encoded hash of the file with the selfie |
 | message | String | Error message |

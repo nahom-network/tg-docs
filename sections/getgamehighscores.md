@@ -10,7 +10,7 @@ Use this method to get data for high score tables. Will return the score of the 
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| user\_id | Integer | Yes | Target user id |
-| chat\_id | Integer | Optional | Required if *inline\_message\_id* is not specified. Unique identifier for the target chat. |
-| message\_id | Integer | Optional | Required if *inline\_message\_id* is not specified. Identifier of the sent message. |
-| inline\_message\_id | String | Optional | Required if *chat\_id* and *message\_id* are not specified. Identifier of the inline message. |
+| user_id | Integer | Yes | Target user id |
+| chat_id | Integer | Optional | Required if *inline_message_id* is not specified. Unique identifier for the target chat. |
+| message_id | Integer | Optional | Required if *inline_message_id* is not specified. Identifier of the sent message. |
+| inline_message_id | String | Optional | Required if *chat_id* and *message_id* are not specified. Identifier of the inline message. |

@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#inputrichblockdocument
 
 [Documentation index](../llms.txt)
 
-A block with a general file, corresponding to the custom HTML tag `<tg-document>`.
+A block with a general file, corresponding to the custom HTML tag `<tg-document>.
 
 | Field | Type | Description |
 | --- | --- | --- |

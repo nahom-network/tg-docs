@@ -8,4 +8,4 @@ Describes an inline message sent by a guest bot.
 
 | Field | Type | Description |
 | --- | --- | --- |
-| inline\_message\_id | String | Identifier of the sent inline message |
+| inline_message_id | String | Identifier of the sent inline message |

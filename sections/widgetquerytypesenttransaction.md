@@ -8,6 +8,6 @@ The query notifies the bot about a transaction sent from a TON wallet of the use
 
 | Field | Type | Description |
 | --- | --- | --- |
-| type | String | Type of the query, always “sent\_transaction” |
+| type | String | Type of the query, always “sent_transaction” |
 | wallet | [WidgetQueryWallet](widgetquerywallet.md) | The wallet from which the transaction was sent |
-| msg\_hash | String | Value of *msg\_hash* of the transaction |
+| msg_hash | String | Value of *msg_hash* of the transaction |

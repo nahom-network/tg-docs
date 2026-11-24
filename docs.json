@@ -46,7 +46,7 @@
       "title": "Making requests",
       "group": "Making requests",
       "path": "sections/making-requests.md",
-      "description": "All queries to the Telegram Bot API must be served over HTTPS and need to be presented in this form: https://api.telegram.org/bot<token>/METHODNAME. Like this for example:"
+      "description": "All queries to the Telegram Bot API must be served over HTTPS and need to be presented in this form: https://api.telegram.org/bot<token>/METHOD_NAME. Like this for example:"
     },
     {
       "title": "Making requests when getting updates",
@@ -778,7 +778,7 @@
       "title": "File",
       "group": "Available types",
       "path": "sections/file.md",
-      "description": "This object represents a file ready to be downloaded. The file can be downloaded via the link https://api.telegram.org/file/bot<token>/<filepath>. It is guaranteed that the link will be valid for at least 1 hour. When th"
+      "description": "This object represents a file ready to be downloaded. The file can be downloaded via the link https://api.telegram.org/file/bot<token>/<file_path>. It is guaranteed that the link will be valid for at least 1 hour. When t"
     },
     {
       "title": "WebAppInfo",
@@ -796,7 +796,7 @@
       "title": "KeyboardButton",
       "group": "Available types",
       "path": "sections/keyboardbutton.md",
-      "description": "This object represents one button of the reply keyboard. At most one of the fields other than text, icon\\custom\\emoji\\id, and style must be used to specify the type of the button. For simple text buttons, String can be u"
+      "description": "This object represents one button of the reply keyboard. At most one of the fields other than text, icon_custom_emoji_id, and style must be used to specify the type of the button. For simple text buttons, String can be u"
     },
     {
       "title": "KeyboardButtonRequestUsers",
@@ -814,7 +814,7 @@
       "title": "KeyboardButtonRequestManagedBot",
       "group": "Available types",
       "path": "sections/keyboardbuttonrequestmanagedbot.md",
-      "description": "This object defines the parameters for the creation of a managed bot. Information about the created bot will be shared with the bot using the update managed\\bot and a Message with the field managed\\bot\\created."
+      "description": "This object defines the parameters for the creation of a managed bot. Information about the created bot will be shared with the bot using the update managed_bot and a Message with the field managed_bot_created."
     },
     {
       "title": "KeyboardButtonPollType",
@@ -838,7 +838,7 @@
       "title": "InlineKeyboardButton",
       "group": "Available types",
       "path": "sections/inlinekeyboardbutton.md",
-      "description": "This object represents one button of an inline keyboard. Exactly one of the fields other than text, icon\\custom\\emoji\\id, and style must be used to specify the type of the button."
+      "description": "This object represents one button of an inline keyboard. Exactly one of the fields other than text, icon_custom_emoji_id, and style must be used to specify the type of the button."
     },
     {
       "title": "LoginUrl",
@@ -886,7 +886,7 @@
       "title": "WidgetQueryTypeSignData",
       "group": "Available types",
       "path": "sections/widgetquerytypesigndata.md",
-      "description": "The query contains data signed by a TON wallet of the user who sent the query. The data is signed for the domain bot<botid>, where <botid> is the identifier of the bot."
+      "description": "The query contains data signed by a TON wallet of the user who sent the query. The data is signed for the domain bot<bot_id>, where <bot_id> is the identifier of the bot."
     },
     {
       "title": "WidgetQueryTypeSentTransaction",
@@ -1954,7 +1954,7 @@
       "title": "setChatMemberTag",
       "group": "Available methods",
       "path": "sections/setchatmembertag.md",
-      "description": "Use this method to set a tag for a regular member in a group or a supergroup. The bot must be an administrator in the chat for this to work and must have the can\\manage\\tags administrator right. Returns True on success."
+      "description": "Use this method to set a tag for a regular member in a group or a supergroup. The bot must be an administrator in the chat for this to work and must have the can_manage_tags administrator right. Returns True on success."
     },
     {
       "title": "banChatSenderChat",
@@ -1972,7 +1972,7 @@
       "title": "setChatPermissions",
       "group": "Available methods",
       "path": "sections/setchatpermissions.md",
-      "description": "Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can\\restrict\\members administrator rights. Returns True on"
+      "description": "Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can_restrict_members administrator rights. Returns True on"
     },
     {
       "title": "exportChatInviteLink",
@@ -1996,13 +1996,13 @@
       "title": "createChatSubscriptionInviteLink",
       "group": "Available methods",
       "path": "sections/createchatsubscriptioninvitelink.md",
-      "description": "Use this method to create a subscription invite link for a channel chat. The bot must have the can\\invite\\users administrator rights. The link can be edited using the method editChatSubscriptionInviteLink or revoked usin"
+      "description": "Use this method to create a subscription invite link for a channel chat. The bot must have the can_invite_users administrator rights. The link can be edited using the method editChatSubscriptionInviteLink or revoked usin"
     },
     {
       "title": "editChatSubscriptionInviteLink",
       "group": "Available methods",
       "path": "sections/editchatsubscriptioninvitelink.md",
-      "description": "Use this method to edit a subscription invite link created by the bot. The bot must have the can\\invite\\users administrator rights. Returns the edited invite link as a ChatInviteLink object."
+      "description": "Use this method to edit a subscription invite link created by the bot. The bot must have the can_invite_users administrator rights. Returns the edited invite link as a ChatInviteLink object."
     },
     {
       "title": "revokeChatInviteLink",
@@ -2014,13 +2014,13 @@
       "title": "approveChatJoinRequest",
       "group": "Available methods",
       "path": "sections/approvechatjoinrequest.md",
-      "description": "Use this method to approve a chat join request. The bot must be an administrator in the chat for this to work and must have the can\\invite\\users administrator right. Returns True on success."
+      "description": "Use this method to approve a chat join request. The bot must be an administrator in the chat for this to work and must have the can_invite_users administrator right. Returns True on success."
     },
     {
       "title": "declineChatJoinRequest",
       "group": "Available methods",
       "path": "sections/declinechatjoinrequest.md",
-      "description": "Use this method to decline a chat join request. The bot must be an administrator in the chat for this to work and must have the can\\invite\\users administrator right. Returns True on success."
+      "description": "Use this method to decline a chat join request. The bot must be an administrator in the chat for this to work and must have the can_invite_users administrator right. Returns True on success."
     },
     {
       "title": "answerChatJoinRequestQuery",
@@ -2122,13 +2122,13 @@
       "title": "setChatStickerSet",
       "group": "Available methods",
       "path": "sections/setchatstickerset.md",
-      "description": "Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field can\\set\\sticker\\set optiona"
+      "description": "Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field can_set_sticker_set optiona"
     },
     {
       "title": "deleteChatStickerSet",
       "group": "Available methods",
       "path": "sections/deletechatstickerset.md",
-      "description": "Use this method to delete a group sticker set from a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field can\\set\\sticker\\set optiona"
+      "description": "Use this method to delete a group sticker set from a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field can_set_sticker_set optiona"
     },
     {
       "title": "getForumTopicIconStickers",
@@ -2140,7 +2140,7 @@
       "title": "createForumTopic",
       "group": "Available methods",
       "path": "sections/createforumtopic.md",
-      "description": "Use this method to create a topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the can\\manage\\topi"
+      "description": "Use this method to create a topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the can_manage_topi"
     },
     {
       "title": "editForumTopic",
@@ -2152,13 +2152,13 @@
       "title": "closeForumTopic",
       "group": "Available methods",
       "path": "sections/closeforumtopic.md",
-      "description": "Use this method to close an open topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can\\manage\\topics administrator rights, unless it is the creator of the t"
+      "description": "Use this method to close an open topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights, unless it is the creator of the t"
     },
     {
       "title": "reopenForumTopic",
       "group": "Available methods",
       "path": "sections/reopenforumtopic.md",
-      "description": "Use this method to reopen a closed topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can\\manage\\topics administrator rights, unless it is the creator of the"
+      "description": "Use this method to reopen a closed topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights, unless it is the creator of the"
     },
     {
       "title": "deleteForumTopic",
@@ -2176,37 +2176,37 @@
       "title": "editGeneralForumTopic",
       "group": "Available methods",
       "path": "sections/editgeneralforumtopic.md",
-      "description": "Use this method to edit the name of the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can\\manage\\topics administrator rights. Returns True on "
+      "description": "Use this method to edit the name of the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. Returns True on "
     },
     {
       "title": "closeGeneralForumTopic",
       "group": "Available methods",
       "path": "sections/closegeneralforumtopic.md",
-      "description": "Use this method to close an open 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can\\manage\\topics administrator rights. Returns True on success"
+      "description": "Use this method to close an open 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. Returns True on success"
     },
     {
       "title": "reopenGeneralForumTopic",
       "group": "Available methods",
       "path": "sections/reopengeneralforumtopic.md",
-      "description": "Use this method to reopen a closed 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can\\manage\\topics administrator rights. The topic will be aut"
+      "description": "Use this method to reopen a closed 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. The topic will be aut"
     },
     {
       "title": "hideGeneralForumTopic",
       "group": "Available methods",
       "path": "sections/hidegeneralforumtopic.md",
-      "description": "Use this method to hide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can\\manage\\topics administrator rights. The topic will be automatica"
+      "description": "Use this method to hide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. The topic will be automatica"
     },
     {
       "title": "unhideGeneralForumTopic",
       "group": "Available methods",
       "path": "sections/unhidegeneralforumtopic.md",
-      "description": "Use this method to unhide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can\\manage\\topics administrator rights. Returns True on success."
+      "description": "Use this method to unhide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. Returns True on success."
     },
     {
       "title": "unpinAllGeneralForumTopicMessages",
       "group": "Available methods",
       "path": "sections/unpinallgeneralforumtopicmessages.md",
-      "description": "Use this method to clear the list of pinned messages in a General forum topic. The bot must be an administrator in the chat for this to work and must have the can\\pin\\messages administrator right in the supergroup. Retur"
+      "description": "Use this method to clear the list of pinned messages in a General forum topic. The bot must be an administrator in the chat for this to work and must have the can_pin_messages administrator right in the supergroup. Retur"
     },
     {
       "title": "answerCallbackQuery",
@@ -2404,67 +2404,67 @@
       "title": "readBusinessMessage",
       "group": "Available methods",
       "path": "sections/readbusinessmessage.md",
-      "description": "Marks incoming message as read on behalf of a business account. Requires the can\\read\\messages business bot right. Returns True on success."
+      "description": "Marks incoming message as read on behalf of a business account. Requires the can_read_messages business bot right. Returns True on success."
     },
     {
       "title": "deleteBusinessMessages",
       "group": "Available methods",
       "path": "sections/deletebusinessmessages.md",
-      "description": "Delete messages on behalf of a business account. Requires the can\\delete\\sent\\messages business bot right to delete messages sent by the bot itself, or the can\\delete\\all\\messages business bot right to delete any message"
+      "description": "Delete messages on behalf of a business account. Requires the can_delete_sent_messages business bot right to delete messages sent by the bot itself, or the can_delete_all_messages business bot right to delete any message"
     },
     {
       "title": "setBusinessAccountName",
       "group": "Available methods",
       "path": "sections/setbusinessaccountname.md",
-      "description": "Changes the first and last name of a managed business account. Requires the can\\change\\name business bot right. Returns True on success."
+      "description": "Changes the first and last name of a managed business account. Requires the can_change_name business bot right. Returns True on success."
     },
     {
       "title": "setBusinessAccountUsername",
       "group": "Available methods",
       "path": "sections/setbusinessaccountusername.md",
-      "description": "Changes the username of a managed business account. Requires the can\\change\\username business bot right. Returns True on success."
+      "description": "Changes the username of a managed business account. Requires the can_change_username business bot right. Returns True on success."
     },
     {
       "title": "setBusinessAccountBio",
       "group": "Available methods",
       "path": "sections/setbusinessaccountbio.md",
-      "description": "Changes the bio of a managed business account. Requires the can\\change\\bio business bot right. Returns True on success."
+      "description": "Changes the bio of a managed business account. Requires the can_change_bio business bot right. Returns True on success."
     },
     {
       "title": "setBusinessAccountProfilePhoto",
       "group": "Available methods",
       "path": "sections/setbusinessaccountprofilephoto.md",
-      "description": "Changes the profile photo of a managed business account. Requires the can\\edit\\profile\\photo business bot right. Returns True on success."
+      "description": "Changes the profile photo of a managed business account. Requires the can_edit_profile_photo business bot right. Returns True on success."
     },
     {
       "title": "removeBusinessAccountProfilePhoto",
       "group": "Available methods",
       "path": "sections/removebusinessaccountprofilephoto.md",
-      "description": "Removes the current profile photo of a managed business account. Requires the can\\edit\\profile\\photo business bot right. Returns True on success."
+      "description": "Removes the current profile photo of a managed business account. Requires the can_edit_profile_photo business bot right. Returns True on success."
     },
     {
       "title": "setBusinessAccountGiftSettings",
       "group": "Available methods",
       "path": "sections/setbusinessaccountgiftsettings.md",
-      "description": "Changes the privacy settings pertaining to incoming gifts in a managed business account. Requires the can\\change\\gift\\settings business bot right. Returns True on success."
+      "description": "Changes the privacy settings pertaining to incoming gifts in a managed business account. Requires the can_change_gift_settings business bot right. Returns True on success."
     },
     {
       "title": "getBusinessAccountStarBalance",
       "group": "Available methods",
       "path": "sections/getbusinessaccountstarbalance.md",
-      "description": "Returns the amount of Telegram Stars owned by a managed business account. Requires the can\\view\\gifts\\and\\stars business bot right. Returns StarAmount on success."
+      "description": "Returns the amount of Telegram Stars owned by a managed business account. Requires the can_view_gifts_and_stars business bot right. Returns StarAmount on success."
     },
     {
       "title": "transferBusinessAccountStars",
       "group": "Available methods",
       "path": "sections/transferbusinessaccountstars.md",
-      "description": "Transfers Telegram Stars from the business account balance to the bot's balance. Requires the can\\transfer\\stars business bot right. Returns True on success."
+      "description": "Transfers Telegram Stars from the business account balance to the bot's balance. Requires the can_transfer_stars business bot right. Returns True on success."
     },
     {
       "title": "getBusinessAccountGifts",
       "group": "Available methods",
       "path": "sections/getbusinessaccountgifts.md",
-      "description": "Returns the gifts received and owned by a managed business account. Requires the can\\view\\gifts\\and\\stars business bot right. Returns OwnedGifts on success."
+      "description": "Returns the gifts received and owned by a managed business account. Requires the can_view_gifts_and_stars business bot right. Returns OwnedGifts on success."
     },
     {
       "title": "getUserGifts",
@@ -2488,31 +2488,31 @@
       "title": "convertGiftToStars",
       "group": "Available methods",
       "path": "sections/convertgifttostars.md",
-      "description": "Converts a given regular gift to Telegram Stars. Requires the can\\convert\\gifts\\to\\stars business bot right. Returns True on success."
+      "description": "Converts a given regular gift to Telegram Stars. Requires the can_convert_gifts_to_stars business bot right. Returns True on success."
     },
     {
       "title": "upgradeGift",
       "group": "Available methods",
       "path": "sections/upgradegift.md",
-      "description": "Upgrades a given regular gift to a unique gift. Requires the can\\transfer\\and\\upgrade\\gifts business bot right. Additionally requires the can\\transfer\\stars business bot right if the upgrade is paid. Returns True on succ"
+      "description": "Upgrades a given regular gift to a unique gift. Requires the can_transfer_and_upgrade_gifts business bot right. Additionally requires the can_transfer_stars business bot right if the upgrade is paid. Returns True on succ"
     },
     {
       "title": "transferGift",
       "group": "Available methods",
       "path": "sections/transfergift.md",
-      "description": "Transfers an owned unique gift to another user. Requires the can\\transfer\\and\\upgrade\\gifts business bot right. Requires can\\transfer\\stars business bot right if the transfer is paid. Returns True on success."
+      "description": "Transfers an owned unique gift to another user. Requires the can_transfer_and_upgrade_gifts business bot right. Requires can_transfer_stars business bot right if the transfer is paid. Returns True on success."
     },
     {
       "title": "deleteBusinessAccountGift",
       "group": "Available methods",
       "path": "sections/deletebusinessaccountgift.md",
-      "description": "Deletes a regular gift owned by a managed business account without receiving Telegram Stars for it. Requires the can\\convert\\gifts\\to\\stars business bot right. The gift can be deleted only if it isn't limited (the field "
+      "description": "Deletes a regular gift owned by a managed business account without receiving Telegram Stars for it. Requires the can_convert_gifts_to_stars business bot right. The gift can be deleted only if it isn't limited (the field "
     },
     {
       "title": "postStory",
       "group": "Available methods",
       "path": "sections/poststory.md",
-      "description": "Posts a story on behalf of a managed business account. Requires the can\\manage\\stories business bot right. Returns Story on success."
+      "description": "Posts a story on behalf of a managed business account. Requires the can_manage_stories business bot right. Returns Story on success."
     },
     {
       "title": "repostStory",
@@ -2524,13 +2524,13 @@
       "title": "editStory",
       "group": "Available methods",
       "path": "sections/editstory.md",
-      "description": "Edits a story previously posted by the bot on behalf of a managed business account. Requires the can\\manage\\stories business bot right. Returns Story on success."
+      "description": "Edits a story previously posted by the bot on behalf of a managed business account. Requires the can_manage_stories business bot right. Returns Story on success."
     },
     {
       "title": "deleteStory",
       "group": "Available methods",
       "path": "sections/deletestory.md",
-      "description": "Deletes a story previously posted by the bot on behalf of a managed business account. Requires the can\\manage\\stories business bot right. Returns True on success."
+      "description": "Deletes a story previously posted by the bot on behalf of a managed business account. Requires the can_manage_stories business bot right. Returns True on success."
     },
     {
       "title": "answerWebAppQuery",
@@ -2584,13 +2584,13 @@
       "title": "editMessageLiveLocation",
       "group": "Updating messages",
       "path": "sections/editmessagelivelocation.md",
-      "description": "Use this method to edit live location messages. A location can be edited until its live\\period expires or editing is explicitly disabled by a call to stopMessageLiveLocation. On success, if the edited message is not an i"
+      "description": "Use this method to edit live location messages. A location can be edited until its live_period expires or editing is explicitly disabled by a call to stopMessageLiveLocation. On success, if the edited message is not an i"
     },
     {
       "title": "stopMessageLiveLocation",
       "group": "Updating messages",
       "path": "sections/stopmessagelivelocation.md",
-      "description": "Use this method to stop updating a live location message before live\\period expires. On success, if the message is not an inline message, the edited Message is returned, otherwise True is returned."
+      "description": "Use this method to stop updating a live location message before live_period expires. On success, if the message is not an inline message, the edited Message is returned, otherwise True is returned."
     },
     {
       "title": "editMessageChecklist",
@@ -2650,13 +2650,13 @@
       "title": "approveSuggestedPost",
       "group": "Updating messages",
       "path": "sections/approvesuggestedpost.md",
-      "description": "Use this method to approve a suggested post in a direct messages chat. The bot must have the 'can\\post\\messages' administrator right in the corresponding channel chat. Returns True on success."
+      "description": "Use this method to approve a suggested post in a direct messages chat. The bot must have the 'can_post_messages' administrator right in the corresponding channel chat. Returns True on success."
     },
     {
       "title": "declineSuggestedPost",
       "group": "Updating messages",
       "path": "sections/declinesuggestedpost.md",
-      "description": "Use this method to decline a suggested post in a direct messages chat. The bot must have the 'can\\manage\\direct\\messages' administrator right in the corresponding channel chat. Returns True on success."
+      "description": "Use this method to decline a suggested post in a direct messages chat. The bot must have the 'can_manage_direct_messages' administrator right in the corresponding channel chat. Returns True on success."
     },
     {
       "title": "deleteMessage",
@@ -2680,13 +2680,13 @@
       "title": "deleteMessageReaction",
       "group": "Updating messages",
       "path": "sections/deletemessagereaction.md",
-      "description": "Use this method to remove a reaction from a message in a group or a supergroup chat. The bot must have the 'can\\delete\\messages' administrator right in the chat. Returns True on success."
+      "description": "Use this method to remove a reaction from a message in a group or a supergroup chat. The bot must have the 'can_delete_messages' administrator right in the chat. Returns True on success."
     },
     {
       "title": "deleteAllMessageReactions",
       "group": "Updating messages",
       "path": "sections/deleteallmessagereactions.md",
-      "description": "Use this method to remove up to 10000 recent reactions in a group or a supergroup chat added by a given user or chat. The bot must have the 'can\\delete\\messages' administrator right in the chat. Returns True on success."
+      "description": "Use this method to remove up to 10000 recent reactions in a group or a supergroup chat added by a given user or chat. The bot must have the 'can_delete_messages' administrator right in the chat. Returns True on success."
     },
     {
       "title": "Stickers",
@@ -3394,61 +3394,61 @@
       "title": "InlineQueryResultPhoto",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultphoto.md",
-      "description": "Represents a link to a photo. By default, this photo will be sent by the user with optional caption. Alternatively, you can use input\\message\\content to send a message with the specified content instead of the photo."
+      "description": "Represents a link to a photo. By default, this photo will be sent by the user with optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the photo."
     },
     {
       "title": "InlineQueryResultGif",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultgif.md",
-      "description": "Represents a link to an animated GIF file. By default, this animated GIF file will be sent by the user with optional caption. Alternatively, you can use input\\message\\content to send a message with the specified content "
+      "description": "Represents a link to an animated GIF file. By default, this animated GIF file will be sent by the user with optional caption. Alternatively, you can use input_message_content to send a message with the specified content "
     },
     {
       "title": "InlineQueryResultMpeg4Gif",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultmpeg4gif.md",
-      "description": "Represents a link to a video animation (H.264/MPEG-4 AVC video without sound). By default, this animated MPEG-4 file will be sent by the user with optional caption. Alternatively, you can use input\\message\\content to sen"
+      "description": "Represents a link to a video animation (H.264/MPEG-4 AVC video without sound). By default, this animated MPEG-4 file will be sent by the user with optional caption. Alternatively, you can use input_message_content to sen"
     },
     {
       "title": "InlineQueryResultVideo",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultvideo.md",
-      "description": "Represents a link to a page containing an embedded video player or a video file. By default, this video file will be sent by the user with an optional caption. Alternatively, you can use input\\message\\content to send a m"
+      "description": "Represents a link to a page containing an embedded video player or a video file. By default, this video file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a m"
     },
     {
       "title": "InlineQueryResultAudio",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultaudio.md",
-      "description": "Represents a link to an MP3 audio file. By default, this audio file will be sent by the user. Alternatively, you can use input\\message\\content to send a message with the specified content instead of the audio."
+      "description": "Represents a link to an MP3 audio file. By default, this audio file will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the audio."
     },
     {
       "title": "InlineQueryResultVoice",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultvoice.md",
-      "description": "Represents a link to a voice recording in an .OGG container encoded with OPUS. By default, this voice recording will be sent by the user. Alternatively, you can use input\\message\\content to send a message with the specif"
+      "description": "Represents a link to a voice recording in an .OGG container encoded with OPUS. By default, this voice recording will be sent by the user. Alternatively, you can use input_message_content to send a message with the specif"
     },
     {
       "title": "InlineQueryResultDocument",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultdocument.md",
-      "description": "Represents a link to a file. By default, this file will be sent by the user with an optional caption. Alternatively, you can use input\\message\\content to send a message with the specified content instead of the file. Cur"
+      "description": "Represents a link to a file. By default, this file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the file. Cur"
     },
     {
       "title": "InlineQueryResultLocation",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultlocation.md",
-      "description": "Represents a location on a map. By default, the location will be sent by the user. Alternatively, you can use input\\message\\content to send a message with the specified content instead of the location."
+      "description": "Represents a location on a map. By default, the location will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the location."
     },
     {
       "title": "InlineQueryResultVenue",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultvenue.md",
-      "description": "Represents a venue. By default, the venue will be sent by the user. Alternatively, you can use input\\message\\content to send a message with the specified content instead of the venue."
+      "description": "Represents a venue. By default, the venue will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the venue."
     },
     {
       "title": "InlineQueryResultContact",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultcontact.md",
-      "description": "Represents a contact with a phone number. By default, this contact will be sent by the user. Alternatively, you can use input\\message\\content to send a message with the specified content instead of the contact."
+      "description": "Represents a contact with a phone number. By default, this contact will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the contact."
     },
     {
       "title": "InlineQueryResultGame",
@@ -3460,13 +3460,13 @@
       "title": "InlineQueryResultCachedPhoto",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultcachedphoto.md",
-      "description": "Represents a link to a photo stored on the Telegram servers. By default, this photo will be sent by the user with an optional caption. Alternatively, you can use input\\message\\content to send a message with the specified"
+      "description": "Represents a link to a photo stored on the Telegram servers. By default, this photo will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified"
     },
     {
       "title": "InlineQueryResultCachedGif",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultcachedgif.md",
-      "description": "Represents a link to an animated GIF file stored on the Telegram servers. By default, this animated GIF file will be sent by the user with an optional caption. Alternatively, you can use input\\message\\content to send a m"
+      "description": "Represents a link to an animated GIF file stored on the Telegram servers. By default, this animated GIF file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a m"
     },
     {
       "title": "InlineQueryResultCachedMpeg4Gif",
@@ -3478,31 +3478,31 @@
       "title": "InlineQueryResultCachedSticker",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultcachedsticker.md",
-      "description": "Represents a link to a sticker stored on the Telegram servers. By default, this sticker will be sent by the user. Alternatively, you can use input\\message\\content to send a message with the specified content instead of t"
+      "description": "Represents a link to a sticker stored on the Telegram servers. By default, this sticker will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of t"
     },
     {
       "title": "InlineQueryResultCachedDocument",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultcacheddocument.md",
-      "description": "Represents a link to a file stored on the Telegram servers. By default, this file will be sent by the user with an optional caption. Alternatively, you can use input\\message\\content to send a message with the specified c"
+      "description": "Represents a link to a file stored on the Telegram servers. By default, this file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified c"
     },
     {
       "title": "InlineQueryResultCachedVideo",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultcachedvideo.md",
-      "description": "Represents a link to a video file stored on the Telegram servers. By default, this video file will be sent by the user with an optional caption. Alternatively, you can use input\\message\\content to send a message with the"
+      "description": "Represents a link to a video file stored on the Telegram servers. By default, this video file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the"
     },
     {
       "title": "InlineQueryResultCachedVoice",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultcachedvoice.md",
-      "description": "Represents a link to a voice message stored on the Telegram servers. By default, this voice message will be sent by the user. Alternatively, you can use input\\message\\content to send a message with the specified content "
+      "description": "Represents a link to a voice message stored on the Telegram servers. By default, this voice message will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content "
     },
     {
       "title": "InlineQueryResultCachedAudio",
       "group": "Inline mode",
       "path": "sections/inlinequeryresultcachedaudio.md",
-      "description": "Represents a link to an MP3 audio file stored on the Telegram servers. By default, this audio file will be sent by the user. Alternatively, you can use input\\message\\content to send a message with the specified content i"
+      "description": "Represents a link to an MP3 audio file stored on the Telegram servers. By default, this audio file will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content i"
     },
     {
       "title": "InputMessageContent",
@@ -3586,13 +3586,13 @@
       "title": "answerShippingQuery",
       "group": "Payments",
       "path": "sections/answershippingquery.md",
-      "description": "If you sent an invoice requesting a shipping address and the parameter is\\flexible was specified, the Bot API will send an Update with a shipping\\query field to the bot. Use this method to reply to shipping queries. On s"
+      "description": "If you sent an invoice requesting a shipping address and the parameter is_flexible was specified, the Bot API will send an Update with a shipping_query field to the bot. Use this method to reply to shipping queries. On s"
     },
     {
       "title": "answerPreCheckoutQuery",
       "group": "Payments",
       "path": "sections/answerprecheckoutquery.md",
-      "description": "Once the user has confirmed their payment and shipping details, the Bot API sends the final confirmation in the form of an Update with the field pre\\checkout\\query. Use this method to respond to such pre-checkout queries"
+      "description": "Once the user has confirmed their payment and shipping details, the Bot API sends the final confirmation in the form of an Update with the field pre_checkout_query. Use this method to respond to such pre-checkout queries"
     },
     {
       "title": "getMyStarBalance",

@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#richblockmap
 
 [Documentation index](../llms.txt)
 
-A block with a map, corresponding to the custom HTML tag `<tg-map>`.
+A block with a map, corresponding to the custom HTML tag `<tg-map>.
 
 | Field | Type | Description |
 | --- | --- | --- |

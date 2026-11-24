@@ -9,4 +9,4 @@ Use this method to change the list of emoji assigned to a regular or custom emoj
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | sticker | String | Yes | File identifier of the sticker |
-| emoji\_list | Array of String | Yes | A JSON-serialized list of 1-20 emoji associated with the sticker |
+| emoji_list | Array of String | Yes | A JSON-serialized list of 1-20 emoji associated with the sticker |

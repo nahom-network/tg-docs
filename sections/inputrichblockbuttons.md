@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#inputrichblockbuttons
 
 [Documentation index](../llms.txt)
 
-A block containing a list of buttons that are shown in one row, corresponding to the custom HTML tag `<tg-button-row>`.
+A block containing a list of buttons that are shown in one row, corresponding to the custom HTML tag `<tg-button-row>.
 
 | Field | Type | Description |
 | --- | --- | --- |

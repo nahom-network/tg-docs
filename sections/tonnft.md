@@ -9,7 +9,7 @@ This object represents an NFT in the TON blockchain.
 | Field | Type | Description |
 | --- | --- | --- |
 | address | String | Address of the NFT |
-| collection\_address | String | *Optional*. Address of the collection to which the NFT belongs; omitted if unknown |
+| collection_address | String | *Optional*. Address of the collection to which the NFT belongs; omitted if unknown |
 | index | String | Index of the NFT among all NFTs from the collection as a decimal number |
 | name | String | Name of the NFT |
 | description | String | Description of the NFT |

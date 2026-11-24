@@ -9,4 +9,4 @@ Use this method to set the thumbnail of a custom emoji sticker set. Returns *Tru
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | name | String | Yes | Sticker set name |
-| custom\_emoji\_id | String | Optional | Custom emoji identifier of a sticker from the sticker set; pass an empty string to drop the thumbnail and use the first sticker as the thumbnail |
+| custom_emoji_id | String | Optional | Custom emoji identifier of a sticker from the sticker set; pass an empty string to drop the thumbnail and use the first sticker as the thumbnail |

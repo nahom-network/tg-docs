@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#inputrichblockvideo
 
 [Documentation index](../llms.txt)
 
-A block with a video, corresponding to the HTML tag `<video>`.
+A block with a video, corresponding to the HTML tag `<video>.
 
 | Field | Type | Description |
 | --- | --- | --- |

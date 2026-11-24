@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#inputrichblockfooter
 
 [Documentation index](../llms.txt)
 
-A footer, corresponding to the HTML tag `<footer>`.
+A footer, corresponding to the HTML tag `<footer>.
 
 | Field | Type | Description |
 | --- | --- | --- |

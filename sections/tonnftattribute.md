@@ -8,5 +8,5 @@ This object represents an attribute of an NFT in the TON blockchain.
 
 | Field | Type | Description |
 | --- | --- | --- |
-| trait\_type | String | Trait type of the attribute |
+| trait_type | String | Trait type of the attribute |
 | value | String | Value of the attribute |

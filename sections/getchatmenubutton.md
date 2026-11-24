@@ -8,4 +8,4 @@ Use this method to get the current value of the bot's menu button in a private c
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| chat\_id | Integer | Optional | Unique identifier for the target private chat. If not specified, the bot's default menu button will be returned. |
+| chat_id | Integer | Optional | Unique identifier for the target private chat. If not specified, the bot's default menu button will be returned. |

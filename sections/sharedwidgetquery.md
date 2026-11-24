@@ -12,4 +12,4 @@ This object represents an incoming query from a forwarded message with a shared 
 | from | [User](user.md) | Sender |
 | type | [WidgetQueryType](widgetquerytype.md) | Type of the query |
 | data | String | Data of the query, 1-64 bytes |
-| widget\_id | String | Unique identifier of the shared widget, which sent the query |
+| widget_id | String | Unique identifier of the shared widget, which sent the query |

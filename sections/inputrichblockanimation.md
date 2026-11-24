@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#inputrichblockanimation
 
 [Documentation index](../llms.txt)
 
-A block with an animation, corresponding to the HTML tag `<video>`.
+A block with an animation, corresponding to the HTML tag `<video>.
 
 | Field | Type | Description |
 | --- | --- | --- |

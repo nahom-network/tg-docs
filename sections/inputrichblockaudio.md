@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#inputrichblockaudio
 
 [Documentation index](../llms.txt)
 
-A block with a music file, corresponding to the HTML tag `<audio>`.
+A block with a music file, corresponding to the HTML tag `<audio>.
 
 | Field | Type | Description |
 | --- | --- | --- |

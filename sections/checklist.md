@@ -9,7 +9,7 @@ Describes a checklist.
 | Field | Type | Description |
 | --- | --- | --- |
 | title | String | Title of the checklist |
-| title\_entities | Array of [MessageEntity](messageentity.md) | *Optional*. Special entities that appear in the checklist title |
+| title_entities | Array of [MessageEntity](messageentity.md) | *Optional*. Special entities that appear in the checklist title |
 | tasks | Array of [ChecklistTask](checklisttask.md) | List of tasks in the checklist |
-| others\_can\_add\_tasks | True | *Optional*. *True*, if users other than the creator of the list can add tasks to the list |
-| others\_can\_mark\_tasks\_as\_done | True | *Optional*. *True*, if users other than the creator of the list can mark tasks as done or not done |
+| others_can_add_tasks | True | *Optional*. *True*, if users other than the creator of the list can add tasks to the list |
+| others_can_mark_tasks_as_done | True | *Optional*. *True*, if users other than the creator of the list can mark tasks as done or not done |

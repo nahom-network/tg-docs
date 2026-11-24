@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#inputrichblockslideshow
 
 [Documentation index](../llms.txt)
 
-A slideshow, corresponding to the custom HTML tag `<tg-slideshow>`.
+A slideshow, corresponding to the custom HTML tag `<tg-slideshow>.
 
 | Field | Type | Description |
 | --- | --- | --- |

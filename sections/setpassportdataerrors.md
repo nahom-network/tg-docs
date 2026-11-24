@@ -10,5 +10,5 @@ Use this if the data submitted by the user doesn't satisfy the standards your se
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| user\_id | Integer | Yes | User identifier |
+| user_id | Integer | Yes | User identifier |
 | errors | Array of [PassportElementError](passportelementerror.md) | Yes | A JSON-serialized Array describing the errors |

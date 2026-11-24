@@ -8,6 +8,6 @@ A text with a bank card number.
 
 | Field | Type | Description |
 | --- | --- | --- |
-| type | String | Type of the rich text, always “bank\_card\_number” |
+| type | String | Type of the rich text, always “bank_card_number” |
 | text | [RichText](richtext.md) | The text |
-| bank\_card\_number | String | The bank card number |
+| bank_card_number | String | The bank card number |

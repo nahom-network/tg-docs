@@ -8,4 +8,4 @@ This object represents a service message about a user boosting a chat.
 
 | Field | Type | Description |
 | --- | --- | --- |
-| boost\_count | Integer | Number of boosts added by the user |
+| boost_count | Integer | Number of boosts added by the user |

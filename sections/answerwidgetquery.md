@@ -8,5 +8,5 @@ Use this method to send an answer to a query from a widget. The query must be an
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| widget\_query\_id | String | Yes | Unique identifier for the query to be answered |
+| widget_query_id | String | Yes | Unique identifier for the query to be answered |
 | data | String | Optional | Data to be returned to the widget, 0-1024 bytes |

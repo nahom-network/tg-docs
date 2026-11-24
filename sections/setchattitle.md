@@ -8,5 +8,5 @@ Use this method to change the title of a chat. Titles can't be changed for priva
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| chat\_id | Integer or String | Yes | Unique identifier for the target chat or username of the target channel in the format `@username` |
+| chat_id | Integer or String | Yes | Unique identifier for the target chat or username of the target channel in the format `@username |
 | title | String | Yes | New chat title, 1-128 characters |

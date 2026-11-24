@@ -8,6 +8,6 @@ Use this method to get a list of profile pictures for a user. Returns a [UserPro
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| user\_id | Integer | Yes | Unique identifier of the target user |
+| user_id | Integer | Yes | Unique identifier of the target user |
 | offset | Integer | Optional | Sequential number of the first photo to be returned. By default, all photos are returned. |
 | limit | Integer | Optional | Limits the number of photos to be retrieved. Values between 1-100 are accepted. Defaults to 100. |

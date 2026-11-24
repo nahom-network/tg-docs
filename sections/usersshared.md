@@ -8,5 +8,5 @@ This object contains information about the users whose identifiers were shared w
 
 | Field | Type | Description |
 | --- | --- | --- |
-| request\_id | Integer | Identifier of the request |
+| request_id | Integer | Identifier of the request |
 | users | Array of [SharedUser](shareduser.md) | Information about users shared with the bot |

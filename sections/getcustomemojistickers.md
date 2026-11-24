@@ -8,4 +8,4 @@ Use this method to get information about custom emoji stickers by their identifi
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| custom\_emoji\_ids | Array of String | Yes | A JSON-serialized list of custom emoji identifiers. At most 200 custom emoji identifiers can be specified. |
+| custom_emoji_ids | Array of String | Yes | A JSON-serialized list of custom emoji identifiers. At most 200 custom emoji identifiers can be specified. |

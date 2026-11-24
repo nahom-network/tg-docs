@@ -9,6 +9,6 @@ Represents an issue with a list of scans. The error is considered resolved when 
 | Field | Type | Description |
 | --- | --- | --- |
 | source | String | Error source, must be *files* |
-| type | String | The section of the user's Telegram Passport which has the issue, one of “utility\_bill”, “bank\_statement”, “rental\_agreement”, “passport\_registration”, “temporary\_registration” |
-| file\_hashes | Array of String | List of base64-encoded file hashes |
+| type | String | The section of the user's Telegram Passport which has the issue, one of “utility_bill”, “bank_statement”, “rental_agreement”, “passport_registration”, “temporary_registration” |
+| file_hashes | Array of String | List of base64-encoded file hashes |
 | message | String | Error message |

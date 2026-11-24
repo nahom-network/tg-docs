@@ -6,9 +6,9 @@ Source: https://core.telegram.org/bots/api#rich-message-formatting-options
 
 [Rich messages](inputrichmessage.md) support advanced structured formatting options like headings, lists, tables, media, block quotations, collapsible blocks, footnotes, and formulas. Telegram clients will render them accordingly. You can specify rich message content using [Markdown-style](rich-message-formatting-options.md#rich-markdown-style) or [HTML-style](rich-message-formatting-options.md#rich-html-style) formatting, or explicit [blocks](inputrichblock.md).
 
-Plain URLs, e-mail addresses, username mentions, hashtags, cashtags, bot commands, phone numbers, and bank card numbers are detected automatically. To disable automatic entity detection, pass *True* in the *skip\_entity\_detection* field. Note that Telegram clients will display an alert to the user before opening an inline link ('Open this link?' together with the full URL).
+Plain URLs, e-mail addresses, username mentions, hashtags, cashtags, bot commands, phone numbers, and bank card numbers are detected automatically. To disable automatic entity detection, pass *True* in the *skip_entity_detection* field. Note that Telegram clients will display an alert to the user before opening an inline link ('Open this link?' together with the full URL).
 
-When [Markdown-style](rich-message-formatting-options.md#rich-markdown-style) or [HTML-style](rich-message-formatting-options.md#rich-html-style) formatting is used, you can use links in the form `tg://photo?id=...`, `tg://video?id=...`, `tg://document?id=...`, and `tg://audio?id=...` instead of an HTTP URL to reuse previously uploaded files or upload a new file.
+When [Markdown-style](rich-message-formatting-options.md#rich-markdown-style) or [HTML-style](rich-message-formatting-options.md#rich-html-style) formatting is used, you can use links in the form `tg://photo?id=..., `tg://video?id=..., `tg://document?id=..., and `tg://audio?id=... instead of an HTTP URL to reuse previously uploaded files or upload a new file.
 
 ###### Rich Message Limits
 
@@ -351,15 +351,15 @@ Please note:
 
 - Only the tags mentioned above are currently supported.
 - All numerical HTML entities are supported.
-- The API currently supports only the following named HTML entities: `&lt;`, `&gt;`, `&amp;`, `&quot;`, `&apos;`, `&nbsp;`, `&hellip;`, `&mdash;`, `&ndash;`, `&lsquo;`, `&rsquo;`, `&ldquo;` and `&rdquo;`.
-- Use nested `pre` and `code` tags to define the programming language for a pre-formatted block.
-- Programming language can't be specified for standalone `code` tags.
-- Links `mailto:...`, `tel:...`, and `tg://user?id=...` are rendered as e-mail links, phone links, and inline mentions respectively. Other supported links are rendered as regular inline links.
+- The API currently supports only the following named HTML entities: `&lt;, `&gt;, `&amp;, `&quot;, `&apos;, `&nbsp;, `&hellip;, `&mdash;, `&ndash;, `&lsquo;, `&rsquo;, `&ldquo; and `&rdquo;.
+- Use nested `pre and `code tags to define the programming language for a pre-formatted block.
+- Programming language can't be specified for standalone `code tags.
+- Links `mailto:..., `tel:..., and `tg://user?id=... are rendered as e-mail links, phone links, and inline mentions respectively. Other supported links are rendered as regular inline links.
 - Images, videos, and audio files can be specified only as separate media blocks.
 - Media blocks support only HTTP and HTTPS URLs.
-- An empty `<a name="..."></a>` on its own creates an anchor that can be linked to with `<a href="#...">...</a>`.
-- In `<figcaption>`, you can use `<cite>` tags to specify caption credit.
-- Use `<tg-reference name="...">...</tg-reference>` to define referenced text that can be linked to with `<a href="#...">...</a>`.
-- The body of a `<details>` tag can contain rich message content. If the `open` attribute is specified, the block is expanded by default.
+- An empty `<a name="..."></a> on its own creates an anchor that can be linked to with `<a href="#...">...</a>.
+- In `<figcaption>, you can use `<cite> tags to specify caption credit.
+- Use `<tg-reference name="...">...</tg-reference> to define referenced text that can be linked to with `<a href="#...">...</a>.
+- The body of a `<details> tag can contain rich message content. If the `open attribute is specified, the block is expanded by default.
 - Formula source is treated as raw LaTeX.
 - See [date-time entity formatting](formatting-options.md#date-time-entity-formatting) for more details about supported date-time formats.

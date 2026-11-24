@@ -7,7 +7,7 @@ Source: https://core.telegram.org/bots/api#inline-mode
 The following methods and objects allow your bot to work in [inline mode](../external/bots/inline.md).  
 Please see our [Introduction to Inline bots](../external/bots/inline.md) for more details.
 
-To enable this option, send the `/setinline` command to [@BotFather](https://t.me/botfather) and provide the placeholder text that the user will see in the input field after typing your bot's name, or use the parameters *supports\_inline\_queries* and *inline\_query\_placeholder* of the method [setMySettings](setmysettings.md).
+To enable this option, send the `/setinline command to [@BotFather](https://t.me/botfather) and provide the placeholder text that the user will see in the input field after typing your bot's name, or use the parameters *supports_inline_queries* and *inline_query_placeholder* of the method [setMySettings](setmysettings.md).
 
 ## In this section
 

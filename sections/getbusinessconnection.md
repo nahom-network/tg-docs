@@ -8,4 +8,4 @@ Use this method to get information about the connection of the bot with a busine
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| business\_connection\_id | String | Yes | Unique identifier of the business connection |
+| business_connection_id | String | Yes | Unique identifier of the business connection |

@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#richblockcollage
 
 [Documentation index](../llms.txt)
 
-A collage, corresponding to the custom HTML tag `<tg-collage>`.
+A collage, corresponding to the custom HTML tag `<tg-collage>.
 
 | Field | Type | Description |
 | --- | --- | --- |

@@ -8,4 +8,4 @@ Use this method to get the current bot short description for the given user lang
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| language\_code | String | Optional | A two-letter ISO 639-1 language code or an empty string |
+| language_code | String | Optional | A two-letter ISO 639-1 language code or an empty string |

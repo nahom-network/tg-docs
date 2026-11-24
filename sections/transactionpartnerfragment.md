@@ -9,4 +9,4 @@ Describes a withdrawal transaction with Fragment.
 | Field | Type | Description |
 | --- | --- | --- |
 | type | String | Type of the transaction partner, always “fragment” |
-| withdrawal\_state | [RevenueWithdrawalState](revenuewithdrawalstate.md) | *Optional*. State of the transaction if the transaction is outgoing |
+| withdrawal_state | [RevenueWithdrawalState](revenuewithdrawalstate.md) | *Optional*. State of the transaction if the transaction is outgoing |

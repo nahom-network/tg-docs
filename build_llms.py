@@ -62,6 +62,31 @@ def prose_parts(line):
         yield parts[index]
 
 
+# markdownify escapes every underscore. Between word characters an underscore
+# cannot open emphasis, so those backslashes are only noise in field names.
+_ESCAPED_IDENTIFIER_UNDERSCORE = re.compile(r"(?<=\w)\\_(?=\w)")
+
+
+def unescape_identifier_underscores(line):
+    """Remove needless ``\\_`` escapes while leaving inline code untouched."""
+    parts = re.split(r"(`+)(.*?)\1", line)
+    for index in range(0, len(parts), 3):
+        parts[index] = _ESCAPED_IDENTIFIER_UNDERSCORE.sub("_", parts[index])
+    # re.split keeps the opening delimiter but not the backreference that
+    # closes the span, so put the closing run back on each code part.
+    return "".join(
+        part if index % 3 != 2 else part + parts[index - 1]
+        for index, part in enumerate(parts)
+    )
+
+
+def normalize_identifier_underscores(text):
+    """Apply :func:`unescape_identifier_underscores` outside fenced code."""
+    lines = [unescape_identifier_underscores(line) if outside else line
+             for line, outside in outside_fences(text.splitlines())]
+    return "\n".join(lines) + ("\n" if text.endswith("\n") else "")
+
+
 def page_url(url):
     """Normalize a documentation URL to the page it identifies, without .md."""
     parts = urlsplit(urldefrag(url)[0])
@@ -211,6 +236,9 @@ def parse_document(text):
         if re.fullmatch(r"-{10,}\s*", line):
             del last[index:]
             break
+    for section in sections:
+        section.lines = [unescape_identifier_underscores(line) if outside else line
+                         for line, outside in outside_fences(section.lines)]
     return title, source, summary, sections
 
 
@@ -308,7 +336,7 @@ def build(text, externals=None):
         description = next((line.strip("> ").rstrip("\\") for line in section.lines
                             if line.strip() and not line.startswith(("|", "#", "```", "~~~"))), "")
         description = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", description)
-        description = re.sub(r"[*`_]", "", description)
+        description = re.sub(r"[*`]", "", description)
         description = re.sub(r"\s+", " ", description)[:180]
         index.append(f"- [{section.title}]({section.path})" + (f": {description}" if description else ""))
         full.extend([f"{'#' * (section.level - 1)} {section.title}", "",

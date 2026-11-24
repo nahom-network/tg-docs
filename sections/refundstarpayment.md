@@ -8,5 +8,5 @@ Refunds a successful payment in [Telegram Stars](https://t.me/BotNews/90). Retur
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| user\_id | Integer | Yes | Identifier of the user whose payment will be refunded |
-| telegram\_payment\_charge\_id | String | Yes | Telegram payment identifier |
+| user_id | Integer | Yes | Identifier of the user whose payment will be refunded |
+| telegram_payment_charge_id | String | Yes | Telegram payment identifier |

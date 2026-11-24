@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#inputrichblockmap
 
 [Documentation index](../llms.txt)
 
-A block with a map, corresponding to the custom HTML tag `<tg-map>`. The map's width and height must not exceed 10000 in total. The width and height ratio must be at most 20.
+A block with a map, corresponding to the custom HTML tag `<tg-map>. The map's width and height must not exceed 10000 in total. The width and height ratio must be at most 20.
 
 | Field | Type | Description |
 | --- | --- | --- |

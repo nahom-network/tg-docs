@@ -8,6 +8,6 @@ Contains the list of gifts received and owned by a user or a chat.
 
 | Field | Type | Description |
 | --- | --- | --- |
-| total\_count | Integer | The total number of gifts owned by the user or the chat |
+| total_count | Integer | The total number of gifts owned by the user or the chat |
 | gifts | Array of [OwnedGift](ownedgift.md) | The list of gifts |
-| next\_offset | String | *Optional*. Offset for the next request. If empty, then there are no more results. |
+| next_offset | String | *Optional*. Offset for the next request. If empty, then there are no more results. |

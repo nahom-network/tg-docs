@@ -12,7 +12,7 @@ At most **one** of the optional fields can be present in any given object.
 | audio | [Audio](audio.md) | *Optional*. Media is an audio file, information about the file; currently, can't be received in a poll option |
 | document | [Document](document.md) | *Optional*. Media is a general file, information about the file; currently, can't be received in a poll option |
 | link | [Link](link.md) | *Optional*. The HTTP link attached to the poll option |
-| live\_photo | [LivePhoto](livephoto.md) | *Optional*. Media is a live photo, information about the live photo |
+| live_photo | [LivePhoto](livephoto.md) | *Optional*. Media is a live photo, information about the live photo |
 | location | [Location](location.md) | *Optional*. Media is a shared location, information about the location |
 | photo | Array of [PhotoSize](photosize.md) | *Optional*. Media is a photo, available sizes of the photo |
 | sticker | [Sticker](sticker.md) | *Optional*. Media is a sticker, information about the sticker; currently, for poll options only |

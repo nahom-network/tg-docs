@@ -8,4 +8,4 @@ Removes verification from a user who is currently verified [on behalf of the org
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| user\_id | Integer | Yes | Unique identifier of the target user |
+| user_id | Integer | Yes | Unique identifier of the target user |

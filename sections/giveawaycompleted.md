@@ -8,7 +8,7 @@ This object represents a service message about the completion of a giveaway with
 
 | Field | Type | Description |
 | --- | --- | --- |
-| winner\_count | Integer | Number of winners in the giveaway |
-| unclaimed\_prize\_count | Integer | *Optional*. Number of undistributed prizes |
-| giveaway\_message | [Message](message.md) | *Optional*. Message with the giveaway that was completed, if it wasn't deleted |
-| is\_star\_giveaway | True | *Optional*. *True*, if the giveaway is a Telegram Star giveaway. Otherwise, currently, the giveaway is a Telegram Premium giveaway. |
+| winner_count | Integer | Number of winners in the giveaway |
+| unclaimed_prize_count | Integer | *Optional*. Number of undistributed prizes |
+| giveaway_message | [Message](message.md) | *Optional*. Message with the giveaway that was completed, if it wasn't deleted |
+| is_star_giveaway | True | *Optional*. *True*, if the giveaway is a Telegram Star giveaway. Otherwise, currently, the giveaway is a Telegram Premium giveaway. |

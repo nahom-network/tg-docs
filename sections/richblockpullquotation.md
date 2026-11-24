@@ -4,7 +4,7 @@ Source: https://core.telegram.org/bots/api#richblockpullquotation
 
 [Documentation index](../llms.txt)
 
-A quotation with centered text, loosely corresponding to the HTML tag `<aside>`.
+A quotation with centered text, loosely corresponding to the HTML tag `<aside>.
 
 | Field | Type | Description |
 | --- | --- | --- |
